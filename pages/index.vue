@@ -10,14 +10,12 @@
       </h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
+          href="https://stackoverflow.com/users/5403882/drevantonder"
+          class="button is-medium is-warning is-outlined"
+        >Stackoverflow</a>
         <a
           href="https://github.com/DrevanTonder"
-          target="_blank"
-          class="button--grey"
+          class="button is-medium is-primary is-outlined"
         >GitHub</a>
       </div>
     </div>
