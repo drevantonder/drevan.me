@@ -17,7 +17,7 @@ const CODE_BLOCK_PADDING_X = 16
 const CODE_BLOCK_PADDING_Y = 12
 const CODE_BLOCK_SIZE_Y = CODE_BLOCK_HEIGHT + CODE_BLOCK_PADDING_Y
 
-const COLORS = ['#BFC6B7', '#36ABCE', '#CE3636', '#8CCE36']
+const COLORS = ['#7B55BD', '#85D7F8', '#BEE289', '#F85671', '#bfc7d5']
 
 function getRandomInt(min, max) {
   min = Math.ceil(min)
@@ -62,7 +62,7 @@ function generateCode(y) {
   const code = []
   let indent = 0
   let lineNumber = 0
-  while (lineNumber * CODE_BLOCK_SIZE_Y < y) {
+  while (lineNumber * CODE_BLOCK_SIZE_Y < y - CODE_BLOCK_SIZE_Y) {
     if (lineNumber !== 0) {
       indent += getRandomChoice([-1, 0, 0, 1])
 
@@ -82,8 +82,12 @@ function generateCode(y) {
 export default {
   data() {
     return {
-      code: generateCode(1080)
+      code: []
     }
+  },
+
+  mounted() {
+    this.code = generateCode(document.documentElement.scrollHeight)
   }
 }
 </script>
