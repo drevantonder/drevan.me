@@ -16,6 +16,28 @@ export default {
 </script>
 
 <style lang="scss">
+@charset "utf-8";
+
+$purple: #7B55BD;
+$cyan: #85D7F8;
+$green: #BEE289;
+$red: #F85671;
+$grey-lighter: #bfc7d5;
+
+$primary: $purple;
+$info: $cyan;
+$success: $green;
+$danger: $red;
+$background: #242E4F;
+
+$radius-small: 4px;
+$radius: 8px;
+$radius-large: 12px;
+
+$box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+
+@import "../node_modules/bulma/bulma.sass";
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -26,7 +48,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background: #242E4F;
+  background-color: $background;
   overflow-y: auto;
 }
 

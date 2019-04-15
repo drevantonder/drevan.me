@@ -4,7 +4,8 @@
       v-for="codeBlock in code"
       :key="codeBlock.id"
       class="background-code-block"
-      :style="{ left: codeBlock.x + 'px', top: codeBlock.y + 'px', width: codeBlock.width + 'px', height: codeBlock.height + 'px', background: codeBlock.color }"
+      :style="{ left: codeBlock.x + 'px', top: codeBlock.y + 'px', width: codeBlock.width + 'px', height: codeBlock.height + 'px' }"
+      :class="codeBlock.class"
     />
   </div>
 </template>
@@ -17,7 +18,7 @@ const CODE_BLOCK_PADDING_X = 16
 const CODE_BLOCK_PADDING_Y = 12
 const CODE_BLOCK_SIZE_Y = CODE_BLOCK_HEIGHT + CODE_BLOCK_PADDING_Y
 
-const COLORS = ['#7B55BD', '#85D7F8', '#BEE289', '#F85671', '#bfc7d5']
+const CLASSES = ['has-background-primary', 'has-background-info', 'has-background-success', 'has-background-danger', 'has-background-grey-lighter']
 
 function getRandomInt(min, max) {
   min = Math.ceil(min)
@@ -48,7 +49,7 @@ function generateCodeLine(lineNumber, indent = false) {
       y,
       width,
       height: CODE_BLOCK_HEIGHT,
-      color: getRandomChoice(COLORS)
+      class: getRandomChoice(CLASSES)
     }
 
     line.push(codeBlock)
