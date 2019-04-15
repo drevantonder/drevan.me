@@ -87,7 +87,17 @@ export default {
   },
 
   mounted() {
-    this.code = generateCode(document.documentElement.scrollHeight)
+    this.generateCode()
+
+    window.addEventListener('resize', function () {
+      this.generateCode()
+    }.bind(this))
+  },
+
+  methods: {
+    generateCode() {
+      this.code = generateCode(document.documentElement.scrollHeight)
+    }
   }
 }
 </script>
