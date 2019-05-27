@@ -13,16 +13,5 @@ module.exports = {
     env_production: {
       NODE_ENV: 'production'
     }
-  }],
-
-  deploy: {
-    production: {
-      user: 'root',
-      host: 'drevantonder.io',
-      ref: 'origin/master',
-      repo: 'git@github.com:DrevanTonder/drevantonder.io.git',
-      path: '/root/drevantonder.io',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
-    }
-  }
+  }]
 }
