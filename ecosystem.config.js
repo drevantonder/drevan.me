@@ -10,7 +10,9 @@ module.exports = {
       NODE_ENV: 'development'
     },
     env_production: {
-      NODE_ENV: 'production'
+      NODE_ENV: 'production',
+      HOST: 'drevantonder.io',
+      PORT: 80
     }
   }]
 }
