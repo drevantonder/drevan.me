@@ -1,12 +1,12 @@
 <template>
   <div style="display: flex;">
     <div style="width: 50%;">
-      <a class="button is-large is-primary" style="width: 100%; height: 50vh;" :class="{ 'is-outlined': !buttons.includes('a') }" @click="pressButton('A')">A</a>
-      <a class="button is-large is-info" style="width: 100%; height: 50vh;" :class="{ 'is-outlined': !buttons.includes('b') }" @click="pressButton('B')">B</a>
+      <a class="button is-large" style="width: 100%; height: 50vh;" :class="{ 'is-primary': !buttons.includes('a') }" @click="pressButton('A')">A</a>
+      <a class="button is-large " style="width: 100%; height: 50vh;" :class="{ 'is-info': !buttons.includes('b') }" @click="pressButton('B')">B</a>
     </div>
     <div style="width: 50%;">
-      <a class="button is-large is-success" style="width: 100%; height: 50vh;" :class="{ 'is-outlined': !buttons.includes('c') }" @click="pressButton('C')">C</a>
-      <a class="button is-large is-danger" style="width: 100%; height: 50vh;" :class="{ 'is-outlined': !buttons.includes('d') }" @click="pressButton('D')">D</a>
+      <a class="button is-large" style="width: 100%; height: 50vh;" :class="{ 'is-success': !buttons.includes('c') }" @click="pressButton('C')">C</a>
+      <a class="button is-large " style="width: 100%; height: 50vh;" :class="{ 'is-danger': !buttons.includes('d') }" @click="pressButton('D')">D</a>
     </div>
   </div>
 </template>
