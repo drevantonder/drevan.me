@@ -2,7 +2,7 @@ module.exports = {
   apps: [{
     name: 'drevantonder.io',
     script: 'yarn',
-    args: 'run start --port 80 --host drevantonder.io',
+    args: 'run start',
 
     instances: 1,
     autorestart: true,
