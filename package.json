@@ -10,7 +10,7 @@
     "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start --port 80 --host drevantonder.io",
+    "start": "PORT=80 HOST=drevantonder.io nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
