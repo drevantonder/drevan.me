@@ -1,6 +1,7 @@
 
 module.exports = {
   mode: 'universal',
+  serverMiddleware: ['~/api/index.js'],
   /*
   ** Headers of the page
   */
