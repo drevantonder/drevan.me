@@ -12,11 +12,13 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   layout: 'blank',
 
-  async asyncData({ $axios }) {
-    const buttons = await $axios.$get('/api/kingdom-chronicles')
+  async asyncData() {
+    const buttons = await axios.get('/api/kingdom-chronicles')
     return { buttons }
   },
 
@@ -26,12 +28,12 @@ export default {
 
   methods: {
     async pressButton(letter) {
-      const buttons = await this.$axios.$get('/api/kingdom-chronicles/' + letter)
+      const buttons = await axios.get('/api/kingdom-chronicles/' + letter)
       this.buttons = buttons
     },
 
     async update() {
-      const buttons = await this.$axios.$get('/api/kingdom-chronicles/')
+      const buttons = await axios.get('/api/kingdom-chronicles/')
       this.buttons = buttons
     }
   }
