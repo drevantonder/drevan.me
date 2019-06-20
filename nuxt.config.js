@@ -45,6 +45,7 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    apiUrl: process.env.API_URL || 'http://localhost:3000/api'
   },
   /*
   ** Build configuration

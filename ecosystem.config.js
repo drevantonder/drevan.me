@@ -11,8 +11,7 @@ module.exports = {
       'HOST': 'drevantonder.io',
       'PORT': 80,
       'NODE_ENV': 'production',
-      'API_HOST': 'drevantonder.io',
-      'API_PORT': '80'
+      'API_URL': 'http://drevantonder.io'
     }
   }]
 }
