@@ -1,7 +1,8 @@
 module.exports = {
   apps: [{
     name: 'drevantonder.io',
-    script: 'server/index.js',
+    script: 'yarn',
+    args: 'run start',
 
     instances: 1,
     autorestart: true,
