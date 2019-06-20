@@ -6,6 +6,11 @@ module.exports = {
 
     instances: 1,
     autorestart: true,
-    watch: true
+    watch: true,
+    env: {
+      'HOST': 'drevantonder.io',
+      'PORT': 80,
+      'NODE_ENV': 'production'
+    }
   }]
 }
