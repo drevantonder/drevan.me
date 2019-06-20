@@ -21,7 +21,7 @@ export default {
   },
 
   mounted() {
-    setInterval(this.update, 100)
+    setInterval(this.update, 1000)
   },
 
   methods: {
