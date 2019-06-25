@@ -24,18 +24,18 @@ async function start() {
 
   let message
   if (process.env.NODE_ENV === 'production') {
+    const socket = process.env.SOCKET
+
+    // Listen the server
+    app.listen(socket)
+    message = `Server listening on ${socket}`
+  } else {
     const host = process.env.HOST
     const port = process.env.PORT
 
     // Listen the server
     app.listen(port, host)
     message = `Server listening on http://${host}:${port}`
-  } else {
-    const socket = process.env.SOCKET
-
-    // Listen the server
-    app.listen(socket)
-    message = `Server listening on ${socket}`
   }
   consola.ready({
     message,
