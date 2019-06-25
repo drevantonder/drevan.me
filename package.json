@@ -9,9 +9,10 @@
     "precommit": "yarn run lint",
     "test": "jest",
     "dev": "nuxt",
-    "build": "PORT=80 HOST=drevantonder.io nuxt build",
-    "start": "PORT=80 HOST=drevantonder.io nuxt start",
-    "generate": "nuxt generate"
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "production": "nuxt build && nuxt start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
