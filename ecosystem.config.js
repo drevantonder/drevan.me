@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
     name: 'drevantonder.io',
-    script: 'yarn',
-    args: 'run production',
+    script: 'npm',
+    args: "run start",
 
     instances: 1,
     autorestart: true,
@@ -15,7 +15,7 @@ module.exports = {
     },
     env_production: {
       'NODE_ENV': 'production',
-      'UNIX_SOCKET_FRONTEND': '/tmp/frontend.sock',
+      'UNIX_SOCKET_FRONTEND': '/tmp/frontend.socket',
       'API_URL': 'http://drevantonder.io'
     }
   }]
