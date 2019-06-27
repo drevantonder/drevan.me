@@ -1,12 +1,6 @@
 
 module.exports = {
   mode: 'universal',
-  // serverMiddleware: ['~/api/index.js'],
-  server: {
-    host: process.env.HOST || '127.0.0.1',
-    port: process.env.PORT || '3000',
-    // socket: process.env.UNIX_SOCKET_FRONTEND || '/tmp/frontend.socket'
-  },
   /*
   ** Headers of the page
   */
