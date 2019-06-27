@@ -2,6 +2,13 @@
 module.exports = {
   mode: 'universal',
   /*
+  ** Server Settings
+  */
+  server: {
+    host: '127.0.0.1',
+    port: 3000
+  },
+  /*
   ** Headers of the page
   */
   head: {
@@ -14,6 +21,12 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  /*
+  ** Environment Variables
+  */
+  env: {
+    NODE_ENV: 'production'
   },
   /*
   ** Customize the progress-bar color
@@ -44,7 +57,8 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    apiUrl: process.env.API_URL || 'http://localhost:3000/api'
+    host: 'api.drevantonder.io',
+    port: 80,
   },
   /*
   ** Build configuration

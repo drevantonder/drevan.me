@@ -15,9 +15,15 @@
 export default {
   layout: 'blank',
 
-  async asyncData({ $axios }) {
-    const buttons = await $axios.$get('/api/kingdom-chronicles')
-    return { buttons }
+  // async asyncData({ $axios }) {
+  //   const buttons = await $axios.$get('/kingdom-chronicles')
+  //   return { buttons }
+  // },
+
+  data () {
+    return {
+      buttons: []
+    }
   },
 
   mounted() {
@@ -26,12 +32,12 @@ export default {
 
   methods: {
     async pressButton(letter) {
-      const buttons = await this.$axios.$get('/api/kingdom-chronicles/' + letter)
+      const buttons = await this.$axios.$get('/kingdom-chronicles/' + letter)
       this.buttons = buttons
     },
 
     async update() {
-      const buttons = await this.$axios.$get('/api/kingdom-chronicles/')
+      const buttons = await this.$axios.$get('/kingdom-chronicles/')
       this.buttons = buttons
     }
   }
