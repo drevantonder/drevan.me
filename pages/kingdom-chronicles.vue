@@ -15,19 +15,13 @@
 export default {
   layout: 'blank',
 
-  // async asyncData({ $axios }) {
-  //   const buttons = await $axios.$get('/kingdom-chronicles')
-  //   return { buttons }
-  // },
-
-  data () {
-    return {
-      buttons: []
-    }
+  async asyncData({ $axios }) {
+    const buttons = await $axios.$get('/kingdom-chronicles')
+    return { buttons }
   },
 
   mounted() {
-    setInterval(this.update, 100)
+    setTimeout(this.update, 10)
   },
 
   methods: {
@@ -39,6 +33,8 @@ export default {
     async update() {
       const buttons = await this.$axios.$get('/kingdom-chronicles/')
       this.buttons = buttons
+
+      setTimeout(this.update, 10)
     }
   }
 }

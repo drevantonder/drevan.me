@@ -4,7 +4,7 @@ module.exports = {
     name: 'drevantonder.io-frontend',
     script: 'npm',
     args: 'run start',
-    watch: [".nuxt"],
+    watch: ['.nuxt'],
 
     instances: 1,
     autorestart: true,
