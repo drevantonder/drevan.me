@@ -2,13 +2,6 @@
 module.exports = {
   mode: 'universal',
   /*
-  ** Server Settings
-  */
-  server: {
-    host: '127.0.0.1',
-    port: 3000
-  },
-  /*
   ** Headers of the page
   */
   head: {
@@ -21,12 +14,6 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
-  },
-  /*
-  ** Environment Variables
-  */
-  env: {
-    NODE_ENV: 'production'
   },
   /*
   ** Customize the progress-bar color

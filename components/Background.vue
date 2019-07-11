@@ -93,6 +93,10 @@ export default {
     window.addEventListener('resize', function () {
       this.generateCode()
     }.bind(this))
+
+    setInterval(function () {
+      this.generateCode()
+    }.bind(this), 20000)
   },
 
   methods: {

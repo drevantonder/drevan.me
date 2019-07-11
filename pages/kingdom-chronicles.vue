@@ -5,7 +5,7 @@
       <a class="button is-large " style="width: 100%; height: 50vh;" :class="{ 'is-info': b }" @click="pressButton('B')" :style="{ 'text-decoration': !b ? 'line-through' : undefined }">B - Stage Lights</a>
     </div>
     <div style="width: 50%;">
-      <a class="button is-large" style="width: 100%; height: 50vh;" :class="{ 'is-success': c }" @click="pressButton('C')" :style="{ 'text-decoration': !c ? 'line-through' : undefined }">C - Hall Lights (circular)</a>
+      <a class="button is-large" style="width: 100%; height: 50vh;" :class="{ 'is-success': c }" @click="pressButton('C')" :style="{ 'text-decoration': !c ? 'line-through' : undefined }">C - Hall Lights</a>
       <a class="button is-large " style="width: 100%; height: 50vh;" :class="{ 'is-danger': d }" @click="pressButton('D')">D - All Lights Off</a>
     </div>
   </div>
