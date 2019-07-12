@@ -1,5 +1,5 @@
 <template>
-  <img class="logo" src="~/assets/Logo.png">
+  <img class="logo" src="~/assets/Logo.jpg">
 </template>
 
 <style lang="scss">
