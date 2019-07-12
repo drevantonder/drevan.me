@@ -45,7 +45,8 @@ module.exports = {
   */
   axios: {
     host: 'api.drevantonder.io',
-    port: 80,
+    https: true,
+    port: 443
   },
   /*
   ** Build configuration
