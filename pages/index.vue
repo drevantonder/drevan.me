@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title has-text-white-ter is-1">
-        drevantonder.io
+        {{ $prismic.richTextAsPlain(document.title) }}
       </h1>
       <h2 class="subtitle has-text-white-ter is-4">
-        Andre van Tonder&#39;s personal site
+        {{ $prismic.richTextAsPlain(document.subtitle) }}
       </h2>
       <div class="links">
         <a
