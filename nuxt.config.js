@@ -35,19 +35,8 @@ module.exports = {
   modules: [
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
     '@nuxtjs/eslint-module'
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-    host: 'api.drevantonder.io',
-    https: true,
-    port: 443
-  },
   /*
   ** Build configuration
   */
