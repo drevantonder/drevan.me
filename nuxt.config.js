@@ -28,6 +28,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/link-resolver.js',
+    '~/plugins/html-serializer.js',
+    '~/plugins/prismic-vue.js'
   ],
   /*
   ** Nuxt.js modules
@@ -52,6 +55,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     }
   }
 }
