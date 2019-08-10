@@ -16,7 +16,9 @@
   "dependencies": {
     "@nuxtjs/bulma": "^1.2.1",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "prismic-javascript": "2.1.1",
+    "prismic-vue": "https://github.com/prismicio/prismic-vue.git#nuxt"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

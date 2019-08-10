@@ -1,3 +1,4 @@
+const PrismicConfig = require('./prismic.config')
 
 module.exports = {
   mode: 'universal',
@@ -13,7 +14,12 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      { innerHTML: '{ window.prismic = { endpoint: "' + PrismicConfig.apiEndpoint + '"} }' },
+      { src: '//static.cdn.prismic.io/prismic.min.js' }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   /*
   ** Customize the progress-bar color
@@ -28,6 +34,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/link-resolver.js',
+    '~/plugins/html-serializer.js',
+    '~/plugins/prismic-vue.js'
   ],
   /*
   ** Nuxt.js modules
@@ -52,6 +61,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     }
   }
 }

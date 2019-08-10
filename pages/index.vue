@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title has-text-white-ter is-1">
-        drevantonder.io
+        {{ $prismic.richTextAsPlain(document.title) }}
       </h1>
       <h2 class="subtitle has-text-white-ter is-4">
-        Andre van Tonder&#39;s personal site
+        {{ $prismic.richTextAsPlain(document.subtitle) }}
       </h2>
       <div class="links">
         <a
@@ -23,11 +23,32 @@
 </template>
 
 <script>
+import Prismic from 'prismic-javascript'
+import PrismicConfig from '~/prismic.config.js'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
+  },
+  async asyncData({ context, error, req }) {
+    try {
+      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
+
+      let document = {}
+      const result = await api.getSingle('homepage')
+      document = result.data
+
+      // Load the edit button
+      if (process.client) window.prismic.setupEditButton()
+
+      return {
+        document,
+        documentId: result.id
+      }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
   }
 }
 </script>
