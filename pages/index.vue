@@ -19,6 +19,7 @@
         >GitHub</a>
       </div>
     </div>
+    <prismic-edit-button :document-id="documentId" />
   </section>
 </template>
 
