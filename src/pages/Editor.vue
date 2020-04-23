@@ -10,7 +10,7 @@
 </template>
 
 <script>
-const token = 's9tZVqXYBpHMQST2iNN9JAtt';
+const token = 'E2yYk4GnJN1Bs3sEa7Rr1gtt';
 
 const loadStoryblokBridge = function(cb) {
   let script = document.createElement('script')

@@ -12,5 +12,37 @@ module.exports = function (api) {
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
+    const { data } = await graphql(`{
+      allStoryblokEntry {
+        edges {
+          node {
+            id
+            full_slug
+            content
+          }
+        }
+      }
+    }`)
+
+    data.allStoryblokEntry.edges.forEach(({ node }) => {
+      if (node.full_slug == 'home') {
+        createPage({
+          path: `/`,
+          component: './src/templates/StoryblokEntry.vue',
+          context: {
+            id: node.id
+          }
+        })
+        return
+      } 
+
+      createPage({
+        path: `/${node.full_slug}`,
+        component: './src/templates/StoryblokEntry.vue',
+        context: {
+          id: node.id
+        }
+      })
+    })
   })
 }

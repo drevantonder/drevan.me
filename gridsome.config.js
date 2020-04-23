@@ -8,7 +8,19 @@ module.exports = {
   siteName: 'Gridsome',
   plugins: [
     {
-      use: 'gridsome-plugin-tailwind'
+      use: 'gridsome-source-storyblok',
+      options: {
+        client: {
+          accessToken: 'kAch7zfEdHyYdCq0Y4qBHgtt'
+        },
+        version: 'published'
+      }
+    },
+    {
+      use: 'gridsome-plugin-tailwind',
+      purgeConfig: {
+        defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [] // I'm using TailwindUI
+      }
     }
   ]
 }
