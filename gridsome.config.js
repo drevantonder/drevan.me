@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     {
-      use: 'gridsome-plugin-tailwind',
+      use: 'gridsome-plugin-tailwindcss',
       purgeConfig: {
         defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [] // I'm using TailwindUI
       }
