@@ -6,7 +6,7 @@
         width="100" 
         class="rounded-full shadow-xl mx-auto"
       />
-      <h1 class="text-5xl text-white text-center">
+      <h1 class="text-5xl text-white text-center font-medium tracking-tight">
         {{ blok.name }}
       </h1>
       <h2 class="text-3xl text-white text-center">
@@ -18,7 +18,7 @@
           :key="link.uuid"
           v-editable="link"
           :href="link.link.url"
-          class="text-blue-600 bg-white px-6 py-3 rounded-lg text-lg"
+          class="text-blue-600 bg-white px-6 py-3 rounded-lg text-lg font-medium"
         >{{ link.text }}</a>
       </div>
     </div>
