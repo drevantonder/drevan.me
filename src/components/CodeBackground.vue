@@ -4,18 +4,18 @@
       v-for="codeBlock in code"
       :key="codeBlock.id"
       class="background-code-block"
-      :style="{ left: codeBlock.x + 'px', top: codeBlock.y + 'px', width: codeBlock.width + 'px', height: codeBlock.height + 'px' }"
+      :style="`${codeBlock.reverse ? 'right' : 'left' }: ${codeBlock.x}px; top: ${codeBlock.y}px; width: ${codeBlock.width}px; height: ${codeBlock.height}px`"
       :class="codeBlock.class"
     />
   </div>
 </template>
 
 <script>
-const INDENT_AMOUNT = 24
+const INDENT_AMOUNT = 12
 
-const CODE_BLOCK_HEIGHT = 24
-const CODE_BLOCK_PADDING_X = 16
-const CODE_BLOCK_PADDING_Y = 12
+const CODE_BLOCK_HEIGHT = 12
+const CODE_BLOCK_PADDING_X = 8
+const CODE_BLOCK_PADDING_Y = 6
 const CODE_BLOCK_SIZE_Y = CODE_BLOCK_HEIGHT + CODE_BLOCK_PADDING_Y
 
 const CLASSES = ['purple', 'blue', 'green', 'red', 'gray']
@@ -31,9 +31,9 @@ function getRandomChoice(choices) {
   return choices[index]
 }
 
-function generateCodeLine(lineNumber, indent = false) {
+function generateCodeLine(lineNumber, indent = false, reverse) {
   const line = []
-  const numberOfCodeBlocks = getRandomInt(1, 3)
+  const numberOfCodeBlocks = getRandomInt(1, 4)
 
   const y = lineNumber * CODE_BLOCK_SIZE_Y
 
@@ -41,7 +41,7 @@ function generateCodeLine(lineNumber, indent = false) {
 
   for (let codeBlockIndex = 0; codeBlockIndex < numberOfCodeBlocks; codeBlockIndex++) {
     const x = (indent * INDENT_AMOUNT) + currentX
-    const width = getRandomInt(70, 100)
+    const width = getRandomInt(30, 50)
 
     const codeBlock = {
       id: lineNumber + '-' + codeBlockIndex,
@@ -49,7 +49,8 @@ function generateCodeLine(lineNumber, indent = false) {
       y,
       width,
       height: CODE_BLOCK_HEIGHT,
-      class: getRandomChoice(CLASSES)
+      class: getRandomChoice(CLASSES),
+      reverse
     }
 
     line.push(codeBlock)
@@ -59,7 +60,7 @@ function generateCodeLine(lineNumber, indent = false) {
   return line
 }
 
-function generateCode(y) {
+function generateCode(y, reverse = false) {
   const code = []
   let indent = 0
   let lineNumber = 0
@@ -72,7 +73,7 @@ function generateCode(y) {
       }
     }
 
-    code.push(...generateCodeLine(lineNumber, indent))
+    code.push(...generateCodeLine(lineNumber, indent, reverse))
 
     lineNumber++
   }
@@ -101,7 +102,7 @@ export default {
 
   methods: {
     generateCode() {
-      this.code = generateCode(document.documentElement.scrollHeight)
+      this.code = generateCode(Math.max(document.documentElement.clientHeight, window.innerHeight || 0))
     }
   }
 }
@@ -116,6 +117,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   filter: blur(4px);
   z-index: -10;
 }
