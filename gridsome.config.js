@@ -20,7 +20,8 @@ module.exports = {
     {
       use: 'gridsome-plugin-tailwindcss',
       purgeConfig: {
-        defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [] // I'm using TailwindUI
+        defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [], // I'm using TailwindUI
+        whitelistPatterns: [/svg.*/, /fa.*/] // Font Awesome
       }
     }
   ]
