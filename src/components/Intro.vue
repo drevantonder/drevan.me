@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col justify-center">
-    <div class="sm:mx-auto sm:w-full sm:max-w-2xl">
+    <div class="px-4 sm:px-0 sm:mx-auto sm:w-full sm:max-w-2xl">
       <g-image 
         :src="imageURL" 
         class="rounded-full shadow-xl mx-auto h-24"
@@ -11,7 +11,7 @@
       <h2 class="text-2xl text-gray-200 text-center leading-tight">
         {{ blok.text }}
       </h2>
-      <div class="flex flex-col md:flex-row justify-center mt-4 space-x-0 space-y-2 sm:space-y-0 sm:space-x-4">
+      <div class="flex flex-col sm:flex-row justify-center mt-4 space-x-0 space-y-2 sm:space-y-0 sm:space-x-4">
         <a
           v-for="link in blok.links"
           :key="link.uuid"
