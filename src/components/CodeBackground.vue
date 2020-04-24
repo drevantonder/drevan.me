@@ -119,7 +119,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  filter: blur(4px);
+  filter: blur(3px);
   z-index: -10;
 }
 
