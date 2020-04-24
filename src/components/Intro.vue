@@ -3,8 +3,7 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-2xl">
       <g-image 
         :src="imageURL" 
-        width="64" 
-        class="rounded-full shadow-xl mx-auto"
+        class="rounded-full shadow-xl mx-auto h-24"
       />
       <h1 class="text-5xl text-gray-100 text-center font-medium tracking-tight leading-tight">
         {{ blok.name }}
@@ -43,7 +42,7 @@ export default {
       // When options.downloadImages is true, the image property is a object
       // Reference of this: https://github.com/gridsome/gridsome/issues/292
       const path = this.blok.image.path
-      return require('!!assets-loader?width=64&quality=100&fit=inside!~/' + path)
+      return require('!!assets-loader?width=96&quality=100&fit=inside!~/' + path)
     }
   }
 }
