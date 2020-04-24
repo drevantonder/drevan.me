@@ -2,10 +2,11 @@
   <div>
     <code-background v-if="blok.has_code_background" />
     <component
-      :is="blok.component"
+      :is="child_blok.component"
       v-for="child_blok in blok.body"
       :key="child_blok._uid"
-      :blok="blok"
+      v-editable="child_blok"
+      :blok="child_blok"
     />
   </div>
 </template>
