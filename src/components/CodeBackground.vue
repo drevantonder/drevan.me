@@ -117,6 +117,7 @@ body {
   top: 0;
   left: 0;
   filter: blur(4px);
+  z-index: -10;
 }
 
 .background-code-block {
