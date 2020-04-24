@@ -3,7 +3,7 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-2xl flex">
       <div>
         <g-image 
-          :src="blok.image" 
+          :src="imageURL" 
           width="64" 
           class="rounded-full shadow-xl mx-auto"
         />
