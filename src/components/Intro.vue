@@ -17,7 +17,8 @@
           :key="link.uuid"
           v-editable="link"
           :href="link.link.url"
-          class="text-blue-600 bg-gray-100 px-6 py-3 rounded-lg text-lg font-medium"
+          class="bg-gray-100 px-6 py-3 rounded-lg text-lg font-medium"
+          :style="`color: ${link.color}`"
         ><fa-icon class="mr-2" :icon="[link.icon[0].type, link.icon[0].icon]" />{{ link.text }}</a>
       </div>
     </div>
