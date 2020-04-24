@@ -13,7 +13,8 @@ module.exports = {
         client: {
           accessToken: 'kAch7zfEdHyYdCq0Y4qBHgtt'
         },
-        version: 'published'
+        version: 'published',
+        downloadImages: true
       }
     },
     {
