@@ -11,14 +11,14 @@
       <h2 class="text-2xl text-gray-200 text-center leading-tight">
         {{ blok.text }}
       </h2>
-      <div class="flex justify-around mt-6">
+      <div class="flex justify-center mt-4 space-x-4">
         <a
           v-for="link in blok.links"
           :key="link.uuid"
           v-editable="link"
           :href="link.link.url"
-          class="bg-gray-100 px-6 py-3 rounded-lg text-lg font-medium"
-          :style="`color: ${link.color}`"
+          class="bg-gray-100 px-3 py-1 rounded-lg font-medium text-white"
+          :style="`background: ${link.color}`"
         ><fa-icon 
           class="mr-2" 
           :icon="[link.icon[0].type, link.icon[0].icon]" 
