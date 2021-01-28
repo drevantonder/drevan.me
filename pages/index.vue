@@ -9,8 +9,12 @@
           love learning new things and meeting new people.
         </p>
         <p>
-          I currently work full time at Creation Ministries (Australia). I enjoy
-          coding on personal projects and freelancing in my spare time.
+          I currently work full time at
+          <a href="https://creation.com" target="_blank">
+            Creation Ministries International
+          </a>
+          . I enjoy coding on personal projects and freelancing in my spare
+          time.
         </p>
         <p>While you are here, feel free to check out some of my articles ➡.</p>
       </article>
