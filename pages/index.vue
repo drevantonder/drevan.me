@@ -37,7 +37,9 @@
       </article>
     </div>
     <aside class="flex flex-col items-center w-full mt-8 xl:mt-24 xl:ml-4">
-      <article class="shadow-lg rounded-lg xl:max-w-sm w-full p-8 bg-white">
+      <article
+        class="xl:max-w-sm w-full p-8 bg-white gradient-border shadow-xl rounded-lg"
+      >
         <time datetime="2021-01-26" class="uppercase font-medium text-gray-500">
           26 Dec, 2021
         </time>
@@ -55,3 +57,14 @@ import Vue from 'vue'
 
 export default Vue.extend({})
 </script>
+
+<style>
+.gradient-border {
+  @apply relative bg-clip-padding border-2 border-transparent;
+}
+
+.gradient-border:before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-500 to-teal-500 -m-0.5 -z-1 rounded-inherit;
+}
+</style>
