@@ -14,6 +14,7 @@ module.exports = {
         DEFAULT: {
           css: {
             a: {
+              whiteSpace: 'nowrap',
               textDecoration: 'none',
               position: 'relative',
               color: 'transparent',
