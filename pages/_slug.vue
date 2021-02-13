@@ -2,7 +2,7 @@
   <div class="flex flex-col max-w-screen-md mx-auto px-4 md:px-8">
     <div class="min-h-screen flex items-center justify-center">
       <article class="prose prose-xl lg:prose-2xl">
-        <nuxt-content :document="intro" />
+        <nuxt-content :document="article" />
       </article>
     </div>
     <div class="grid grid-cols-2 gap-8">
@@ -19,26 +19,15 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  async asyncData({ $content }) {
-    const intro = await $content('home/intro').fetch()
+  async asyncData({ $content, params }) {
+    const article = await $content('articles', params.slug).fetch()
 
     const articles = await $content('articles').fetch()
 
     return {
-      intro,
+      article,
       articles,
     }
   },
 })
 </script>
-
-<style>
-.gradient-border {
-  @apply relative bg-clip-padding border-2 border-transparent;
-}
-
-.gradient-border:before {
-  content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-blue-500 to-teal-500 -m-0.5 -z-1 rounded-inherit;
-}
-</style>

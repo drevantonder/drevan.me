@@ -17,7 +17,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            a: {
+            'a:not(.heading-link)': {
               whiteSpace: 'nowrap',
               textDecoration: 'none',
               position: 'relative',
@@ -29,7 +29,7 @@ module.exports = {
                 color: colors.white,
               },
             },
-            'a::after': {
+            'a:not(.heading-link)::after': {
               content: "''",
               position: 'absolute',
               left: '-0.05em',
@@ -41,7 +41,7 @@ module.exports = {
               transition: 'top .2s',
               'z-index': -1,
             },
-            'a:hover::after': {
+            'a:not(.heading-link):hover::after': {
               top: '0',
             },
           },
