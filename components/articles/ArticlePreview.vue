@@ -26,3 +26,14 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="postcss">
+.gradient-border {
+  @apply relative bg-clip-padding border-2 border-transparent;
+}
+
+.gradient-border:before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-500 to-teal-500 -m-0.5 -z-1 rounded-inherit;
+}
+</style>
