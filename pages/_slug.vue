@@ -1,10 +1,8 @@
 <template>
-  <div class="flex flex-col max-w-screen-md mx-auto px-4 md:px-8">
-    <div class="min-h-screen flex items-center justify-center">
-      <article class="prose prose-xl lg:prose-2xl">
-        <nuxt-content :document="article" />
-      </article>
-    </div>
+  <page-content>
+    <article class="prose prose-xl lg:prose-2xl">
+      <nuxt-content :document="article" />
+    </article>
     <div class="grid grid-cols-2 gap-8">
       <article-preview
         v-for="article in articles"
@@ -12,7 +10,7 @@
         :article="article"
       />
     </div>
-  </div>
+  </page-content>
 </template>
 
 <script lang="ts">

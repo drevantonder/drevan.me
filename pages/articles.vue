@@ -1,8 +1,5 @@
 <template>
   <page-content>
-    <article class="prose prose-xl lg:prose-2xl">
-      <nuxt-content :document="intro" />
-    </article>
     <div class="grid grid-cols-2 gap-8">
       <article-preview
         v-for="article in articles"
