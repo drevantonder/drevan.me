@@ -4,7 +4,7 @@
       26 Dec, 2021
     </time>
     <nuxt-link :to="`/${article.slug}/`">
-      <h3 class="text-3xl font-semibold text-gray-700">{{ article.title }}</h3>
+      <h3 class="text-2xl font-semibold text-gray-700">{{ article.title }}</h3>
     </nuxt-link>
     <nuxt-link :to="`/${article.slug}/`">
       <p class="mt-2 text-lg font-normal text-gray-500">
