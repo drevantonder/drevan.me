@@ -7,18 +7,15 @@
   to = "https://drevan.me/:splat"
   status = 301
   force = true
-  query = {path = ":path"}
 
 [[redirects]]
   from = "https://drevantonder.io/*"
   to = "https://drevan.me/:splat"
   status = 301
   force = true
-  query = {path = ":path"}
 
 [[redirects]]
   from = "https://www.drevan.me/*"
   to = "https://drevan.me/:splat"
   status = 301
   force = true
-  query = {path = ":path"}
