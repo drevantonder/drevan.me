@@ -3,22 +3,22 @@
   command = "nuxt generate"
 
 [[redirects]]
-  from = "www.drevantonder.io"
-  to = "drevan.me"
+  from = "https://www.drevantonder.io/*"
+  to = "https://drevan.me/:splat"
   status = 301
   force = true
   query = {path = ":path"}
 
 [[redirects]]
-  from = "drevantonder.io"
-  to = "drevan.me"
+  from = "https://drevantonder.io/*"
+  to = "https://drevan.me/:splat"
   status = 301
   force = true
   query = {path = ":path"}
 
 [[redirects]]
-  from = "www.drevan.me"
-  to = "drevan.me"
+  from = "https://www.drevan.me/*"
+  to = "https://drevan.me/:splat"
   status = 301
   force = true
   query = {path = ":path"}
