@@ -1,6 +1,8 @@
-# Hello 👋
-
-## My name is Andre van Tonder.
+---
+h1: Andre van Tonder's personal website ✨
+wave: Hello 👋
+h2: My name is Andre van Tonder.
+---
 
 I am a Christian ⛪, Software Developer 💻 and Star Wars fan 🌌. I love learning new things and meeting new people.
 
