@@ -8,7 +8,7 @@
         <nuxt-content :document="intro" />
       </article>
       <div
-        class="absolute flex items-center -right-8 inset-y-0 transform-gpu translate-x-full"
+        class="hidden absolute lg:flex items-center -right-8 inset-y-0 transform-gpu translate-x-full"
       >
         <img
           class="max-h-full"

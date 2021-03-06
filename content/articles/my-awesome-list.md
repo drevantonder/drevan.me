@@ -1,14 +1,20 @@
 ---
 title: My Awesome List
-description: A whole lot of stuff I find awesome and I just have to tell you about.
+description: A whole lot of stuff I find awesome and love to use.
 ---
 
 # My Awesome List
 
-## TailwindCSS
+A whole lot of stuff I find awesome and love to use.
 
-[TailwindCSS](https://tailwindcss.com) is AMAZING!!!
+## Development
 
-## Netlify
+- Github
+- Git
+- Visual Studio Code
+## Web
 
-Netlify saves me so much time.
+- TailwindCSS
+- Netlify
+- Vue
+
