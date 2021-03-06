@@ -14,7 +14,9 @@ export default Vue.extend({
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
 
-    const articles = await $content('articles').fetch()
+    const articles = await $content('articles')
+      .where({ slug: { $ne: params.slug } })
+      .fetch()
 
     return {
       article,
