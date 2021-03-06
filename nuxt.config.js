@@ -11,7 +11,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: "✨ Andre van Tonder's personal website 🔭 and blog 📚.",
+      },
       { name: 'msapplication-TileColor', content: '#0ea5e9' },
       { name: 'theme-color', content: '#0ea5e9' },
     ],
