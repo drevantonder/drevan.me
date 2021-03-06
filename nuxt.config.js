@@ -71,6 +71,7 @@ export default {
       remarkAutolinkHeadings: {
         linkProperties: {
           className: 'heading-link',
+          ariaLabel: 'Link to this heading',
         },
       },
     },
