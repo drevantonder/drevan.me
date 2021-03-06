@@ -1,3 +1,24 @@
 [build]
   publish = "dist"
   command = "nuxt generate"
+
+[[redirects]]
+  from = "www.drevantonder.io"
+  to = "drevan.me"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "drevantonder.io"
+  to = "drevan.me"
+  status = 301
+  force = true
+  query = {path = ":path"}
+
+[[redirects]]
+  from = "www.drevan.me"
+  to = "drevan.me"
+  status = 301
+  force = true
+  query = {path = ":path"}
