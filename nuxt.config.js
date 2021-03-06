@@ -14,7 +14,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: "✨ Andre van Tonder's personal website 🔭 and blog 📚.",
+        content: "Andre van Tonder's personal website ✨ and blog 📚.",
       },
       { name: 'msapplication-TileColor', content: '#0ea5e9' },
       { name: 'theme-color', content: '#0ea5e9' },
