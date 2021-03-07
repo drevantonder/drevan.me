@@ -1,3 +1,13 @@
+const createSitemapRoutes = async () => {
+  const routes = []
+  const { $content } = require('@nuxt/content')
+  const articles = await $content('articles').fetch()
+  for (const article of articles) {
+    routes.push(`/${article.slug}`)
+  }
+  return routes
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -57,6 +67,8 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -79,4 +91,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // Sitemap config
+  sitemap: {
+    hostname: 'https://drevan.me',
+    gzip: true,
+    routes: createSitemapRoutes,
+  },
 }
