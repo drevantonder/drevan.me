@@ -1,20 +1,9 @@
 # drevan.me
 
-## Build Setup
+**Andre van Tonder's personal website ✨.**
 
-```bash
-# install dependencies
-$ yarn install
+View it live at [https://drevan.me/](https://drevan.me/).
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+Built using [TailwindCSS](https://tailwindcss.com/), [Vue](https://vuejs.org/), and [NuxtJs](https://nuxtjs.org/)
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Feel free to explore, fork and copy.
