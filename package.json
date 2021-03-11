@@ -29,7 +29,7 @@
     "@nuxtjs/tailwindcss": "^3.4.2",
     "autoprefixer": "^10",
     "babel-eslint": "^10.1.0",
-    "css-loader": "^5.0.0",
+    "css-loader": "^5.1.2",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
