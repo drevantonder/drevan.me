@@ -19,7 +19,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.2"
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
