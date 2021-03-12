@@ -50,6 +50,14 @@ export default {
       },
       { rel: 'manifest', href: '/site.webmanifest' },
     ],
+    script: [
+      {
+        async: true,
+        defer: true,
+        dataDomain: 'drevan.me',
+        src: 'https://plausible.io/js/plausible.js',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
