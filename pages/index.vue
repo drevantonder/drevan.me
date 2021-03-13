@@ -17,7 +17,12 @@
         />
       </div>
     </div>
-    <article-grid :articles="articles" />
+    <section>
+      <h2 class="font-bold text-lg uppercase tracking-wider text-teal-600">
+        Featured Articles
+      </h2>
+      <article-grid class="mt-4" :articles="articles" />
+    </section>
   </page-content>
 </template>
 
