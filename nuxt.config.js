@@ -50,6 +50,27 @@ export default {
       },
       { rel: 'manifest', href: '/site.webmanifest' },
     ],
+    // Dark mode script in head to avoid FOUC
+    script: [
+      {
+        hid: 'dark-mode-script',
+        innerHTML: `
+        if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }`,
+        type: 'text/javascript',
+        charset: 'utf-8',
+      },
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'dark-mode-script': ['innerHTML'],
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

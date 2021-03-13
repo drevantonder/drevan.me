@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: [],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     colors: {
       gray: colors.coolGray,
