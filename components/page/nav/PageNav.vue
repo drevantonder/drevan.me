@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed inset-y-0 right-auto left-0 py-20 pl-4">
+  <nav class="fixed flex flex-col inset-y-0 right-auto left-0 pt-20 pb-4 pl-4">
     <ul class="space-y-6">
       <li>
         <nuxt-link
@@ -16,7 +16,7 @@
         </nuxt-link>
       </li>
     </ul>
-    <page-nav-color-scheme class="mt-6" />
+    <page-nav-color-scheme class="mt-auto" />
   </nav>
 </template>
 
