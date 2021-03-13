@@ -30,22 +30,44 @@
         <span class="sr-only">Menu</span>
       </button>
     </div>
-    <div v-show="showMenu" class="fixed z-10 inset-0 blur" @click="closeMenu" />
-    <div
-      v-show="showMenu"
-      class="fixed z-20 bottom-0 inset-x-0 flex flex-col space-y-6 bg-white dark:bg-gray-900 p-6"
+    <transition
+      enter-active-class="transition-opacity duration-100"
+      enter-class="opacity-0"
+      enter-to-class="opacity-1"
+      leave-active-class="transition-opacity duration-200"
+      leave-class="opacity-1"
+      leave-to-class="opacity-0"
     >
-      <ul class="space-y-6">
-        <li v-for="navItem in nav.items" :key="navItem.to">
-          <nuxt-link
-            :to="navItem.to"
-            class="text-gray-700 dark:text-gray-400 font-medium text-xl"
-            >{{ navItem.text }}
-          </nuxt-link>
-        </li>
-      </ul>
-      <page-nav-color-scheme class="mr-auto" />
-    </div>
+      <div
+        v-show="showMenu"
+        class="fixed z-10 inset-0 blur"
+        @click="closeMenu"
+      />
+    </transition>
+    <transition
+      enter-active-class="transition-transform duration-100 transform"
+      enter-class="translate-y-full scale-50"
+      enter-to-class="translate-0 scale-100"
+      leave-active-class="transition-transform duration-200 transform"
+      leave-class="translate-0 scale-100"
+      leave-to-class="translate-y-full scale-50"
+    >
+      <div
+        v-show="showMenu"
+        class="fixed z-20 bottom-0 inset-x-0 flex flex-col space-y-6 bg-white dark:bg-gray-900 p-6"
+      >
+        <ul class="space-y-6">
+          <li v-for="navItem in nav.items" :key="navItem.to">
+            <nuxt-link
+              :to="navItem.to"
+              class="text-gray-700 dark:text-gray-400 font-medium text-xl"
+              >{{ navItem.text }}
+            </nuxt-link>
+          </li>
+        </ul>
+        <page-nav-color-scheme class="mr-auto" />
+      </div>
+    </transition>
   </div>
 </template>
 
