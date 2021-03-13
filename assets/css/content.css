@@ -1,5 +1,9 @@
 .content {
-  @apply text-2xl font-medium text-gray-600 leading-relaxed;
+  @apply text-xl font-medium text-gray-600 leading-relaxed;
+
+  @screen md {
+    @apply text-2xl;
+  }
 
   * {
     @apply mb-6;
@@ -10,11 +14,19 @@
   }
 
   h1, .fake-h1 {
-    @apply text-6xl mb-12;
+    @apply text-4xl mb-6;
+
+    @screen md {
+      @apply text-6xl mb-12;
+    }
   }
 
   h2 {
-    @apply text-4xl mb-10;
+    @apply text-2xl mb-5;
+
+    @screen md {
+      @apply text-4xl mb-10;
+    }
   }
 
   a {
@@ -30,7 +42,12 @@
   }
 
   li {
-    @apply mb-3;
+    @apply mb-2;
+
+    @screen md {
+      @apply mb-3;
+    }
+
     &::marker {
       @apply text-teal-400;
     }
