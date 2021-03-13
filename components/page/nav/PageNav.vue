@@ -22,5 +22,6 @@
         </nuxt-link>
       </li>
     </ul>
+    <page-nav-color-scheme class="mt-6" />
   </nav>
 </template>
