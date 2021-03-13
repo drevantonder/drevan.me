@@ -1,8 +1,10 @@
 <template>
   <page-content>
     <section>
-      <h1 class="font-extrabold text-gray-900 text-6xl mb-4">My Articles</h1>
-      <p class="text-xl text-gray-500 leading-relaxed">
+      <h1 class="font-extrabold text-gray-900 dark:text-gray-200 text-6xl mb-4">
+        My Articles
+      </h1>
+      <p class="text-xl text-gray-500 dark:text-gray-400 leading-relaxed">
         Not much here yet. I need to put my writing gloves on 😁.
       </p>
     </section>
