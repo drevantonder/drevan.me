@@ -1,6 +1,17 @@
 <template>
   <page-content>
-    <article-grid :articles="articles" />
+    <section>
+      <h1 class="font-extrabold text-gray-900 text-6xl mb-4">My Articles</h1>
+      <p class="text-xl text-gray-500 leading-relaxed">
+        Not much here yet. I need to put my writing gloves on 😁.
+      </p>
+    </section>
+    <section>
+      <h2 class="font-bold text-lg uppercase tracking-wider text-teal-600">
+        Featured Articles
+      </h2>
+      <article-grid class="mt-4" :articles="articles" />
+    </section>
   </page-content>
 </template>
 
