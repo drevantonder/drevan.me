@@ -23,4 +23,16 @@
       @apply underline;
     }
   }
+
+  ul {
+    list-style-type: "➜ ";
+    list-style-position: inside;
+  }
+
+  li {
+    @apply mb-3;
+    &::marker {
+      @apply text-teal-400;
+    }
+  }
 }
