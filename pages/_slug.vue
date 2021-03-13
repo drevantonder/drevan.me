@@ -3,7 +3,12 @@
     <article class="content">
       <nuxt-content :document="article" />
     </article>
-    <article-grid :articles="articles" />
+    <section v-if="articles.length">
+      <h2 class="font-bold text-lg uppercase tracking-wider text-teal-600">
+        Keep Reading
+      </h2>
+      <article-grid :articles="articles" />
+    </section>
   </page-content>
 </template>
 
