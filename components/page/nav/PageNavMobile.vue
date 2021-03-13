@@ -30,11 +30,7 @@
         <span class="sr-only">Menu</span>
       </button>
     </div>
-    <div
-      v-show="showMenu"
-      class="fixed z-10 inset-0 bg-teal-100 bg-opacity-10 blur"
-      @click="closeMenu"
-    />
+    <div v-show="showMenu" class="fixed z-10 inset-0 blur" @click="closeMenu" />
     <div
       v-show="showMenu"
       class="fixed z-20 bottom-0 inset-x-0 flex flex-col space-y-6 bg-white dark:bg-gray-900 p-6"
@@ -78,8 +74,17 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.blur {
-  backdrop-filter: blur(3px);
+@supports (backdrop-filter: blur(3px)) {
+  .blur {
+    @apply bg-teal-100 bg-opacity-10;
+    backdrop-filter: blur(3px);
+  }
+}
+
+@supports not (backdrop-filter: blur(3px)) {
+  .blur {
+    @apply bg-gray-800 bg-opacity-80;
+  }
 }
 
 li {
