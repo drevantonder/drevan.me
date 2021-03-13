@@ -61,6 +61,7 @@
             <nuxt-link
               :to="navItem.to"
               class="text-gray-700 dark:text-gray-400 font-medium text-xl"
+              @click.native="closeMenu"
               >{{ navItem.text }}
             </nuxt-link>
           </li>
