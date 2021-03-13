@@ -50,14 +50,6 @@ export default {
       },
       { rel: 'manifest', href: '/site.webmanifest' },
     ],
-    script: [
-      {
-        async: true,
-        defer: true,
-        dataDomain: 'drevan.me',
-        src: 'https://plausible.io/js/plausible.js',
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -83,6 +75,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // Doc: https://github.com/moritzsternemann/vue-plausible
+    'vue-plausible',
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -111,5 +105,9 @@ export default {
     hostname: 'https://drevan.me',
     gzip: true,
     routes: createSitemapRoutes,
+  },
+
+  plausible: {
+    domain: 'drevan.me',
   },
 }
