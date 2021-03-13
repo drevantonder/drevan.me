@@ -1,14 +1,18 @@
 <template>
   <article class="group">
     <nuxt-link :to="`/${article.slug}/`">
-      <h3 class="text-2xl font-bold text-gray-700 group-hover:text-gray-600">
+      <h3
+        class="text-2xl font-bold text-gray-700 dark:text-gray-300 group-hover:text-gray-600 dark:group-hover:text-gray-200"
+      >
         {{ article.title }}
       </h3>
-      <p class="mt-2 text-xl font-normal text-gray-500">
+      <p class="mt-2 text-xl font-normal text-gray-500 dark:text-gray-400">
         {{ article.description }}
       </p>
       <div class="flex items-center mt-2">
-        <p class="text-lg font-semibold text-gray-900">Read more</p>
+        <p class="text-lg font-semibold text-gray-900 dark:text-gray-200">
+          Read more
+        </p>
         <svg
           class="transition transform w-5 h-5 text-teal-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
           xmlns="http://www.w3.org/2000/svg"
