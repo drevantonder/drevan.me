@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col max-w-screen-md mx-auto space-y-12 my-20 px-4 md:px-8"
+    class="flex flex-col max-w-screen-md mx-auto space-y-12 py-20 px-4 md:px-8"
   >
     <slot />
   </div>
