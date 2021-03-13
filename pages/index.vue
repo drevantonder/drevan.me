@@ -42,7 +42,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style lang="postcss">
-@import '~/assets/css/content.css';
-</style>
