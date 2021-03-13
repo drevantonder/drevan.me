@@ -1,5 +1,5 @@
 .content {
-  @apply text-xl font-medium text-gray-600 leading-relaxed;
+  @apply text-xl font-medium text-gray-600 dark:text-gray-400 leading-relaxed;
 
   @screen md {
     @apply text-2xl;
@@ -10,7 +10,7 @@
   }
 
   h1, .fake-h1, h2, h3, h4, h5, h6 {
-    @apply font-extrabold text-gray-900;
+    @apply font-extrabold text-gray-900 dark:text-gray-300;
   }
 
   h1, .fake-h1 {
