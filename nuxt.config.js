@@ -53,7 +53,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '@fontsource/karla/variable.css',
+    /* If I need italicized text '@fontsource/karla/variable-italic.css', */
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -95,6 +98,7 @@ export default {
   build: {
     postcss: {
       plugins: {
+        'postcss-nested': {},
         autoprefixer: {},
       },
     },

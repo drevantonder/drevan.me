@@ -1,0 +1,26 @@
+.content {
+  @apply text-2xl font-medium text-gray-600 leading-relaxed;
+
+  * {
+    @apply mb-6;
+  }
+
+  h1, .fake-h1, h2, h3, h4, h5, h6 {
+    @apply font-extrabold text-gray-900;
+  }
+
+  h1, .fake-h1 {
+    @apply text-6xl mb-12;
+  }
+
+  h2 {
+    @apply text-4xl mb-10;
+  }
+
+  a {
+    @apply text-blue-600;
+    &:hover {
+      @apply underline;
+    }
+  }
+}

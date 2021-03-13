@@ -1,6 +1,6 @@
 <template>
   <page-content>
-    <article class="prose prose-xl lg:prose-2xl">
+    <article class="content">
       <nuxt-content :document="article" />
     </article>
     <article-grid :articles="articles" />

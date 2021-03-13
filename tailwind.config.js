@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: [],
@@ -19,6 +20,10 @@ module.exports = {
       },
       borderRadius: {
         inherit: 'inherit',
+      },
+      fontFamily: {
+        sans: ['KarlaVariable', ...defaultTheme.fontFamily.sans],
+        system: defaultTheme.fontFamily.sans,
       },
     },
   },
