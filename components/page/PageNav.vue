@@ -8,7 +8,7 @@
       <li>
         <nuxt-link
           to="/"
-          class="text-gray-700 font-medium text-base lg:text-xl flex flex-col lg:flex-row items-center lg:items-start"
+          class="text-gray-700 dark:text-gray-400 font-medium text-base lg:text-xl flex flex-col lg:flex-row items-center lg:items-start"
         >
           <span class="text-xl lg:text-2xl">🏡</span>&nbsp;Home
         </nuxt-link>
@@ -16,7 +16,7 @@
       <li>
         <nuxt-link
           to="/articles"
-          class="text-gray-700 font-medium text-base lg:text-xl flex flex-col lg:flex-row items-center lg:items-start"
+          class="text-gray-700 dark:text-gray-400 font-medium text-base lg:text-xl flex flex-col lg:flex-row items-center lg:items-start"
         >
           <span class="text-xl lg:text-2xl">📚</span>&nbsp;Articles
         </nuxt-link>
