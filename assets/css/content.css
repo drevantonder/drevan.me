@@ -36,20 +36,15 @@
     }
   }
 
-  ul {
-    list-style-type: "➜ ";
-    list-style-position: inside;
-  }
-
   li {
     @apply mb-2;
 
     @screen md {
       @apply mb-3;
     }
-
-    &::marker {
-      @apply text-teal-400;
+    &::before {
+      content: '➜';
+      @apply text-teal-400 mr-2;
     }
   }
 }
