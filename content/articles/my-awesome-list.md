@@ -17,6 +17,9 @@ A whole lot of stuff I find awesome and love to use.
 - [TailwindCSS](https://tailwindcss.com/) - Utility first CSS is amazing! TailwindCSS is 🔥
 - [Netlify](https://www.netlify.com/) - Netlify and the [JAMstack](https://jamstack.org/what-is-jamstack/) make web development a ton easier
 - [Vue](https://vuejs.org/) - Vue makes web design a lot simpler.
+- [Nuxt](https://nuxtjs.org/) - NuxtJS (Uses [Vue](https://vuejs.org/)) is currently my go-to framework whenever I need to make a multi-page site. I love using it's *static* feature to generate a static site to host on [Netlify](https://www.netlify.com/).
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is enhances JavaScript and add so much to the [DX](https://css-tricks.com/what-is-developer-experience-dx/).
+- [Vite](https://vitejs.dev/) - I haven't used Vite as much as most on the list. But what I have is ✨ and 🎉.
 
 ## Websites and Resources
 
