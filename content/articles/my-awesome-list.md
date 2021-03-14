@@ -22,4 +22,4 @@ A whole lot of stuff I find awesome and love to use.
 
 - [CSS-Tricks](https://css-tricks.com/) - The name says it all. I find myself using this a lot.
 - [Stack Overflow](https://stackoverflow.com/) - Wouldn't be a list of resources without Stack Overflow.
-
+- [MDN](https://developer.mozilla.org/) - Use it all the time when I need to check something very specific.
