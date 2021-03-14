@@ -14,18 +14,34 @@
   }
 
   h1, .fake-h1 {
-    @apply text-4xl mb-6;
+    @apply text-4xl mb-5;
+
+    &:not(:first-child) {
+      @apply mt-8;
+    }
 
     @screen md {
-      @apply text-6xl mb-12;
+      @apply text-6xl mb-10;
+
+      &:not(:first-child) {
+        @apply mt-16;
+      }
     }
   }
 
   h2 {
-    @apply text-2xl mb-5;
+    @apply text-2xl mb-4;
+
+    &:not(:first-child) {
+      @apply mt-6;
+    }
 
     @screen md {
-      @apply text-4xl mb-10;
+      @apply text-4xl mb-8;
+
+      &:not(:first-child) {
+        @apply mt-12;
+      }
     }
   }
 
@@ -36,15 +52,19 @@
     }
   }
 
+  ul {
+    @apply ml-8;
+  }
+
   li {
-    @apply mb-2;
+    @apply mb-3;
 
     @screen md {
-      @apply mb-3;
+      @apply mb-5;
     }
-    &::before {
-      content: '➜';
-      @apply text-teal-400 mr-2;
+    &::marker {
+      content: '➜ ';
+      @apply text-teal-400;
     }
   }
 
