@@ -77,7 +77,7 @@ export default {
   css: [
     '~/assets/css/content.css',
     '@fontsource/karla/variable.css',
-    /* If I need italicized text '@fontsource/karla/variable-italic.css', */
+    '@fontsource/karla/variable-italic.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
