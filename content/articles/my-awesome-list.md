@@ -18,3 +18,8 @@ A whole lot of stuff I find awesome and love to use.
 - [Netlify](https://www.netlify.com/) - Netlify and the [JAMstack](https://jamstack.org/what-is-jamstack/) make web development a ton easier
 - [Vue](https://vuejs.org/) - Vue makes web design a lot simpler.
 
+## Websites and Resources
+
+- [CSS-Tricks](https://css-tricks.com/) - The name says it all. I find myself using this a lot.
+- [Stack Overflow](https://stackoverflow.com/) - Woudln't be a list of resources without Stack Overflow.
+
