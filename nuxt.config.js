@@ -135,4 +135,8 @@ export default {
   plausible: {
     domain: 'drevan.me',
   },
+
+  tailwindcss: {
+    jit: true,
+  },
 }
