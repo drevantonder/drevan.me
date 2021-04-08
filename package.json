@@ -18,7 +18,7 @@
     "@fontsource/karla": "^4.2.2",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/sitemap": "^2.4.0",
-    "core-js": "^3.10.0",
+    "core-js": "^3.10.1",
     "nuxt": "^2.15.4",
     "vue-plausible": "^1.1.4"
   },
