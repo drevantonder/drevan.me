@@ -40,9 +40,5 @@ export default Vue.extend({
       articles,
     }
   },
-
-  mounted() {
-    throw new Error('test')
-  },
 })
 </script>
