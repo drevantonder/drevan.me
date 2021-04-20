@@ -1,3 +1,5 @@
+import branchName from 'current-git-branch'
+
 const createSitemapRoutes = async () => {
   const routes = []
   const { $content } = require('@nuxt/content')
@@ -6,6 +8,18 @@ const createSitemapRoutes = async () => {
     routes.push(`/${article.slug}`)
   }
   return routes
+}
+
+function getSentryRelease() {
+  let branch, commitRef
+  if (process.env.NETLIFY) {
+    branch = process.env.BRANCH
+    commitRef = process.env.COMMIT_REF
+  } else {
+    branch = branchName() || 'unknown'
+    commitRef = 'dev'
+  }
+  return `${branch}@${commitRef}`
 }
 
 export default {
@@ -144,7 +158,9 @@ export default {
 
   sentry: {
     tracing: true,
-    config: {},
+    config: {
+      release: getSentryRelease(),
+    },
     sourceMapStyle: 'hidden-source-map',
   },
 }
