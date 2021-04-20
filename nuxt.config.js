@@ -145,5 +145,6 @@ export default {
   sentry: {
     tracing: true,
     config: {},
+    sourceMapStyle: 'hidden-source-map',
   },
 }
