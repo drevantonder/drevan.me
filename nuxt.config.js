@@ -102,6 +102,8 @@ export default {
     '@nuxt/content',
     // Doc: https://github.com/moritzsternemann/vue-plausible
     'vue-plausible',
+    // Doc: https://sentry.nuxtjs.org/
+    '@nuxtjs/sentry',
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -138,5 +140,12 @@ export default {
 
   tailwindcss: {
     jit: true,
+  },
+
+  sentry: {
+    dsn:
+      'https://89b58df120c24212a21706ffccde117a@o575142.ingest.sentry.io/5727009',
+    tracing: true,
+    config: {},
   },
 }
