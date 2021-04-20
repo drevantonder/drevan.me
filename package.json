@@ -21,6 +21,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@sentry/tracing": "^6.2.5",
     "core-js": "^3.10.2",
+    "current-git-branch": "^1.1.0",
     "nuxt": "^2.15.4",
     "vue-plausible": "^1.1.4"
   },
