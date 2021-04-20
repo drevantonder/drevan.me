@@ -143,8 +143,7 @@ export default {
   },
 
   sentry: {
-    dsn:
-      'https://89b58df120c24212a21706ffccde117a@o575142.ingest.sentry.io/5727009',
+    dsn: process.env.SENTRY_DSN,
     tracing: true,
     config: {},
   },
