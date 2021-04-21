@@ -8,16 +8,6 @@ const createSitemapRoutes = async () => {
   return routes
 }
 
-function getSentryRelease() {
-  let commitRef
-  if (process.env.NETLIFY) {
-    commitRef = process.env.COMMIT_REF
-  } else {
-    commitRef = 'dev'
-  }
-  return `${commitRef}`
-}
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -155,7 +145,7 @@ export default {
   sentry: {
     tracing: true,
     config: {
-      release: getSentryRelease(),
+      release: process.env.NETLIFY ? process.env.COMMIT_REF : 'dev',
     },
     publishRelease: true,
     sourceMapStyle: 'hidden-source-map',
