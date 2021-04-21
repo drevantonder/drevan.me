@@ -1,5 +1,3 @@
-import branchName from 'current-git-branch'
-
 const createSitemapRoutes = async () => {
   const routes = []
   const { $content } = require('@nuxt/content')
@@ -11,15 +9,13 @@ const createSitemapRoutes = async () => {
 }
 
 function getSentryRelease() {
-  let branch, commitRef
+  let commitRef
   if (process.env.NETLIFY) {
-    branch = process.env.BRANCH
     commitRef = process.env.COMMIT_REF
   } else {
-    branch = branchName() || 'unknown'
     commitRef = 'dev'
   }
-  return `${branch}@${commitRef}`
+  return `${commitRef}`
 }
 
 export default {
