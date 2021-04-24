@@ -1,12 +1,12 @@
 /* General */
 pre[class*="language-"],
 code[class*="language-"] {
-  @apply text-gray-300 text-xl text-left whitespace-pre break-normal font-mono;
+  @apply text-gray-600 dark:text-gray-300 text-xl text-left whitespace-pre break-normal font-mono;
   tab-size: 4;
   hyphens: none;
 }
 pre[class*="language-"] {
-  @apply p-4 my-2 overflow-auto bg-gray-800 rounded-lg;
+  @apply p-4 my-2 overflow-auto bg-gray-100 dark:bg-gray-800 rounded-lg;
 }
 :not(pre) > code[class*="language-"] {
   padding: .1em .3em;
@@ -16,7 +16,7 @@ pre[class*="language-"] {
 }
 /* Filename */
 .filename {
-  @apply absolute right-0 top-0 mx-2 my-1 text-gray-100 text-xl font-mono;
+  @apply absolute right-0 top-0 mx-2 my-1 text-gray-700 dark:text-gray-100 text-xl font-mono;
 }
 /* Tokens */
 .namespace {}
@@ -27,7 +27,7 @@ pre[class*="language-"] {
   @apply text-gray-500;
 }
 .token.punctuation {
-  @apply text-blue-300;
+  @apply text-blue-800 dark:text-blue-300;
 }
 .token.property,
 .token.tag,
@@ -51,7 +51,7 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  @apply text-blue-300;
+  @apply text-blue-800 dark:text-blue-300;
 }
 .token.atrule,
 .token.attr-value,
