@@ -41,7 +41,7 @@ export default {
 <style lang="postcss">
 .code-group.first-tab {
   pre[class*='language-'] {
-    @apply rounded-t-none;
+    @apply rounded-tl-none;
   }
 }
 </style>
