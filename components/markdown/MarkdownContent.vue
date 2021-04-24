@@ -17,7 +17,7 @@ export default {
 
 <style lang="postcss">
 .markdown-content {
-  @apply text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400 leading-relaxed;
+  @apply text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400;
 
   * {
     @apply mb-6;
@@ -30,7 +30,7 @@ export default {
   h4,
   h5,
   h6 {
-    @apply font-extrabold text-gray-900 dark:text-gray-300;
+    @apply font-extrabold text-gray-900;
   }
 
   h1,
@@ -74,6 +74,16 @@ export default {
     @apply italic text-teal-600;
   }
 
+  code:not(pre > *) {
+    @apply font-mono font-normal text-lg leading-relaxed text-purple-700;
+    &::before {
+      content: '`';
+    }
+    &::after {
+      content: '`';
+    }
+  }
+
   .nuxt-content-highlight {
     @apply relative;
   }
@@ -87,5 +97,13 @@ export default {
 .markdown-content h5,
 .markdown-content h6 {
   @apply dark:text-gray-300;
+}
+
+.markdown-content code:not(pre > *) {
+  @apply dark:text-purple-500;
+}
+
+.markdown-content a {
+  @apply dark:text-blue-500;
 }
 </style>
