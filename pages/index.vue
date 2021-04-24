@@ -2,11 +2,11 @@
   <page-content>
     <h1 class="sr-only">{{ intro.h1 }}</h1>
     <div class="flex relative">
-      <article class="content">
+      <markdown-content as="article">
         <p class="fake-h1">{{ intro.wave }}</p>
         <h2>{{ intro.h2 }}</h2>
         <nuxt-content :document="intro" />
-      </article>
+      </markdown-content>
       <div
         class="hidden absolute lg:flex items-center -right-8 inset-y-0 transform-gpu translate-x-full"
       >
