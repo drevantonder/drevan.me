@@ -1,6 +1,6 @@
 <template>
   <div
-    class="transition-colors duration-700 bg-white dark:bg-gray-900 min-h-screen"
+    class="bg-white dark:bg-gray-900 min-h-screen transition-background-color duration-700"
   >
     <page-nav />
     <Nuxt />

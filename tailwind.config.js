@@ -28,6 +28,9 @@ module.exports = {
         sans: ['KarlaVariable', ...defaultTheme.fontFamily.sans],
         system: defaultTheme.fontFamily.sans,
       },
+      transitionProperty: {
+        'background-color': 'background-color',
+      },
     },
   },
   variants: {},
