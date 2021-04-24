@@ -20,7 +20,7 @@ export default {
   @apply text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400;
 
   * {
-    @apply mb-6;
+    @apply mb-6 leading-relaxed;
   }
 
   h1,
@@ -72,6 +72,10 @@ export default {
 
   em {
     @apply italic text-teal-600;
+  }
+
+  strong {
+    @apply font-medium text-gray-200;
   }
 
   code:not(pre > *) {
