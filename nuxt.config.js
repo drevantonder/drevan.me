@@ -75,7 +75,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/content.css',
     '@fontsource/karla/variable.css',
     '@fontsource/karla/variable-italic.css',
   ],
