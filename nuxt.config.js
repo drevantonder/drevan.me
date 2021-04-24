@@ -147,6 +147,7 @@ export default {
   },
 
   sentry: {
+    disabled: !process.env.NETLIFY,
     tracing: true,
     config: {
       release: process.env.NETLIFY ? process.env.COMMIT_REF : 'dev',
