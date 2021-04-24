@@ -1,15 +1,40 @@
-.content {
+<template>
+  <component :is="as" class="markdown-content">
+    <slot />
+  </component>
+</template>
+
+<script>
+export default {
+  props: {
+    as: {
+      type: String,
+      default: 'div',
+    },
+  },
+}
+</script>
+
+<style lang="postcss">
+.markdown-content {
   @apply text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400 leading-relaxed;
 
   * {
     @apply mb-6;
   }
 
-  h1, .fake-h1, h2, h3, h4, h5, h6 {
+  h1,
+  .fake-h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-extrabold text-gray-900 dark:text-gray-300;
   }
 
-  h1, .fake-h1 {
+  h1,
+  .fake-h1 {
     @apply text-4xl mb-5 md:text-6xl md:mb-10;
 
     &:not(:first-child) {
@@ -54,6 +79,13 @@
   }
 }
 
-.content h1, .content .fake-h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.markdown-content h1,
+.markdown-content .fake-h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
   @apply dark:text-gray-300;
 }
+</style>
