@@ -45,12 +45,12 @@
     }
   }
 
-  code {
-    @apply font-mono px-2 py-0.5 bg-gray-800 rounded;
-  }
-
   em {
     @apply italic text-teal-600;
+  }
+
+  .nuxt-content-highlight {
+    @apply relative;
   }
 }
 

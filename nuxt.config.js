@@ -115,6 +115,10 @@ export default {
           ariaLabel: 'Link to this heading',
         },
       },
+
+      prism: {
+        theme: '~/assets/css/prism-theme.css',
+      },
     },
   },
 
