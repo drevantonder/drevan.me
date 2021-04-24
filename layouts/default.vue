@@ -6,3 +6,9 @@
     <Nuxt />
   </div>
 </template>
+
+<style lang="postcss">
+::selection {
+  @apply bg-purple-600;
+}
+</style>
