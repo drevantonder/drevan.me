@@ -9,6 +9,6 @@
 
 <style lang="postcss">
 ::selection {
-  @apply bg-purple-600 text-white;
+  @apply bg-purple-700 dark:bg-purple-600 text-white;
 }
 </style>
