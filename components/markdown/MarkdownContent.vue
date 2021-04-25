@@ -75,7 +75,7 @@ export default {
   }
 
   strong {
-    @apply font-medium text-gray-200;
+    @apply font-bold text-gray-900;
   }
 
   code:not(pre > *) {
@@ -109,5 +109,9 @@ export default {
 
 .markdown-content a {
   @apply dark:text-blue-500;
+}
+
+.markdown-content strong {
+  @apply dark:text-gray-200 dark:font-medium;
 }
 </style>
