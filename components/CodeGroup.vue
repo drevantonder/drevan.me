@@ -5,7 +5,7 @@
         v-for="tab in tabs"
         :key="tab"
         :class="`rounded-t-lg text-lg font-semibold px-3 py-1 
-          focus:outline-none focus:ring-2 focus:ring-teal-500 transition-background-color duration-700
+          focus:outline-none focus:ring-2 focus:ring-teal-500
         ${
           activeTab === tab
             ? 'bg-gray-100 dark:bg-gray-800 text-teal-500'

@@ -1,7 +1,7 @@
 /* General */
 pre[class*="language-"],
 code[class*="language-"] {
-  @apply text-gray-600 dark:text-gray-300 text-xl text-left whitespace-pre break-normal font-mono transition-background-color duration-700;
+  @apply text-gray-600 dark:text-gray-300 text-xl text-left whitespace-pre break-normal font-mono;
   tab-size: 4;
   hyphens: none;
 }
