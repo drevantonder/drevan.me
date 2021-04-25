@@ -112,6 +112,6 @@ export default {
 }
 
 .markdown-content strong {
-  @apply dark:text-gray-200 dark:font-medium;
+  @apply dark:text-gray-200;
 }
 </style>
