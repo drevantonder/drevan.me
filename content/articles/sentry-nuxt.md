@@ -15,7 +15,7 @@ description: How to add Sentry to Nuxt with tracing and releases
 
 Once your account is set up, [create a project](https://docs.sentry.io/product/sentry-basics/guides/integrate-frontend/create-new-project/) with *Vue* as the platform.
 
-Grab the *DSN* (Data Source Name) - we'll need that in the next bit. You can find it in **Project Settings > Client Keys (DSN)**.
+Grab the *DSN* (Data Source Name) - we'll need that in the next bit. You can find it under **Project Settings > Client Keys (DSN)**.
 
 ## Install the Sentry Module
 
