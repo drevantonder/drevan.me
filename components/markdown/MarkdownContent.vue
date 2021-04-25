@@ -87,10 +87,6 @@ export default {
       content: '`';
     }
   }
-
-  .nuxt-content-highlight {
-    @apply relative;
-  }
 }
 
 .markdown-content h1,

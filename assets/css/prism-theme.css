@@ -15,8 +15,12 @@ pre[class*="language-"] {
   background: #f9f2f4;
 }
 /* Filename */
+.nuxt-content-highlight {
+  @apply relative;
+}
+
 .filename {
-  @apply absolute right-0 top-0 mx-2 my-1 text-gray-700 dark:text-gray-100 text-xl font-mono;
+  @apply absolute right-0 top-0 mx-3 my-1 text-gray-700 dark:text-gray-100 text-lg font-medium font-mono;
 }
 /* Tokens */
 .namespace {}
