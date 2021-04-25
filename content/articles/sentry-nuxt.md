@@ -11,7 +11,7 @@ description: How to add Sentry to Nuxt with tracing and releases
 
 ## Create a Sentry Project
 
-[Create a sentry account](https://sentry.io/signup/) if you don't have on yet.
+[Create a sentry account](https://sentry.io/signup/) if you don't have one yet.
 
 Once you're account is set up, [create a project](https://docs.sentry.io/product/sentry-basics/guides/integrate-frontend/create-new-project/) with *Vue* as the platform.
 
