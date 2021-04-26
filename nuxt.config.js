@@ -148,6 +148,7 @@ export default {
       release: process.env.NETLIFY ? process.env.COMMIT_REF : 'dev',
     },
     publishRelease: true,
+    attachCommits: true,
     sourceMapStyle: 'hidden-source-map',
   },
 }
