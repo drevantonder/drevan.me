@@ -141,9 +141,7 @@ export default {
     domain: 'drevan.me',
   },
 
-  tailwindcss: {
-    jit: true,
-  },
+  tailwindcss: {},
 
   sentry: {
     disabled: !process.env.NETLIFY,

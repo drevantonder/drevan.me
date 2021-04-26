@@ -74,15 +74,10 @@ pre[class*="language-"] {
 .token.bold {
   @apply font-bold;
 }
-.token.italic {
-  @apply italic;
-}
 .token.entity {
   cursor: help;
 }
 /* Line Highlighting */
-
-// Not tested yet
 
 pre[data-line] {
   @apply relative;
