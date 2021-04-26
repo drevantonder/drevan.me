@@ -5,6 +5,10 @@
 [[plugins]]
   package = "@sentry/netlify-build-plugin"
 
+  [plugins.inputs]
+    sentryOrg = "drevan-me"
+    sentryProject = "andre-van-tonder"
+
 [[redirects]]
   from = "https://www.drevantonder.io/*"
   to = "https://drevan.me/:splat"
