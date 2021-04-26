@@ -9,8 +9,8 @@
   package = "@sentry/netlify-build-plugin"
 
   [plugins.inputs]
-    sentryOrg = "drevan-me"
-    sentryProject = "andre-van-tonder"
+    sentryOrg = "andre-van-tonder"
+    sentryProject = "drevan-me"
 
 [[redirects]]
   from = "https://www.drevantonder.io/*"
