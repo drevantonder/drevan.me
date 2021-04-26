@@ -144,11 +144,5 @@ export default {
 
   sentry: {
     tracing: true,
-    config: {
-      release: process.env.NETLIFY ? process.env.COMMIT_REF : 'dev',
-    },
-    publishRelease: true,
-    attachCommits: true,
-    sourceMapStyle: 'hidden-source-map',
   },
 }
