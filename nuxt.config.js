@@ -75,7 +75,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/content.css',
     '@fontsource/karla/variable.css',
     '@fontsource/karla/variable-italic.css',
   ],
@@ -115,6 +114,10 @@ export default {
           ariaLabel: 'Link to this heading',
         },
       },
+
+      prism: {
+        theme: '~/assets/css/prism-theme.css',
+      },
     },
   },
 
@@ -138,11 +141,10 @@ export default {
     domain: 'drevan.me',
   },
 
-  tailwindcss: {
-    jit: true,
-  },
+  tailwindcss: {},
 
   sentry: {
+    disabled: !process.env.NETLIFY,
     tracing: true,
   },
 }

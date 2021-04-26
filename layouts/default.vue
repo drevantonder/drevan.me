@@ -1,8 +1,14 @@
 <template>
   <div
-    class="transition-colors duration-700 bg-white dark:bg-gray-900 min-h-screen"
+    class="bg-white dark:bg-gray-900 min-h-screen transition-background-color duration-500"
   >
     <page-nav />
     <Nuxt />
   </div>
 </template>
+
+<style lang="postcss">
+::selection {
+  @apply bg-purple-700 dark:bg-purple-600 text-white;
+}
+</style>

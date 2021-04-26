@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+import '~/helpers/content-components'
 import Vue from 'vue'
 
 export default Vue.extend({

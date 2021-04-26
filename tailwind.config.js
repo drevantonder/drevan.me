@@ -2,6 +2,7 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  mode: 'jit',
   purge: [],
   darkMode: 'class',
   theme: {
@@ -11,6 +12,9 @@ module.exports = {
       teal: colors.teal,
       white: colors.white,
       black: colors.black,
+      pink: colors.pink,
+      emerald: colors.emerald,
+      purple: colors.purple,
       transparent: 'transparent',
       current: 'currentColor',
     },
@@ -24,6 +28,9 @@ module.exports = {
       fontFamily: {
         sans: ['KarlaVariable', ...defaultTheme.fontFamily.sans],
         system: defaultTheme.fontFamily.sans,
+      },
+      transitionProperty: {
+        'background-color': 'background-color',
       },
     },
   },
