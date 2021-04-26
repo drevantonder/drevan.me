@@ -1,6 +1,9 @@
 [build]
   publish = "dist"
   command = "nuxt generate"
+  
+[[plugins]]
+  package = "@sentry/netlify-build-plugin"
 
 [[redirects]]
   from = "https://www.drevantonder.io/*"
