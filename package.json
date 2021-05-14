@@ -21,7 +21,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@sentry/tracing": "^6.3.6",
     "core-js": "^3.12.1",
-    "nuxt": "^2.15.5",
+    "nuxt": "^2.15.6",
     "vue-plausible": "^1.1.4"
   },
   "devDependencies": {
