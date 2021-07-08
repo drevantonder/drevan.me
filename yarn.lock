@@ -1100,10 +1100,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/karla@^4.4.5":
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.4.5.tgz#18029200d1f973cf1024da4c925b187a2dcebbe0"
-  integrity sha512-pKwu33InMiGvdNoHvwFEHSMtLk0MRNHVs4fwl3oTDx6/8OeQ4zfr8XahJ2SD9H6vZxoGL8qAg/jZCFjvpdB/pQ==
+"@fontsource/karla@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.0.tgz#f38e39e698a3efd60db46513fafbd3996aeae3fc"
+  integrity sha512-ULtbpNQ8Dw4kcdwG6bPkp9HMBFVsHbdNRzYaCE5vWfZPcSj1r0eIFW/cpUPqnpmspZpTCtltPAwaXkpA5/q4sQ==
 
 "@fullhuman/postcss-purgecss@^4.0.3":
   version "4.0.3"
