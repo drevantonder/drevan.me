@@ -932,10 +932,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/karla@^4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.1.tgz#3788245d2984a727596170f4059689a3d2ecf1eb"
-  integrity sha512-inn9ZZHFxFiPQyYD/6LLDndYfAVDqzpTv9ai0Qs0TtSWQkJPST0dltuiTGJOEvfiQpY0COnrYqfdctirB4T8VQ==
+"@fontsource/karla@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.2.tgz#fc2c682f43adad70de6d86bc6db2b6901d0686fd"
+  integrity sha512-+3U76E6SZsDdlu0gDu40lely6bCqs95yACRuepxD6DXPXLSaoRzX6uj6/FAqBtEp53nX2N0cze3jEPh3ySc8HQ==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
