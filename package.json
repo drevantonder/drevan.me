@@ -17,7 +17,7 @@
   "dependencies": {
     "@fontsource/karla": "^4.5.5",
     "@nuxt/content": "^1.15.1",
-    "@nuxtjs/sentry": "^5.1.6",
+    "@nuxtjs/sentry": "^5.1.7",
     "@nuxtjs/sitemap": "^2.4.0",
     "@sentry/tracing": "^6.19.2",
     "core-js": "^3.21.1",
