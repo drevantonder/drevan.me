@@ -1,0 +1,18 @@
+---
+import LogoIcon from './LogoIcon.astro';
+
+export interface Props {
+	theme?: string;
+}
+
+const { theme = 'light' } = Astro.props;
+---
+  
+
+<div class="flex space-x-3 items-baseline">
+  <LogoIcon />
+  
+  <div class="font-display font-bold text-4xl">
+    <span class={ theme === 'dark' ? 'text-white' : 'text-purple-600' }>drevan</span><span class="text-cyan-400">.me</span>
+  </div>
+</div>
