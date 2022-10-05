@@ -1,12 +1,14 @@
 ---
 import Navbar from '../components/Navbar/Navbar.astro';
 
-export interface Props {
-	title: string;
-	description: string;
-}
+import type { MarkdownLayoutProps } from 'astro';
 
-const { title, description } = Astro.props;
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+}>;
+
+const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,11 +20,15 @@ const { title, description } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap">
-		<meta name="description" content={description} />
-		<title>{title} | drevan.me</title>
+		<meta name="description" content={frontmatter.description} />
+		<title>{frontmatter.title} | drevan.me</title>
 	</head>
 	<body class="h-screen bg-purple-900">
 		<Navbar />
-		<slot />
+		<main class="container mx-auto p-4 flex justify-center items-center h-[calc(100vh-72px)]">
+			<article class="prose prose-lg lg:prose-xl prose-invert -mt-[calc(72px/2)]">
+				<slot />
+			</article>
+		</main>
 	</body>
 </html>
