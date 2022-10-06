@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Layout.astro
 title: Andre van Tonder
-description: Hey 👋, I'm Andre van Tonder or “drevan”, a web developer and web designer passionate about creating beautifully crafted web experiences.
+description: Hey, I'm Andre van Tonder or “drevan”, a web developer and web designer passionate about creating beautifully crafted web experiences.
 ---
 
 <h1 class="sr-only">Intro for Andre van Tonder</h1>
