@@ -1,6 +1,6 @@
 import { animate, linear } from "popmotion"
 import { Emoji } from "./Emoji"
-import { EmojiManager, EmojiManagerEvent, OnUpdateSubscriber } from "./EmojiManager"
+import { EmojiManager, EmojiManagerEvent, OnInitSubscriber, OnUpdateSubscriber } from "./EmojiManager"
 import { randomValueBetween, getWindowHeight, getWindowWidth } from "./util"
 
 class Cloud extends Emoji {
@@ -16,7 +16,7 @@ class Cloud extends Emoji {
   static MIN_START_CLOUDS = 3
   static MAX_START_CLOUDS = 6
 
-  static init() {
+  static init: OnInitSubscriber = () => {
     for (let i = 0; i < randomValueBetween(Cloud.MIN_START_CLOUDS, Cloud.MAX_START_CLOUDS); i++) {
       new Cloud(randomValueBetween(0, 1))
     }
