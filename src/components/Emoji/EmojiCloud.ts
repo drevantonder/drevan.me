@@ -38,6 +38,8 @@ class Cloud {
     this.emojiEl.style.top = randomValueBetween(MIN_Y, MAX_Y) + '%'
     this.emojiEl.style.left = '-10%'
     this.emojiEl.style.fontSize = randomValueBetween(MIN_SIZE, MAX_SIZE) * (getWindowHeight() / 1000)  + 'px'
+    this.emojiEl.classList.add('hidden')
+    this.emojiEl.classList.add('sm:block')
     emojiLayerEl?.appendChild(this.emojiEl)
 
     const duration = getWindowWidth() * randomValueBetween(MIN_DURATION, MAX_DURATION)
