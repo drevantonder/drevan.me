@@ -1,48 +1,45 @@
 import { animate, linear } from "popmotion"
+import { Emoji } from "./Emoji"
+import { EmojiManager, EmojiManagerEvent, OnUpdateSubscriber } from "./EmojiManager"
+import { randomValueBetween, getWindowHeight, getWindowWidth } from "./util"
 
-const emoji = '☁️'
+class Cloud extends Emoji {
+  static EMOJI = '☁️'
 
-const CHANCE_OF_CLOUD_PER_SECOND = 0.1
-const MIN_Y = 75 // % from top
-const MAX_Y = 80 // % from top
-const MIN_SIZE = 24 // font-size
-const MAX_SIZE = 80 // font-size
-const MIN_DURATION = 40 // * Screen width
-const MAX_DURATION = 60 // * Screen width
+  static CHANCE_OF_CLOUD_PER_SECOND = 0.1
+  static MIN_Y = 75 // % from top
+  static MAX_Y = 80 // % from top
+  static MIN_SIZE = 24 // font-size
+  static MAX_SIZE = 80 // font-size
+  static MIN_DURATION = 40 // * Screen width
+  static MAX_DURATION = 60 // * Screen width
+  static MIN_START_CLOUDS = 3
+  static MAX_START_CLOUDS = 6
 
-const MIN_START_CLOUDS = 3
-const MAX_START_CLOUDS = 6
-
-const emojiLayerEl = document.querySelector('#emoji-layer')
-const getWindowWidth = () => window.innerWidth
-const getWindowHeight = () => window.innerHeight
-
-function randomValueBetween(min: number, max: number) {
-  return Math.random() * (max - min) + min
-}
-
-function createInitialClouds() {
-  for (let i = 0; i < randomValueBetween(MIN_START_CLOUDS, MAX_START_CLOUDS); i++) {
-    new Cloud(randomValueBetween(0, 1))
+  static init() {
+    for (let i = 0; i < randomValueBetween(Cloud.MIN_START_CLOUDS, Cloud.MAX_START_CLOUDS); i++) {
+      new Cloud(randomValueBetween(0, 1))
+    }
   }
-}
 
-class Cloud {
-  private emojiEl: HTMLElement
+  static update: OnUpdateSubscriber = ({ timeStamp, previousTimeStamp }) => {
+    const createNewCloud = Math.random() <= (Cloud.CHANCE_OF_CLOUD_PER_SECOND / 1000) * (timeStamp - previousTimeStamp)
+
+    if (createNewCloud) new Cloud()
+  } 
 
   constructor(elapsed: number = 0) {
-    this.emojiEl = document.createElement('div')
-    this.emojiEl.innerHTML = emoji
-    this.emojiEl.style.position = 'absolute'
-    this.emojiEl.style.transform = 'translate(-50%, -50%)'
-    this.emojiEl.style.top = randomValueBetween(MIN_Y, MAX_Y) + '%'
-    this.emojiEl.style.left = '-10%'
-    this.emojiEl.style.fontSize = randomValueBetween(MIN_SIZE, MAX_SIZE) * (getWindowHeight() / 1000)  + 'px'
-    this.emojiEl.classList.add('hidden')
-    this.emojiEl.classList.add('sm:block')
-    emojiLayerEl?.appendChild(this.emojiEl)
+    super()
+    
+    this.el.innerHTML = Cloud.EMOJI
+    this.el.style.top = randomValueBetween(Cloud.MIN_Y, Cloud.MAX_Y) + '%'
+    this.el.style.left = '-10%'
+    this.el.style.fontSize = randomValueBetween(Cloud.MIN_SIZE, Cloud.MAX_SIZE) * (getWindowHeight() / 1000)  + 'px'
+    this.el.classList.add('hidden')
+    this.el.classList.add('sm:block')
+    this.rootEl.appendChild(this.el)
 
-    const duration = getWindowWidth() * randomValueBetween(MIN_DURATION, MAX_DURATION)
+    const duration = getWindowWidth() * randomValueBetween(Cloud.MIN_DURATION, Cloud.MAX_DURATION)
 
     animate({
       from: -10,
@@ -51,43 +48,16 @@ class Cloud {
       ease: linear,
       elapsed: duration * elapsed,
       onUpdate: (value) => {
-        this.emojiEl.style.left = value + '%'
+        this.el.style.left = value + '%'
       },
       onComplete: () => {
         this.destroy()
       }
     })
   }
-
-  destroy() {
-    this.emojiEl.remove()
-  }
 }
 
-let start: DOMHighResTimeStamp
-let previousTimeStamp: DOMHighResTimeStamp
+const emojiManager = EmojiManager.getInstance()
 
-function update(timestamp: DOMHighResTimeStamp) {
-  if (start === undefined) {
-    start = timestamp;
-  }
-
-  const createNewCloud = Math.random() <= (CHANCE_OF_CLOUD_PER_SECOND / 1000) * (timestamp - previousTimeStamp)
-
-  if (createNewCloud) new Cloud()
-
-  previousTimeStamp = timestamp;
-  window.requestAnimationFrame(update);
-}
-
-function main () {
-  createInitialClouds()
-
-  window.requestAnimationFrame(update);
-}
-
-if (document.readyState === "complete" || document.readyState === "interactive") {
-  setTimeout(main, 1);
-} else {
-  document.addEventListener("DOMContentLoaded", main);
-}
+emojiManager.on(EmojiManagerEvent.Init, Cloud.init)
+emojiManager.on(EmojiManagerEvent.Update, Cloud.update)
