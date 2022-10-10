@@ -2,13 +2,13 @@ import { animate, linear } from "popmotion"
 
 const emoji = '☁️'
 
-const CHANCE_OF_CLOUD_PER_SECOND = 0.4
-const MIN_Y = 10 // % from top
-const MAX_Y = 19 // % from top
+const CHANCE_OF_CLOUD_PER_SECOND = 0.1
+const MIN_Y = 75 // % from top
+const MAX_Y = 80 // % from top
 const MIN_SIZE = 24 // font-size
-const MAX_SIZE = 160 // font-size
-const MIN_DURATION = 12 // * Screen width
-const MAX_DURATION = 20 // * Screen width
+const MAX_SIZE = 80 // font-size
+const MIN_DURATION = 40 // * Screen width
+const MAX_DURATION = 60 // * Screen width
 
 const MIN_START_CLOUDS = 3
 const MAX_START_CLOUDS = 6
