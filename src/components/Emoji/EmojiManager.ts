@@ -1,13 +1,12 @@
-export type OnUpdateSubscriber = (
-  { timeStamp,
-    startTimeStamp,
-    previousTimeStamp
-  }: {
-    timeStamp: DOMHighResTimeStamp;
-    startTimeStamp: DOMHighResTimeStamp;
-    previousTimeStamp: DOMHighResTimeStamp;
-  }
-) => void
+export type OnUpdateSubscriber = ({
+  timeStamp,
+  startTimeStamp,
+  previousTimeStamp,
+}: {
+  timeStamp: DOMHighResTimeStamp
+  startTimeStamp: DOMHighResTimeStamp
+  previousTimeStamp: DOMHighResTimeStamp
+}) => void
 
 export type OnInitSubscriber = () => void
 
@@ -17,8 +16,8 @@ export enum EmojiManagerEvent {
 }
 
 interface EventSubscribersMap {
-  [EmojiManagerEvent.Update]: OnUpdateSubscriber,
-  [EmojiManagerEvent.Init]: OnInitSubscriber,
+  [EmojiManagerEvent.Update]: OnUpdateSubscriber
+  [EmojiManagerEvent.Init]: OnInitSubscriber
 }
 
 document.addEventListener
@@ -34,20 +33,23 @@ export class EmojiManager {
   private updatePreviousTimeStamp: DOMHighResTimeStamp | undefined
 
   private constructor() {
-    Object.values(EmojiManagerEvent).forEach(event => {
+    Object.values(EmojiManagerEvent).forEach((event) => {
       this.subscribers[event] = []
     })
 
     // Initialize when the DOM is ready
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-      setTimeout(this.init, 1);
+    if (
+      document.readyState === 'complete' ||
+      document.readyState === 'interactive'
+    ) {
+      setTimeout(this.init, 1)
     } else {
-      document.addEventListener("DOMContentLoaded", this.init);
+      document.addEventListener('DOMContentLoaded', this.init)
     }
   }
 
   private init = () => {
-    this.subscribers[EmojiManagerEvent.Init].forEach(fn => fn())
+    this.subscribers[EmojiManagerEvent.Init].forEach((fn) => fn())
 
     window.requestAnimationFrame(this.update)
   }
@@ -60,7 +62,10 @@ export class EmojiManager {
     return EmojiManager.instance
   }
 
-  on<K extends keyof EventSubscribersMap>(event: K, fn: EventSubscribersMap[K]) {
+  on<K extends keyof EventSubscribersMap>(
+    event: K,
+    fn: EventSubscribersMap[K]
+  ) {
     this.subscribers[event].push(fn)
   }
 
@@ -69,11 +74,13 @@ export class EmojiManager {
       this.updateStartTimeStamp = timestamp
     }
 
-    this.subscribers[EmojiManagerEvent.Update].forEach((fn) => fn({
-      timeStamp: timestamp,
-      startTimeStamp: this.updateStartTimeStamp,
-      previousTimeStamp: this.updatePreviousTimeStamp || 0,
-    }))
+    this.subscribers[EmojiManagerEvent.Update].forEach((fn) =>
+      fn({
+        timeStamp: timestamp,
+        startTimeStamp: this.updateStartTimeStamp,
+        previousTimeStamp: this.updatePreviousTimeStamp || 0,
+      })
+    )
 
     this.updatePreviousTimeStamp = timestamp
     window.requestAnimationFrame(this.update)

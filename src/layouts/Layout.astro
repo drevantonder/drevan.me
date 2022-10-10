@@ -1,36 +1,41 @@
 ---
-import Navbar from '../components/Navbar/Navbar.astro';
-import Emoji from '../components/Emoji/Emoji.astro';
+import Navbar from '../components/Navbar/Navbar.astro'
+import Emoji from '../components/Emoji/Emoji.astro'
 
-import type { MarkdownLayoutProps } from 'astro';
+import type { MarkdownLayoutProps } from 'astro'
 
 type Props = MarkdownLayoutProps<{
-  title: string;
-  description: string;
-}>;
+  title: string
+  description: string
+}>
 
-const { frontmatter } = Astro.props;
+const { frontmatter } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap">
-		<meta name="description" content={frontmatter.description} />
-		<title>{frontmatter.title} | drevan.me</title>
-	</head>
-	<body class="h-screen bg-purple-900 isolate">
-		<Navbar />
-		<Emoji />
-		<main class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative">
-			<article class="prose prose-lg lg:prose-xl prose-invert">
-				<slot />
-			</article>
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap"
+    />
+    <meta name="description" content={frontmatter.description} />
+    <title>{frontmatter.title} | drevan.me</title>
+  </head>
+  <body class="h-screen bg-purple-900 isolate">
+    <Navbar />
+    <Emoji />
+    <main
+      class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"
+    >
+      <article class="prose prose-lg lg:prose-xl prose-invert">
+        <slot />
+      </article>
+    </main>
+  </body>
 </html>

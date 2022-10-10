@@ -1,7 +1,12 @@
-import { animate, linear } from "popmotion"
-import { Emoji } from "./Emoji"
-import { EmojiManager, EmojiManagerEvent, OnInitSubscriber, OnUpdateSubscriber } from "./EmojiManager"
-import { randomValueBetween, getWindowHeight, getWindowWidth } from "./util"
+import { animate, linear } from 'popmotion'
+import { Emoji } from './Emoji'
+import {
+  EmojiManager,
+  EmojiManagerEvent,
+  OnInitSubscriber,
+  OnUpdateSubscriber,
+} from './EmojiManager'
+import { randomValueBetween, getWindowHeight, getWindowWidth } from './util'
 
 class Cloud extends Emoji {
   static EMOJI = '☁️'
@@ -17,29 +22,41 @@ class Cloud extends Emoji {
   static MAX_START_CLOUDS = 6
 
   static init: OnInitSubscriber = () => {
-    for (let i = 0; i < randomValueBetween(Cloud.MIN_START_CLOUDS, Cloud.MAX_START_CLOUDS); i++) {
+    for (
+      let i = 0;
+      i < randomValueBetween(Cloud.MIN_START_CLOUDS, Cloud.MAX_START_CLOUDS);
+      i++
+    ) {
       new Cloud(randomValueBetween(0, 1))
     }
   }
 
   static update: OnUpdateSubscriber = ({ timeStamp, previousTimeStamp }) => {
-    const createNewCloud = Math.random() <= (Cloud.CHANCE_OF_CLOUD_PER_SECOND / 1000) * (timeStamp - previousTimeStamp)
+    const createNewCloud =
+      Math.random() <=
+      (Cloud.CHANCE_OF_CLOUD_PER_SECOND / 1000) *
+        (timeStamp - previousTimeStamp)
 
     if (createNewCloud) new Cloud()
-  } 
+  }
 
   constructor(elapsed: number = 0) {
     super()
-    
+
     this.el.innerHTML = Cloud.EMOJI
     this.el.style.top = randomValueBetween(Cloud.MIN_Y, Cloud.MAX_Y) + '%'
     this.el.style.left = '-10%'
-    this.el.style.fontSize = randomValueBetween(Cloud.MIN_SIZE, Cloud.MAX_SIZE) * (getWindowHeight() / 1000)  + 'px'
+    this.el.style.fontSize =
+      randomValueBetween(Cloud.MIN_SIZE, Cloud.MAX_SIZE) *
+        (getWindowHeight() / 1000) +
+      'px'
     this.el.classList.add('hidden')
     this.el.classList.add('sm:block')
     this.rootEl.appendChild(this.el)
 
-    const duration = getWindowWidth() * randomValueBetween(Cloud.MIN_DURATION, Cloud.MAX_DURATION)
+    const duration =
+      getWindowWidth() *
+      randomValueBetween(Cloud.MIN_DURATION, Cloud.MAX_DURATION)
 
     animate({
       from: -10,
@@ -52,7 +69,7 @@ class Cloud extends Emoji {
       },
       onComplete: () => {
         this.destroy()
-      }
+      },
     })
   }
 }
