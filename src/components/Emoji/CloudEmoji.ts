@@ -8,7 +8,7 @@ import {
 } from './EmojiManager'
 import { randomValueBetween, getWindowHeight, getWindowWidth } from './util'
 
-class Cloud extends Emoji {
+class CloudEmoji extends Emoji {
   static EMOJI = '☁️'
 
   static CHANCE_OF_CLOUD_PER_SECOND = 0.1
@@ -24,30 +24,35 @@ class Cloud extends Emoji {
   static init: OnInitSubscriber = () => {
     for (
       let i = 0;
-      i < randomValueBetween(Cloud.MIN_START_CLOUDS, Cloud.MAX_START_CLOUDS);
+      i <
+      randomValueBetween(
+        CloudEmoji.MIN_START_CLOUDS,
+        CloudEmoji.MAX_START_CLOUDS
+      );
       i++
     ) {
-      new Cloud(randomValueBetween(0, 1))
+      new CloudEmoji(randomValueBetween(0, 1))
     }
   }
 
   static update: OnUpdateSubscriber = ({ timeStamp, previousTimeStamp }) => {
     const createNewCloud =
       Math.random() <=
-      (Cloud.CHANCE_OF_CLOUD_PER_SECOND / 1000) *
+      (CloudEmoji.CHANCE_OF_CLOUD_PER_SECOND / 1000) *
         (timeStamp - previousTimeStamp)
 
-    if (createNewCloud) new Cloud()
+    if (createNewCloud) new CloudEmoji()
   }
 
   constructor(elapsed: number = 0) {
     super()
 
-    this.el.innerHTML = Cloud.EMOJI
-    this.el.style.top = randomValueBetween(Cloud.MIN_Y, Cloud.MAX_Y) + '%'
+    this.el.innerHTML = CloudEmoji.EMOJI
+    this.el.style.top =
+      randomValueBetween(CloudEmoji.MIN_Y, CloudEmoji.MAX_Y) + '%'
     this.el.style.left = '-10%'
     this.el.style.fontSize =
-      randomValueBetween(Cloud.MIN_SIZE, Cloud.MAX_SIZE) *
+      randomValueBetween(CloudEmoji.MIN_SIZE, CloudEmoji.MAX_SIZE) *
         (getWindowHeight() / 1000) +
       'px'
     this.el.classList.add('hidden')
@@ -56,7 +61,7 @@ class Cloud extends Emoji {
 
     const duration =
       getWindowWidth() *
-      randomValueBetween(Cloud.MIN_DURATION, Cloud.MAX_DURATION)
+      randomValueBetween(CloudEmoji.MIN_DURATION, CloudEmoji.MAX_DURATION)
 
     animate({
       from: -10,
@@ -76,5 +81,5 @@ class Cloud extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, Cloud.init)
-emojiManager.on(EmojiManagerEvent.Update, Cloud.update)
+emojiManager.on(EmojiManagerEvent.Init, CloudEmoji.init)
+emojiManager.on(EmojiManagerEvent.Update, CloudEmoji.update)
