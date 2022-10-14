@@ -6,18 +6,23 @@ import {
   EmojiManager,
   EmojiManagerEvent,
 } from './EmojiManager'
-import { randomValueBetween } from './util'
+import {
+  getAreasToAvoid,
+  getWindowHeight,
+  getWindowWidth,
+  randomValueBetween,
+} from './util'
 
 class StarEmoji extends Emoji {
   static EMOJI = '⭐️'
 
-  static MIN_Y = 2 // % from top
+  static MIN_Y = 0.5 // % from top
   static MAX_Y = 70 // % from top
-  static MIN_X = 2 // % from top
+  static MIN_X = 0.5 // % from top
   static MAX_X = 95 // % from top
 
   static MIN_NUMBER_OF_STARS = 40
-  static MAX_NUMBER_OF_STARS = 70
+  static MAX_NUMBER_OF_STARS = 60
 
   static MIN_ANIMATION_DELAY = 200
   static MAX_ANIMATION_DELAY = 5000
@@ -36,6 +41,7 @@ class StarEmoji extends Emoji {
       StarEmoji.MIN_NUMBER_OF_STARS,
       StarEmoji.MAX_NUMBER_OF_STARS
     )
+
     for (let i = 0; i < numberOfStars; i++) {
       new StarEmoji()
     }
@@ -46,11 +52,36 @@ class StarEmoji extends Emoji {
   constructor() {
     super()
 
+    const areasToAvoid = getAreasToAvoid()
+
+    let top,
+      left,
+      x = 0,
+      y = 0,
+      attempts = 0,
+      isInAreaToAvoid = false
+    const padding = 8
+    do {
+      top = randomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y)
+      left = randomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X)
+
+      x = (left / 100) * getWindowWidth()
+      y = (top / 100) * getWindowHeight()
+
+      isInAreaToAvoid = areasToAvoid.some((area) => {
+        return (
+          x > area.left - padding &&
+          x < area.right + padding &&
+          y > area.top - padding &&
+          y < area.bottom + padding
+        )
+      })
+      // In theory could be a forever loop, so we limit to 5 attempts
+    } while (isInAreaToAvoid && attempts++ < 5)
+
     this.el.innerHTML = StarEmoji.EMOJI
-    this.el.style.top =
-      randomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y) + '%'
-    this.el.style.left =
-      randomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X) + '%'
+    this.el.style.top = top + '%'
+    this.el.style.left = left + '%'
     this.el.style.fontSize =
       randomValueBetween(StarEmoji.MIN_SIZE, StarEmoji.MAX_SIZE) + 'px'
     this.rootEl.appendChild(this.el)
