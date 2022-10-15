@@ -40,7 +40,7 @@ export const recalculateCoordsUntilSafe = (
   getCoords: () => { x: number; y: number },
   padding: number = 0,
   maxAttempts: number = 10
-): void => {
+): boolean => {
   const areasToAvoid = getAreasToAvoid()
 
   let x = 0,
@@ -58,6 +58,8 @@ export const recalculateCoordsUntilSafe = (
         y < area.bottom + padding
       )
     })
-    // In theory could be a forever loop, so we limit to 5 attempts
+    // In theory could be a forever loop, so we limit to maxAttempts
   } while (isInAreaToAvoid && attempts++ < maxAttempts)
+
+  return !isInAreaToAvoid
 }

@@ -39,7 +39,10 @@ class MoonEmoji extends Emoji {
         y: (top / 100) * getWindowHeight(),
       }
     }
-    recalculateCoordsUntilSafe(getCoords, 8)
+
+    const canPlace = recalculateCoordsUntilSafe(getCoords, 8)
+
+    if (!canPlace) return // No safe space
 
     this.el.innerHTML = MoonEmoji.EMOJI
     this.el.style.top = top + '%'
