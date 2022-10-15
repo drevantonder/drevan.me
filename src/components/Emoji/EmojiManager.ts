@@ -57,7 +57,7 @@ export class EmojiManager {
   }
 
   private init = () => {
-    this.subscribers[EmojiManagerEvent.Init].forEach((fn) => fn())
+    this.subscribers[EmojiManagerEvent.Init].slice().forEach((fn) => fn())
 
     window.requestAnimationFrame(this.update)
   }
@@ -85,6 +85,8 @@ export class EmojiManager {
 
     if (index > -1) {
       this.subscribers[event].splice(index, 1)
+    } else {
+      throw new Error('Cannot unsubscribe from event that is not subscribed to')
     }
   }
 
@@ -93,7 +95,7 @@ export class EmojiManager {
       this.updateStartTimeStamp = timestamp
     }
 
-    this.subscribers[EmojiManagerEvent.Update].forEach((fn) =>
+    this.subscribers[EmojiManagerEvent.Update].slice().forEach((fn) =>
       fn({
         timeStamp: timestamp,
         startTimeStamp: this.updateStartTimeStamp,
@@ -106,8 +108,8 @@ export class EmojiManager {
   }
 
   private reset() {
-    this.subscribers[EmojiManagerEvent.Destroy].forEach((fn) => fn())
+    this.subscribers[EmojiManagerEvent.Destroy].slice().forEach((fn) => fn())
 
-    this.subscribers[EmojiManagerEvent.Init].forEach((fn) => fn())
+    this.subscribers[EmojiManagerEvent.Init].slice().forEach((fn) => fn())
   }
 }

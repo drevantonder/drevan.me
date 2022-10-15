@@ -15,7 +15,6 @@ export class Emoji {
     const rootEl = document.querySelector<HTMLElement>('#emoji-layer')
 
     if (!rootEl) {
-      this.destroy()
       throw new Error('Could not find #emoji-layer element')
     }
 

@@ -70,6 +70,8 @@ class CloudEmoji extends Emoji {
     if (createNewCloud) new CloudEmoji()
   }
 
+  private animation: ReturnType<typeof animate>
+
   constructor(elapsed: number = 0) {
     super()
 
@@ -87,7 +89,7 @@ class CloudEmoji extends Emoji {
       getWindowWidth() *
       getRandomValueBetween(CloudEmoji.MIN_DURATION, CloudEmoji.MAX_DURATION)
 
-    animate({
+    this.animation = animate({
       from: -10,
       to: 110,
       duration: duration,
@@ -100,6 +102,12 @@ class CloudEmoji extends Emoji {
         this.destroy()
       },
     })
+  }
+
+  override destroy() {
+    this.animation.stop()
+
+    super.destroy()
   }
 }
 
