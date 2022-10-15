@@ -105,5 +105,5 @@ class CloudEmoji extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, CloudEmoji.init)
-emojiManager.on(EmojiManagerEvent.Update, CloudEmoji.update)
+emojiManager.subscribe(EmojiManagerEvent.Init, CloudEmoji.init)
+emojiManager.subscribe(EmojiManagerEvent.Update, CloudEmoji.update)

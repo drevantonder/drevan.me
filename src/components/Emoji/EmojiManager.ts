@@ -1,3 +1,5 @@
+import { debounce } from './util'
+
 export type OnUpdateSubscriber = ({
   timeStamp,
   startTimeStamp,
@@ -9,18 +11,19 @@ export type OnUpdateSubscriber = ({
 }) => void
 
 export type OnInitSubscriber = () => void
+export type OnDestroySubscriber = () => void
 
 export enum EmojiManagerEvent {
   Update = 'update',
   Init = 'init',
+  Destroy = 'destroy',
 }
 
 interface EventSubscribersMap {
   [EmojiManagerEvent.Update]: OnUpdateSubscriber
   [EmojiManagerEvent.Init]: OnInitSubscriber
+  [EmojiManagerEvent.Destroy]: OnDestroySubscriber
 }
-
-document.addEventListener
 
 export class EmojiManager {
   private static instance: EmojiManager
@@ -46,6 +49,11 @@ export class EmojiManager {
     } else {
       document.addEventListener('DOMContentLoaded', this.init)
     }
+
+    window.addEventListener(
+      'resize',
+      debounce(() => this.reset(), 100)
+    )
   }
 
   private init = () => {
@@ -62,11 +70,22 @@ export class EmojiManager {
     return EmojiManager.instance
   }
 
-  on<K extends keyof EventSubscribersMap>(
+  subscribe<K extends keyof EventSubscribersMap>(
     event: K,
     fn: EventSubscribersMap[K]
   ) {
     this.subscribers[event].push(fn)
+  }
+
+  unsubscribe<K extends keyof EventSubscribersMap>(
+    event: K,
+    fn: EventSubscribersMap[K]
+  ) {
+    const index = this.subscribers[event].indexOf(fn)
+
+    if (index > -1) {
+      this.subscribers[event].splice(index, 1)
+    }
   }
 
   private update = (timestamp: DOMHighResTimeStamp) => {
@@ -84,5 +103,11 @@ export class EmojiManager {
 
     this.updatePreviousTimeStamp = timestamp
     window.requestAnimationFrame(this.update)
+  }
+
+  private reset() {
+    this.subscribers[EmojiManagerEvent.Destroy].forEach((fn) => fn())
+
+    this.subscribers[EmojiManagerEvent.Init].forEach((fn) => fn())
   }
 }

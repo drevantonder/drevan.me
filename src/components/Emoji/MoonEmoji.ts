@@ -63,5 +63,5 @@ class MoonEmoji extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, MoonEmoji.init)
-emojiManager.on(EmojiManagerEvent.Update, MoonEmoji.update)
+emojiManager.subscribe(EmojiManagerEvent.Init, MoonEmoji.init)
+emojiManager.subscribe(EmojiManagerEvent.Update, MoonEmoji.update)

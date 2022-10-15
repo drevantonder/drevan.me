@@ -1,6 +1,10 @@
+import { EmojiManager, EmojiManagerEvent } from './EmojiManager'
+
 export class Emoji {
   protected el: HTMLElement
   protected rootEl: HTMLElement
+
+  private destroyListener: () => void
 
   constructor() {
     this.el = document.createElement('div')
@@ -17,9 +21,21 @@ export class Emoji {
 
     this.rootEl = rootEl
     this.rootEl.appendChild(this.el)
+
+    this.destroyListener = () => this.destroy()
+
+    EmojiManager.getInstance().subscribe(
+      EmojiManagerEvent.Destroy,
+      this.destroyListener
+    )
   }
 
   protected destroy() {
+    EmojiManager.getInstance().unsubscribe(
+      EmojiManagerEvent.Destroy,
+      this.destroyListener
+    )
+
     this.el.remove()
   }
 }

@@ -49,5 +49,5 @@ class FlowerEmoji extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, FlowerEmoji.init)
-emojiManager.on(EmojiManagerEvent.Update, FlowerEmoji.update)
+emojiManager.subscribe(EmojiManagerEvent.Init, FlowerEmoji.init)
+emojiManager.subscribe(EmojiManagerEvent.Update, FlowerEmoji.update)

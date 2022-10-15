@@ -46,5 +46,5 @@ class TreeEmoji extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, TreeEmoji.init)
-emojiManager.on(EmojiManagerEvent.Update, TreeEmoji.update)
+emojiManager.subscribe(EmojiManagerEvent.Init, TreeEmoji.init)
+emojiManager.subscribe(EmojiManagerEvent.Update, TreeEmoji.update)

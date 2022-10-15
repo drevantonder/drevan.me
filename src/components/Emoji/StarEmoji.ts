@@ -122,5 +122,5 @@ class StarEmoji extends Emoji {
 
 const emojiManager = EmojiManager.getInstance()
 
-emojiManager.on(EmojiManagerEvent.Init, StarEmoji.init)
-emojiManager.on(EmojiManagerEvent.Update, StarEmoji.update)
+emojiManager.subscribe(EmojiManagerEvent.Init, StarEmoji.init)
+emojiManager.subscribe(EmojiManagerEvent.Update, StarEmoji.update)
