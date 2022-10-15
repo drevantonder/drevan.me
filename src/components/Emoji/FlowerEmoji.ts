@@ -39,6 +39,7 @@ class FlowerEmoji extends Emoji {
     super()
 
     this.el.innerHTML = getRandomChoice(FlowerEmoji.EMOJIS)
+    this.el.style.position = 'fixed'
     this.el.style.bottom = '0'
     this.el.style.left = x + 'px'
     this.el.style.fontSize = size + 'px'
