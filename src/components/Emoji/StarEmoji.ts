@@ -17,7 +17,7 @@ class StarEmoji extends Emoji {
   static EMOJI = '⭐️'
 
   static MIN_Y = 0.5 // % from top
-  static MAX_Y = 70 // % from top
+  static MAX_Y = 80 // % from top
   static MIN_X = 0.5 // % from top
   static MAX_X = 95 // % from top
 
