@@ -12,37 +12,36 @@ import {
   recalculateCoordsUntilSafe,
   getRandomValueBetween,
   getResponsiveValue,
-  ResponsiveValue,
 } from './util'
 
 class StarEmoji extends Emoji {
   static EMOJI = '⭐️'
 
   static MIN_Y = 0.5 // % from top
-  static MAX_Y: ResponsiveValue = {
+  static MAX_Y = getResponsiveValue({
     // % from top
     sm: 90,
     xl: 80,
-  }
-  static MIN_X: ResponsiveValue = {
+  })
+  static MIN_X = getResponsiveValue({
     // % from left
     sm: 5,
     xl: 0.5,
-  }
-  static MAX_X: ResponsiveValue = {
+  })
+  static MAX_X = getResponsiveValue({
     // % from left
     sm: 95,
     xl: 99.5,
-  }
+  })
 
-  static MIN_NUMBER: ResponsiveValue = {
-    sm: 10,
-    xl: 40,
-  }
-  static MAX_NUMBER: ResponsiveValue = {
+  static MAX_NUMBER = getResponsiveValue({
     sm: 20,
     xl: 60,
-  }
+  })
+  static MIN_NUMBER = getResponsiveValue({
+    sm: 10,
+    xl: 40,
+  })
 
   static MIN_ANIMATION_DELAY = 200
   static MAX_ANIMATION_DELAY = 5000
@@ -58,8 +57,8 @@ class StarEmoji extends Emoji {
 
   static init: OnInitSubscriber = () => {
     const numberOfStars = getRandomValueBetween(
-      getResponsiveValue(StarEmoji.MIN_NUMBER),
-      getResponsiveValue(StarEmoji.MAX_NUMBER)
+      StarEmoji.MIN_NUMBER,
+      StarEmoji.MAX_NUMBER
     )
 
     for (let i = 0; i < numberOfStars; i++) {
@@ -74,14 +73,8 @@ class StarEmoji extends Emoji {
 
     let top, left
     const getCoords = () => {
-      top = getRandomValueBetween(
-        StarEmoji.MIN_Y,
-        getResponsiveValue(StarEmoji.MAX_Y)
-      )
-      left = getRandomValueBetween(
-        getResponsiveValue(StarEmoji.MIN_X),
-        getResponsiveValue(StarEmoji.MAX_X)
-      )
+      top = getRandomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y)
+      left = getRandomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X)
 
       return {
         x: (left / 100) * getWindowWidth(),
