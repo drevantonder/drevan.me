@@ -92,7 +92,7 @@ class StarEmoji extends Emoji {
         const [opacity, scale, rotation] = value.split(' ')
 
         this.el.style.opacity = opacity + '%'
-        this.el.style.transform = `translate(-50%, -50%) scale(${scale}) rotate(${rotation}deg)`
+        this.el.style.transform = `scale(${scale}) rotate(${rotation}deg)`
       },
     })
   }

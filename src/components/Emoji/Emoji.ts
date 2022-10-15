@@ -5,7 +5,7 @@ export class Emoji {
   constructor() {
     this.el = document.createElement('div')
     this.el.style.position = 'absolute'
-    this.el.style.transform = 'translate(-50%, -50%)'
+    this.el.style.lineHeight = '1em'
     this.el.ariaHidden = 'true'
 
     const rootEl = document.querySelector<HTMLElement>('#emoji-layer')
