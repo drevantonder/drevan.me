@@ -44,7 +44,7 @@ class MoonEmoji extends Emoji {
     this.el.innerHTML = MoonEmoji.EMOJI
     this.el.style.top = top + '%'
     this.el.style.left = left + '%'
-    this.el.style.fontSize = '24px'
+    this.el.style.fontSize = '40px'
     this.rootEl.appendChild(this.el)
   }
 }
