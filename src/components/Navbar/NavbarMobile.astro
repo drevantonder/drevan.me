@@ -8,7 +8,7 @@ import Logo from '../Logo/Logo.astro'
   <Logo theme="dark" />
 </div>
 
-<div x-data="{ open: false }" class="isolate z-20">
+<div x-data="{ open: false }" class="relative z-20">
   <button
     x-on:click="open = !open"
     class="fixed bottom-8 right-8 rounded-full border-cyan-400/50 border-2 p-2 text-cyan-400 block sm:hidden z-20"
