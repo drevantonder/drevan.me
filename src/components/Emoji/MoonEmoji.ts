@@ -6,9 +6,9 @@ import {
   EmojiManagerEvent,
 } from './EmojiManager'
 import {
-  getAreasToAvoid,
   getWindowHeight,
   getWindowWidth,
+  recalculateCoordsUntilSafe,
   randomValueBetween,
 } from './util'
 
@@ -29,32 +29,17 @@ class MoonEmoji extends Emoji {
   constructor() {
     super()
 
-    const areasToAvoid = getAreasToAvoid()
-
-    let top,
-      left,
-      x = 0,
-      y = 0,
-      attempts = 0,
-      isInAreaToAvoid = false
-    const padding = 8
-    do {
+    let top, left
+    const getCoords = () => {
       top = randomValueBetween(MoonEmoji.MIN_Y, MoonEmoji.MAX_Y)
       left = randomValueBetween(MoonEmoji.MIN_X, MoonEmoji.MAX_X)
 
-      x = (left / 100) * getWindowWidth()
-      y = (top / 100) * getWindowHeight()
-
-      isInAreaToAvoid = areasToAvoid.some((area) => {
-        return (
-          x > area.left - padding &&
-          x < area.right + padding &&
-          y > area.top - padding &&
-          y < area.bottom + padding
-        )
-      })
-      // In theory could be a forever loop, so we limit to 5 attempts
-    } while (isInAreaToAvoid && attempts++ < 5)
+      return {
+        x: (left / 100) * getWindowWidth(),
+        y: (top / 100) * getWindowHeight(),
+      }
+    }
+    recalculateCoordsUntilSafe(getCoords, 8)
 
     this.el.innerHTML = MoonEmoji.EMOJI
     this.el.style.top = top + '%'

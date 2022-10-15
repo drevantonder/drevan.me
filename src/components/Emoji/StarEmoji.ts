@@ -7,9 +7,9 @@ import {
   EmojiManagerEvent,
 } from './EmojiManager'
 import {
-  getAreasToAvoid,
   getWindowHeight,
   getWindowWidth,
+  recalculateCoordsUntilSafe,
   randomValueBetween,
 } from './util'
 
@@ -52,32 +52,17 @@ class StarEmoji extends Emoji {
   constructor() {
     super()
 
-    const areasToAvoid = getAreasToAvoid()
-
-    let top,
-      left,
-      x = 0,
-      y = 0,
-      attempts = 0,
-      isInAreaToAvoid = false
-    const padding = 8
-    do {
+    let top, left
+    const getCoords = () => {
       top = randomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y)
       left = randomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X)
 
-      x = (left / 100) * getWindowWidth()
-      y = (top / 100) * getWindowHeight()
-
-      isInAreaToAvoid = areasToAvoid.some((area) => {
-        return (
-          x > area.left - padding &&
-          x < area.right + padding &&
-          y > area.top - padding &&
-          y < area.bottom + padding
-        )
-      })
-      // In theory could be a forever loop, so we limit to 5 attempts
-    } while (isInAreaToAvoid && attempts++ < 5)
+      return {
+        x: (left / 100) * getWindowWidth(),
+        y: (top / 100) * getWindowHeight(),
+      }
+    }
+    recalculateCoordsUntilSafe(getCoords, 8)
 
     this.el.innerHTML = StarEmoji.EMOJI
     this.el.style.top = top + '%'
