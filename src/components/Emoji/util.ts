@@ -6,6 +6,9 @@ export const getRandomValueBetween = (min: number, max: number) => {
   return Math.random() * (max - min) + min
 }
 
+export const getRandomChoice = (array: Array<any>) =>
+  array[Math.floor(Math.random() * array.length)]
+
 export const getAreasToAvoid = () =>
   [...document.querySelectorAll('[data-no-emoji]')].map((el) =>
     el.getBoundingClientRect()
