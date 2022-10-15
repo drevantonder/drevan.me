@@ -39,7 +39,7 @@ export const getResponsiveValue = (value: ResponsiveValue) => {
 export const recalculateCoordsUntilSafe = (
   getCoords: () => { x: number; y: number },
   padding: number = 0,
-  maxAttempts: number = 5
+  maxAttempts: number = 10
 ): void => {
   const areasToAvoid = getAreasToAvoid()
 
