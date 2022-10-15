@@ -29,7 +29,9 @@ class MoonEmoji extends Emoji {
         md: 1,
       })
     )
-      new MoonEmoji()
+      return
+
+    new MoonEmoji()
   }
 
   static update: OnUpdateSubscriber = () => {}
