@@ -12,8 +12,8 @@ class CloudEmoji extends Emoji {
   static EMOJI = '☁️'
 
   static CHANCE_OF_CLOUD_PER_SECOND = 0.1
-  static MIN_Y = 75 // % from top
-  static MAX_Y = 80 // % from top
+  static MIN_Y = 72 // % from top
+  static MAX_Y = 78 // % from top
   static MIN_SIZE = 24 // font-size
   static MAX_SIZE = 80 // font-size
   static MIN_DURATION = 40 // * Screen width
