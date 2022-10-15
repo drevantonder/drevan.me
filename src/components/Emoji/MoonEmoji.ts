@@ -10,6 +10,7 @@ import {
   getWindowWidth,
   recalculateCoordsUntilSafe,
   getRandomValueBetween,
+  getResponsiveValue,
 } from './util'
 
 class MoonEmoji extends Emoji {
@@ -21,7 +22,14 @@ class MoonEmoji extends Emoji {
   static MAX_X = 20 // % from top
 
   static init: OnInitSubscriber = () => {
-    new MoonEmoji()
+    // Hide on small screens
+    if (
+      !getResponsiveValue({
+        sm: 0,
+        md: 1,
+      })
+    )
+      new MoonEmoji()
   }
 
   static update: OnUpdateSubscriber = () => {}
