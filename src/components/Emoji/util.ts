@@ -9,10 +9,24 @@ export const getRandomValueBetween = (min: number, max: number) => {
 export const getRandomChoice = (array: Array<any>) =>
   array[Math.floor(Math.random() * array.length)]
 
-export const getAreasToAvoid = () =>
-  [...document.querySelectorAll('[data-no-emoji]')].map((el) =>
+export const getAreasToAvoid = () => {
+  const areas = [...document.querySelectorAll('[data-no-emoji]')].map((el) =>
     el.getBoundingClientRect()
   )
+
+  document.querySelectorAll('[data-no-emoji-text]').forEach((el) => {
+    const iter = document.createNodeIterator(el, NodeFilter.SHOW_TEXT)
+
+    let textNode
+    while ((textNode = iter.nextNode())) {
+      const range = document.createRange()
+      range.selectNode(textNode)
+      areas.push(range.getBoundingClientRect())
+    }
+  })
+
+  return areas
+}
 
 export const debounce = (fn: Function, ms = 300) => {
   let timeoutId: ReturnType<typeof setTimeout>

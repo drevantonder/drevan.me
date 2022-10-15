@@ -20,14 +20,18 @@ const { frontmatter } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://plausible.io">
+    <link rel="preconnect" href="https://plausible.io" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap"
     />
     <meta name="description" content={frontmatter.description} />
     <title>{frontmatter.title} | drevan.me</title>
-    <script defer data-domain="drevan.me" src="https://plausible.io/js/plausible.js"></script>
+    <script
+      defer
+      data-domain="drevan.me"
+      src="https://plausible.io/js/plausible.js"
+    ></script>
   </head>
   <body class="h-screen bg-purple-900 isolate">
     <Navbar />
@@ -35,7 +39,10 @@ const { frontmatter } = Astro.props
     <main
       class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"
     >
-      <article class="prose prose-lg lg:prose-xl prose-invert" data-no-emoji>
+      <article
+        class="prose prose-lg lg:prose-xl prose-invert"
+        data-no-emoji-text
+      >
         <slot />
       </article>
     </main>
