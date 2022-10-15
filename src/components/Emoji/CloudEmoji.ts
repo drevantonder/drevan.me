@@ -18,27 +18,11 @@ class CloudEmoji extends Emoji {
 
   static CHANCE_OF_CLOUD_PER_SECOND = 0.1
 
-  static MIN_Y = getResponsiveValue({
-    // % from top
-    sm: 80,
-    xl: 72,
-  })
-  static MAX_Y = getResponsiveValue({
-    // % from top
-    sm: 83,
-    xl: 78,
-  })
+  static MIN_Y = 72 // % from top
+  static MAX_Y = 78 // % from top
 
-  static MIN_SIZE = getResponsiveValue({
-    // font-size
-    sm: 18,
-    xl: 24,
-  })
-  static MAX_SIZE = getResponsiveValue({
-    // font-size
-    sm: 32,
-    xl: 80,
-  })
+  static MIN_SIZE = 24 //font-size
+  static MAX_SIZE = 80 //font-size
 
   static MIN_DURATION = 40 // * Screen width
   static MAX_DURATION = 60 // * Screen width
@@ -46,6 +30,15 @@ class CloudEmoji extends Emoji {
   static MAX_START_CLOUDS = 6
 
   static init: OnInitSubscriber = () => {
+    // Hide on small screens
+    if (
+      !getResponsiveValue({
+        sm: 0,
+        md: 1,
+      })
+    )
+      return
+
     for (
       let i = 0;
       i <
@@ -60,6 +53,15 @@ class CloudEmoji extends Emoji {
   }
 
   static update: OnUpdateSubscriber = ({ timeStamp, previousTimeStamp }) => {
+    // Hide on small screens
+    if (
+      !getResponsiveValue({
+        sm: 0,
+        md: 1,
+      })
+    )
+      return
+
     const createNewCloud =
       Math.random() <=
       (CloudEmoji.CHANCE_OF_CLOUD_PER_SECOND / 1000) *
