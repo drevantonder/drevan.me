@@ -33,7 +33,7 @@ export type ResponsiveValue = {
 export const getResponsiveValue = (value: ResponsiveValue) => {
   const windowWidth = getWindowWidth()
 
-  if (windowWidth <= 640) value.base
+  if (windowWidth <= 640) return value.base
   if (windowWidth <= 768) return value.sm || value.base
   if (windowWidth <= 1024) return value.md || value.sm || value.base
   if (windowWidth <= 1280) return value.lg || value.md || value.sm || value.base
