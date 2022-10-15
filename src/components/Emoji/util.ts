@@ -14,6 +14,22 @@ export const getAreasToAvoid = () =>
     el.getBoundingClientRect()
   )
 
+export type ResponsiveValue = {
+  sm?: number
+  md?: number
+  lg?: number
+  xl?: number
+}
+
+export const getResponsiveValue = (value: ResponsiveValue) => {
+  const windowWidth = getWindowWidth()
+
+  if (windowWidth >= 1280 && value.xl) return value.xl
+  if (windowWidth >= 1024 && value.lg) return value.lg
+  if (windowWidth >= 768 && value.md) return value.md
+  return value.sm || 0
+}
+
 /**
  * Recalculates emoji's position until they are outside marked areas or reaches max attempts.
  * @param {Function} getCoords - Function that returns emoji's coordinates.
