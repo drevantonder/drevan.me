@@ -5,16 +5,29 @@ import {
   EmojiManager,
   EmojiManagerEvent,
 } from './EmojiManager'
-import { getRandomValueBetween, getRandomChoice, getWindowWidth } from './util'
+import {
+  getRandomValueBetween,
+  getRandomChoice,
+  getWindowWidth,
+  getResponsiveValue,
+} from './util'
 
 class TreeEmoji extends Emoji {
   static TREE_EMOJIS = [new Date().getMonth() === 11 ? '🎄' : '🌲', '🌳']
 
   static MIN_SPACE_BETWEEN_TREES = 1.2 // * font size
-  static MAX_SPACE_BETWEEN_TREES = 4.5 // * font size
+  static MAX_SPACE_BETWEEN_TREES = 3.5 // * font size
 
-  static MIN_SIZE = 20 // font-size
-  static MAX_SIZE = 40 // font-size
+  static MIN_SIZE = getResponsiveValue({
+    // font-size
+    base: 6,
+    sm: 12,
+  })
+  static MAX_SIZE = getResponsiveValue({
+    // font-size
+    base: 24,
+    sm: 40,
+  })
 
   static init: OnInitSubscriber = () => {
     const windowWidth = getWindowWidth()
@@ -25,7 +38,7 @@ class TreeEmoji extends Emoji {
         TreeEmoji.MAX_SPACE_BETWEEN_TREES
       )
       const size = getRandomValueBetween(TreeEmoji.MIN_SIZE, TreeEmoji.MAX_SIZE)
-      x += spaceBetween * size
+      x += x !== 0 ? spaceBetween * size : (spaceBetween * size) / 2
       new TreeEmoji(x, size)
     }
   }
