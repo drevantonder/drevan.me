@@ -18,19 +18,19 @@ class MoonEmoji extends Emoji {
 
   static MIN_Y = 10 // % from top
   static MAX_Y = 20 // % from top
-  static MIN_X = 10 // % from top
-  static MAX_X = 20 // % from top
+  static MIN_X = 10 // % from left
+  static MAX_X = getResponsiveValue({
+    // % from left
+    base: 90,
+    md: 20,
+  })
+
+  static SIZE = getResponsiveValue({
+    base: 20,
+    md: 40,
+  })
 
   static init: OnInitSubscriber = () => {
-    // Hide on small screens
-    if (
-      !getResponsiveValue({
-        base: 0,
-        md: 1,
-      })
-    )
-      return
-
     new MoonEmoji()
   }
 
@@ -50,14 +50,14 @@ class MoonEmoji extends Emoji {
       }
     }
 
-    const canPlace = recalculateCoordsUntilSafe(getCoords, 8)
+    const canPlace = recalculateCoordsUntilSafe(getCoords, 8, 40)
 
     if (!canPlace) return // No safe space
 
     this.el.innerHTML = MoonEmoji.EMOJI
     this.el.style.top = top + '%'
     this.el.style.left = left + '%'
-    this.el.style.fontSize = '40px'
+    this.el.style.fontSize = MoonEmoji.SIZE + 'px'
   }
 }
 
