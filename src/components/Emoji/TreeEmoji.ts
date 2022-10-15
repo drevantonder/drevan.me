@@ -8,7 +8,7 @@ import {
 import { getRandomValueBetween, getRandomChoice, getWindowWidth } from './util'
 
 class TreeEmoji extends Emoji {
-  static TREE_EMOJIS = ['🌲', '🌳']
+  static TREE_EMOJIS = [new Date().getMonth() === 11 ? '🎄' : '🌲', '🌳']
 
   static MIN_SPACE_BETWEEN_TREES = 1.2 // * font size
   static MAX_SPACE_BETWEEN_TREES = 4.5 // * font size
