@@ -10,7 +10,7 @@ import {
   getWindowHeight,
   getWindowWidth,
   recalculateCoordsUntilSafe,
-  randomValueBetween,
+  getRandomValueBetween,
 } from './util'
 
 class StarEmoji extends Emoji {
@@ -37,7 +37,7 @@ class StarEmoji extends Emoji {
   static MAX_SIZE = 14 // font-size
 
   static init: OnInitSubscriber = () => {
-    const numberOfStars = randomValueBetween(
+    const numberOfStars = getRandomValueBetween(
       StarEmoji.MIN_NUMBER_OF_STARS,
       StarEmoji.MAX_NUMBER_OF_STARS
     )
@@ -54,8 +54,8 @@ class StarEmoji extends Emoji {
 
     let top, left
     const getCoords = () => {
-      top = randomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y)
-      left = randomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X)
+      top = getRandomValueBetween(StarEmoji.MIN_Y, StarEmoji.MAX_Y)
+      left = getRandomValueBetween(StarEmoji.MIN_X, StarEmoji.MAX_X)
 
       return {
         x: (left / 100) * getWindowWidth(),
@@ -68,22 +68,22 @@ class StarEmoji extends Emoji {
     this.el.style.top = top + '%'
     this.el.style.left = left + '%'
     this.el.style.fontSize =
-      randomValueBetween(StarEmoji.MIN_SIZE, StarEmoji.MAX_SIZE) + 'px'
+      getRandomValueBetween(StarEmoji.MIN_SIZE, StarEmoji.MAX_SIZE) + 'px'
     this.rootEl.appendChild(this.el)
 
     animate({
       to: ['70 1 0', '100 1.4 45', '70 1 0'],
       repeat: Infinity,
       repeatType: 'reverse',
-      duration: randomValueBetween(
+      duration: getRandomValueBetween(
         StarEmoji.MIN_DURATION,
         StarEmoji.MAX_DURATION
       ),
-      repeatDelay: randomValueBetween(
+      repeatDelay: getRandomValueBetween(
         StarEmoji.MIN_REPEAT_DELAY,
         StarEmoji.MAX_REPEAT_DELAY
       ),
-      elapsed: -randomValueBetween(
+      elapsed: -getRandomValueBetween(
         StarEmoji.MIN_ANIMATION_DELAY,
         StarEmoji.MAX_ANIMATION_DELAY
       ),

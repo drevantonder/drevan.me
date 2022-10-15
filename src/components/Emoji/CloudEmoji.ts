@@ -6,7 +6,7 @@ import {
   OnInitSubscriber,
   OnUpdateSubscriber,
 } from './EmojiManager'
-import { randomValueBetween, getWindowHeight, getWindowWidth } from './util'
+import { getRandomValueBetween, getWindowHeight, getWindowWidth } from './util'
 
 class CloudEmoji extends Emoji {
   static EMOJI = '☁️'
@@ -25,13 +25,13 @@ class CloudEmoji extends Emoji {
     for (
       let i = 0;
       i <
-      randomValueBetween(
+      getRandomValueBetween(
         CloudEmoji.MIN_START_CLOUDS,
         CloudEmoji.MAX_START_CLOUDS
       );
       i++
     ) {
-      new CloudEmoji(randomValueBetween(0, 1))
+      new CloudEmoji(getRandomValueBetween(0, 1))
     }
   }
 
@@ -49,10 +49,10 @@ class CloudEmoji extends Emoji {
 
     this.el.innerHTML = CloudEmoji.EMOJI
     this.el.style.top =
-      randomValueBetween(CloudEmoji.MIN_Y, CloudEmoji.MAX_Y) + '%'
+      getRandomValueBetween(CloudEmoji.MIN_Y, CloudEmoji.MAX_Y) + '%'
     this.el.style.left = '-10%'
     this.el.style.fontSize =
-      randomValueBetween(CloudEmoji.MIN_SIZE, CloudEmoji.MAX_SIZE) *
+      getRandomValueBetween(CloudEmoji.MIN_SIZE, CloudEmoji.MAX_SIZE) *
         (getWindowHeight() / 1000) +
       'px'
     this.el.classList.add('hidden')
@@ -61,7 +61,7 @@ class CloudEmoji extends Emoji {
 
     const duration =
       getWindowWidth() *
-      randomValueBetween(CloudEmoji.MIN_DURATION, CloudEmoji.MAX_DURATION)
+      getRandomValueBetween(CloudEmoji.MIN_DURATION, CloudEmoji.MAX_DURATION)
 
     animate({
       from: -10,

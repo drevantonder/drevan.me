@@ -9,7 +9,7 @@ import {
   getWindowHeight,
   getWindowWidth,
   recalculateCoordsUntilSafe,
-  randomValueBetween,
+  getRandomValueBetween,
 } from './util'
 
 class MoonEmoji extends Emoji {
@@ -31,8 +31,8 @@ class MoonEmoji extends Emoji {
 
     let top, left
     const getCoords = () => {
-      top = randomValueBetween(MoonEmoji.MIN_Y, MoonEmoji.MAX_Y)
-      left = randomValueBetween(MoonEmoji.MIN_X, MoonEmoji.MAX_X)
+      top = getRandomValueBetween(MoonEmoji.MIN_Y, MoonEmoji.MAX_Y)
+      left = getRandomValueBetween(MoonEmoji.MIN_X, MoonEmoji.MAX_X)
 
       return {
         x: (left / 100) * getWindowWidth(),
