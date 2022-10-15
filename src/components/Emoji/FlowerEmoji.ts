@@ -8,7 +8,7 @@ import {
 import { getRandomValueBetween, getRandomChoice, getWindowWidth } from './util'
 
 class FlowerEmoji extends Emoji {
-  static EMOJIS = ['🌼', '🌷', '🌹', '🌺', '🌻']
+  static EMOJIS = ['🌼', '🌷', '🌹', '🌻']
 
   static MIN_SPACE_BETWEEN = 8 // * font size
   static MAX_SPACE_BETWEEN = 20 // * font size
