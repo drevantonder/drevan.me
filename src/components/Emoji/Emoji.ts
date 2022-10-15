@@ -10,12 +10,16 @@ export class Emoji {
 
     const rootEl = document.querySelector<HTMLElement>('#emoji-layer')
 
-    if (!rootEl) throw new Error('Could not find #emoji-layer element')
+    if (!rootEl) {
+      this.destroy()
+      throw new Error('Could not find #emoji-layer element')
+    }
 
     this.rootEl = rootEl
+    this.rootEl.appendChild(this.el)
   }
 
-  destroy() {
+  protected destroy() {
     this.el.remove()
   }
 }

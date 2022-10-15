@@ -41,7 +41,6 @@ class TreeEmoji extends Emoji {
     this.el.style.left = x + 'px'
     this.el.style.fontSize = size + 'px'
     this.el.style.zIndex = '0'
-    this.rootEl.appendChild(this.el)
   }
 }
 

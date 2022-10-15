@@ -82,7 +82,6 @@ class CloudEmoji extends Emoji {
         (getWindowHeight() / 1000) +
       'px'
     this.el.style.zIndex = '10'
-    this.rootEl.appendChild(this.el)
 
     const duration =
       getWindowWidth() *

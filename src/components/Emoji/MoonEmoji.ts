@@ -58,7 +58,6 @@ class MoonEmoji extends Emoji {
     this.el.style.top = top + '%'
     this.el.style.left = left + '%'
     this.el.style.fontSize = '40px'
-    this.rootEl.appendChild(this.el)
   }
 }
 
