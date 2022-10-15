@@ -15,6 +15,7 @@ export const getAreasToAvoid = () =>
   )
 
 export type ResponsiveValue = {
+  base: number
   sm?: number
   md?: number
   lg?: number
@@ -24,10 +25,11 @@ export type ResponsiveValue = {
 export const getResponsiveValue = (value: ResponsiveValue) => {
   const windowWidth = getWindowWidth()
 
-  if (windowWidth >= 1280 && value.xl) return value.xl
-  if (windowWidth >= 1024 && value.lg) return value.lg
-  if (windowWidth >= 768 && value.md) return value.md
-  return value.sm || 0
+  if (windowWidth <= 640) value.base
+  if (windowWidth <= 768) return value.sm || value.base
+  if (windowWidth <= 1024) return value.md || value.sm || value.base
+  if (windowWidth <= 1280) return value.lg || value.md || value.sm || value.base
+  return value.xl || value.lg || value.md || value.sm || value.base
 }
 
 /**

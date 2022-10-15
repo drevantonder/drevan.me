@@ -25,7 +25,7 @@ class MoonEmoji extends Emoji {
     // Hide on small screens
     if (
       !getResponsiveValue({
-        sm: 0,
+        base: 0,
         md: 1,
       })
     )

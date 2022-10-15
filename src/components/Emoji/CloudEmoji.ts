@@ -33,7 +33,7 @@ class CloudEmoji extends Emoji {
     // Hide on small screens
     if (
       !getResponsiveValue({
-        sm: 0,
+        base: 0,
         md: 1,
       })
     )
@@ -56,7 +56,7 @@ class CloudEmoji extends Emoji {
     // Hide on small screens
     if (
       !getResponsiveValue({
-        sm: 0,
+        base: 0,
         md: 1,
       })
     )

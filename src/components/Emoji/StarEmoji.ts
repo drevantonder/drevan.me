@@ -20,27 +20,27 @@ class StarEmoji extends Emoji {
   static MIN_Y = 0.5 // % from top
   static MAX_Y = getResponsiveValue({
     // % from top
-    sm: 85,
-    xl: 80,
+    base: 85,
+    sm: 80,
   })
   static MIN_X = getResponsiveValue({
     // % from left
-    sm: 5,
-    xl: 0.5,
+    base: 5,
+    sm: 0.5,
   })
   static MAX_X = getResponsiveValue({
     // % from left
-    sm: 95,
-    xl: 99.5,
+    base: 95,
+    sm: 99.5,
   })
 
   static MIN_NUMBER = getResponsiveValue({
-    sm: 5,
-    xl: 40,
+    base: 5,
+    sm: 40,
   })
   static MAX_NUMBER = getResponsiveValue({
-    sm: 10,
-    xl: 60,
+    base: 10,
+    sm: 60,
   })
 
   static MIN_ANIMATION_DELAY = 200
