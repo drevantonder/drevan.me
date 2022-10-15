@@ -35,12 +35,12 @@ class StarEmoji extends Emoji {
   })
 
   static MIN_NUMBER = getResponsiveValue({
-    base: 5,
-    sm: 40,
+    base: 20,
+    sm: 50,
   })
   static MAX_NUMBER = getResponsiveValue({
-    base: 10,
-    sm: 60,
+    base: 30,
+    sm: 90,
   })
 
   static MIN_ANIMATION_DELAY = 200
@@ -52,8 +52,16 @@ class StarEmoji extends Emoji {
   static MIN_DURATION = 300
   static MAX_DURATION = 500
 
-  static MIN_SIZE = 4 // font-size
-  static MAX_SIZE = 14 // font-size
+  static MIN_SIZE = getResponsiveValue({
+    // font-size
+    base: 2,
+    sm: 3,
+  })
+  static MAX_SIZE = getResponsiveValue({
+    // font-size
+    base: 8,
+    sm: 12,
+  })
 
   static init: OnInitSubscriber = () => {
     const numberOfStars = getRandomValueBetween(
