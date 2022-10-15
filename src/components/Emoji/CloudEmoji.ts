@@ -6,16 +6,40 @@ import {
   OnInitSubscriber,
   OnUpdateSubscriber,
 } from './EmojiManager'
-import { getRandomValueBetween, getWindowHeight, getWindowWidth } from './util'
+import {
+  getRandomValueBetween,
+  getResponsiveValue,
+  getWindowHeight,
+  getWindowWidth,
+} from './util'
 
 class CloudEmoji extends Emoji {
   static EMOJI = '☁️'
 
   static CHANCE_OF_CLOUD_PER_SECOND = 0.1
-  static MIN_Y = 72 // % from top
-  static MAX_Y = 78 // % from top
-  static MIN_SIZE = 24 // font-size
-  static MAX_SIZE = 80 // font-size
+
+  static MIN_Y = getResponsiveValue({
+    // % from top
+    sm: 80,
+    xl: 72,
+  })
+  static MAX_Y = getResponsiveValue({
+    // % from top
+    sm: 83,
+    xl: 78,
+  })
+
+  static MIN_SIZE = getResponsiveValue({
+    // font-size
+    sm: 18,
+    xl: 24,
+  })
+  static MAX_SIZE = getResponsiveValue({
+    // font-size
+    sm: 32,
+    xl: 80,
+  })
+
   static MIN_DURATION = 40 // * Screen width
   static MAX_DURATION = 60 // * Screen width
   static MIN_START_CLOUDS = 3
@@ -56,8 +80,6 @@ class CloudEmoji extends Emoji {
         (getWindowHeight() / 1000) +
       'px'
     this.el.style.zIndex = '10'
-    this.el.classList.add('hidden')
-    this.el.classList.add('sm:block')
     this.rootEl.appendChild(this.el)
 
     const duration =
