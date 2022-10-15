@@ -1,4 +1,4 @@
-import { debounce } from './util'
+import { debounce, getWindowWidth } from './util'
 
 export type OnUpdateSubscriber = ({
   timeStamp,
@@ -50,9 +50,17 @@ export class EmojiManager {
       document.addEventListener('DOMContentLoaded', this.init)
     }
 
+    let oldWindowWidth = getWindowWidth()
     window.addEventListener(
       'resize',
-      debounce(() => this.reset(), 100)
+      debounce(() => {
+        const newWindowWidth = getWindowWidth()
+        if (oldWindowWidth === newWindowWidth) return
+
+        oldWindowWidth = newWindowWidth
+
+        this.reset()
+      }, 100)
     )
   }
 
