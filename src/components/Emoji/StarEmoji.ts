@@ -69,6 +69,7 @@ class StarEmoji extends Emoji {
     this.el.style.left = left + '%'
     this.el.style.fontSize =
       getRandomValueBetween(StarEmoji.MIN_SIZE, StarEmoji.MAX_SIZE) + 'px'
+    this.el.style.zIndex = '0'
     this.rootEl.appendChild(this.el)
 
     animate({

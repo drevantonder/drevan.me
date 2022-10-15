@@ -55,6 +55,7 @@ class CloudEmoji extends Emoji {
       getRandomValueBetween(CloudEmoji.MIN_SIZE, CloudEmoji.MAX_SIZE) *
         (getWindowHeight() / 1000) +
       'px'
+    this.el.style.zIndex = '10'
     this.el.classList.add('hidden')
     this.el.classList.add('sm:block')
     this.rootEl.appendChild(this.el)
