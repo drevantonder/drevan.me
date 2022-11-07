@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Layout.astro
+layout: ../layouts/HomeLayout.astro
 title: Andre van Tonder
 description: Hey, I'm Andre van Tonder or “drevan”, a web developer and web designer passionate about creating beautifully crafted web experiences.
 ---

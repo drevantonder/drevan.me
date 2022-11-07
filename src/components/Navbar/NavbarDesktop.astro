@@ -1,23 +1,29 @@
 ---
 import Logo from '../Logo/Logo.astro'
+
+const { home } = Astro.props
 ---
 
 <nav
-  class="fixed top-0 inset-x-0 justify-between items-baseline container mx-auto p-4 hidden sm:flex z-20"
+  class={`justify-between items-baseline container mx-auto p-4 hidden sm:flex ${
+    home ? 'absolute top-0 inset-x-0 z-20' : ''
+  }`}
 >
-  <Logo theme="dark" />
+  <a href="/">
+    <Logo theme="dark" data-no-emoji={home} />
+  </a>
 
   <ul class="flex space-x-10">
-    <li class="text-white font-medium text-2xl" data-no-emoji>
-      <a href="https://www.instagram.com/photosbydrevan/">@photosbydrevan</a>
+    <li class="text-white font-medium text-2xl" data-no-emoji={home}>
+      <a href="/photos/">@photosbydrevan</a>
     </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji>
+    <li class="text-white font-medium text-2xl" data-no-emoji={home}>
       <a href="https://twitter.com/DrevanTonder">twitter</a>
     </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji>
+    <li class="text-white font-medium text-2xl" data-no-emoji={home}>
       <a href="https://github.com/DrevanTonder">github</a>
     </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji>
+    <li class="text-white font-medium text-2xl" data-no-emoji={home}>
       <a href="https://www.linkedin.com/in/andre-van-tonder/">linkedin</a>
     </li>
   </ul>

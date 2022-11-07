@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import Emoji from '../components/Emoji/Emoji.astro'
+
+import type { MarkdownLayoutProps } from 'astro'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  description: string
+}>
+
+const { frontmatter } = Astro.props
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  home={true}
+>
+  <Emoji />
+  <main
+    class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"
+  >
+    <article class="prose prose-lg lg:prose-xl prose-invert" data-no-emoji-text>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

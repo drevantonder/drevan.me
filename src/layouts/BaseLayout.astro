@@ -1,15 +1,17 @@
 ---
 import Navbar from '../components/Navbar/Navbar.astro'
-import Emoji from '../components/Emoji/Emoji.astro'
 
-import type { MarkdownLayoutProps } from 'astro'
-
-type Props = MarkdownLayoutProps<{
+interface Props {
   title: string
   description: string
-}>
+  home?: boolean
+}
 
-const { frontmatter } = Astro.props
+const {
+  title,
+  description,
+  home = true,
+} = Astro.props.frontmatter || Astro.props
 ---
 
 <!DOCTYPE html>
@@ -25,26 +27,16 @@ const { frontmatter } = Astro.props
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap"
     />
-    <meta name="description" content={frontmatter.description} />
-    <title>{frontmatter.title} | drevan.me</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
     <script
       defer
       data-domain="drevan.me"
       src="https://plausible.io/js/plausible.js"
     ></script>
   </head>
-  <body class="h-screen bg-purple-900 isolate">
-    <Navbar />
-    <Emoji />
-    <main
-      class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"
-    >
-      <article
-        class="prose prose-lg lg:prose-xl prose-invert"
-        data-no-emoji-text
-      >
-        <slot />
-      </article>
-    </main>
+  <body class="h-screen bg-purple-900">
+    <Navbar home={home} />
+    <slot />
   </body>
 </html>

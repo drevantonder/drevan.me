@@ -32,9 +32,12 @@
     "prettier-plugin-astro": "^0.5.5"
   },
   "lint-staged": {
-    "*.{astro,js,ts,md}": [
+    "*.{astro,js,ts}": [
       "prettier --write",
       "eslint --fix"
+    ],
+    "*.md": [
+      "prettier --write"
     ]
   }
 }

@@ -1,7 +1,9 @@
 ---
 import NavbarDesktop from './NavbarDesktop.astro'
 import NavbarMobile from './NavbarMobile.astro'
+
+const { home } = Astro.props
 ---
 
-<NavbarDesktop />
-<NavbarMobile />
+<NavbarDesktop home={home} />
+<NavbarMobile home={home} />
