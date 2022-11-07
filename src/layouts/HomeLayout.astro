@@ -1,4 +1,5 @@
 ---
+import Navbar from '../components/Navbar/Navbar.astro'
 import BaseLayout from './BaseLayout.astro'
 import Emoji from '../components/Emoji/Emoji.astro'
 
@@ -12,11 +13,8 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout
-  title={frontmatter.title}
-  description={frontmatter.description}
-  home={true}
->
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <Navbar />
   <Emoji />
   <main
     class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"

@@ -1,17 +1,11 @@
 ---
-import Navbar from '../components/Navbar/Navbar.astro'
-
 interface Props {
   title: string
   description: string
   home?: boolean
 }
 
-const {
-  title,
-  description,
-  home = false,
-} = Astro.props.frontmatter || Astro.props
+const { title, description } = Astro.props.frontmatter || Astro.props
 ---
 
 <!DOCTYPE html>
@@ -36,7 +30,6 @@ const {
     ></script>
   </head>
   <body class="h-screen bg-purple-900">
-    <Navbar home={home} />
     <slot />
   </body>
 </html>
