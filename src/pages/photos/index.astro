@@ -1,12 +1,21 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import MaxWidthWrapper from '../../components/MaxWidthWrapper.astro'
+import PageLayout from '../../layouts/PageLayout.astro'
 
-const title = 'Photos by Andre van Tonder'
+const title = '@photosbydrevan'
 const description =
-  "Hey, check out these photos I've taken. I love traveling to new locations to find photos that inspire me and I can share with you!"
+  'Capturing this beautiful universe one photo at a time. 📸 Come check out my photos and follow me on social media. 🤩'
 ---
 
-<BaseLayout title={title} description={description}>
-  <h1>Photos by Andre van Tonder</h1>
-  <p class="mt-[200rem]">Test</p>
-</BaseLayout>
+<PageLayout title={title} description={description}>
+  <MaxWidthWrapper as="main" class="flex justify-center items-center h-screen">
+    <article class="max-w-4xl">
+      <h1 class="text-2xl text-purple-300">@photosbydrevan</h1>
+      <h2 class="text-6xl text-white leading-[1.1em] font-medium">
+        Capturing this <span class="text-cyan-400 font-semibold"
+          >beautiful universe</span
+        > one photo at a time
+      </h2>
+    </article>
+  </MaxWidthWrapper>
+</PageLayout>

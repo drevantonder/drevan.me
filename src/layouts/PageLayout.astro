@@ -12,9 +12,5 @@ const { title, description } = Astro.props
 
 <BaseLayout title={title} description={description}>
   <Navbar />
-  <main
-    class="container mx-auto p-4 flex justify-center items-center h-screen z-10"
-  >
-    <slot />
-  </main>
+  <slot />
 </BaseLayout>

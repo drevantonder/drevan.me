@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro'
 import Emoji from '../components/Emoji/Emoji.astro'
 
 import type { MarkdownLayoutProps } from 'astro'
+import MaxWidthWrapper from '../components/MaxWidthWrapper.astro'
 
 type Props = MarkdownLayoutProps<{
   title: string
@@ -16,11 +17,13 @@ const { frontmatter } = Astro.props
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <Navbar />
   <Emoji />
-  <main
-    class="container mx-auto p-4 flex justify-center items-center h-screen z-10 relative"
-  >
-    <article class="prose prose-lg lg:prose-xl prose-invert" data-no-emoji-text>
+  <main class="flex justify-center items-center h-screen z-10 relative">
+    <MaxWidthWrapper
+      class="prose prose-lg lg:prose-xl prose-invert"
+      as="article"
+      data-no-emoji-text
+    >
       <slot />
-    </article>
+    </MaxWidthWrapper>
   </main>
 </BaseLayout>
