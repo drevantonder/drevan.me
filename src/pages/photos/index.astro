@@ -1,0 +1,59 @@
+---
+import BrandLogoInstagram from '../../components/BrandLogo/BrandLogoInstagram.astro'
+import BrandLogoFacebook from '../../components/BrandLogo/BrandLogoFacebook.astro'
+import BrandLogoTwitter from '../../components/BrandLogo/BrandLogoTwitter.astro'
+import MaxWidthWrapper from '../../components/MaxWidthWrapper.astro'
+import PageLayout from '../../layouts/PageLayout.astro'
+import BrandLogoYoutube from '../../components/BrandLogo/BrandLogoYoutube.astro'
+
+const title = '@photosbydrevan'
+const description =
+  'Capturing this beautiful universe one photo at a time. 📸 Come check out my photos and follow me on social media. 🤩'
+---
+
+<PageLayout title={title} description={description}>
+  <MaxWidthWrapper as="main" class="flex justify-center items-center h-screen">
+    <article class="max-w-4xl">
+      <h1 class="text-xl sm:text-2xl text-purple-300">@photosbydrevan</h1>
+      <h2
+        class="text-5xl sm:text-6xl text-white sm:leading-[1.1em] font-medium"
+      >
+        Capturing this <span class="text-cyan-400 font-semibold"
+          >beautiful universe</span
+        > one photo at a time
+      </h2>
+
+      <h2 class="text-sm mt-8 text-purple-400 uppercase">Follow me on</h2>
+      <div class="flex mt-1 space-x-5">
+        <a
+          href="https://www.facebook.com/photosbydrevan"
+          target="_blank"
+          rel="noopener"
+        >
+          <BrandLogoFacebook class="h-10 w-auto" />
+        </a>
+        <a
+          href="https://www.instagram.com/photosbydrevan/"
+          target="_blank"
+          rel="noopener"
+        >
+          <BrandLogoInstagram class="h-10 w-auto" />
+        </a>
+        <a
+          href="https://twitter.com/photosbydrevan"
+          target="_blank"
+          rel="noopener"
+        >
+          <BrandLogoTwitter class="h-10 w-auto" />
+        </a>
+        <a
+          href="https://www.youtube.com/@photosbydrevan"
+          target="_blank"
+          rel="noopener"
+        >
+          <BrandLogoYoutube class="h-10 w-auto" />
+        </a>
+      </div>
+    </article>
+  </MaxWidthWrapper>
+</PageLayout>

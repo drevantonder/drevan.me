@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string
+  description: string
+  home?: boolean
+}
+
+const { title, description } = Astro.props.frontmatter || Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://plausible.io" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&display=swap"
+    />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script
+      defer
+      data-domain="drevan.me"
+      src="https://plausible.io/js/script.outbound-links.js"
+    ></script>
+  </head>
+  <body class="h-screen bg-purple-900">
+    <slot />
+  </body>
+</html>

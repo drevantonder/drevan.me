@@ -5,10 +5,10 @@ export interface Props {
   theme?: string
 }
 
-const { theme = 'light' } = Astro.props
+const { theme = 'light', dataNoEmoji } = Astro.props
 ---
 
-<div class="flex space-x-3 items-baseline" data-no-emoji>
+<div class="flex space-x-3 items-baseline" data-no-emoji={dataNoEmoji}>
   <LogoIcon />
 
   <div class="font-display font-bold text-4xl">
