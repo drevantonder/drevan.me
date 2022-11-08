@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.1.2",
+    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.0.2",
     "@tailwindcss/typography": "^0.5.7",
     "@types/alpinejs": "^3.0.0",
