@@ -1,7 +1,14 @@
 ---
+import type { Navigation } from '../../navigation'
 import Logo from '../Logo/Logo.astro'
 
 const isHome = Astro.url.pathname == '/'
+
+interface Props {
+  navigation: Navigation
+}
+
+const { navigation } = Astro.props
 ---
 
 <nav
@@ -14,17 +21,12 @@ const isHome = Astro.url.pathname == '/'
   </a>
 
   <ul class="flex space-x-10">
-    <li class="text-white font-medium text-2xl" data-no-emoji={isHome}>
-      <a href="/photos/">@photosbydrevan</a>
-    </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji={isHome}>
-      <a href="https://twitter.com/DrevanTonder">twitter</a>
-    </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji={isHome}>
-      <a href="https://github.com/DrevanTonder">github</a>
-    </li>
-    <li class="text-white font-medium text-2xl" data-no-emoji={isHome}>
-      <a href="https://www.linkedin.com/in/andre-van-tonder/">linkedin</a>
-    </li>
+    {
+      navigation.map((navigationItem) => (
+        <li class="text-white font-medium text-2xl" data-no-emoji={isHome}>
+          <a {...navigationItem.attrs}>{navigationItem.text}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
