@@ -1,11 +1,18 @@
 ---
-interface Props {
-  title: string
-  description: string
+import type { LayoutProps } from '../layoutProps'
+
+export interface Props extends LayoutProps {
   home?: boolean
 }
 
-const { title, description } = Astro.props.frontmatter || Astro.props
+const { title, description, relativeCanonicalUrl } =
+  Astro.props.frontmatter || Astro.props
+
+if (!title) throw new Error('relativeCanonicalUrl is required')
+if (!description) throw new Error('relativeCanonicalUrl is required')
+if (!relativeCanonicalUrl) throw new Error('relativeCanonicalUrl is required')
+
+const canonicalURL = new URL(relativeCanonicalUrl, Astro.site)
 ---
 
 <!DOCTYPE html>
@@ -28,6 +35,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props
       data-domain="drevan.me"
       src="https://plausible.io/js/script.outbound-links.js"
     ></script>
+    <link rel="canonical" href={canonicalURL} />
   </head>
   <body class="h-screen bg-purple-900">
     <slot />

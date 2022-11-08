@@ -9,9 +9,14 @@ import BrandLogoYoutube from '../../components/BrandLogo/BrandLogoYoutube.astro'
 const title = '@photosbydrevan'
 const description =
   'Capturing this beautiful universe one photo at a time. 📸 Check out my photos and follow me on social media. 🤩'
+const relativeCanonicalUrl = '/photos/'
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout
+  title={title}
+  description={description}
+  relativeCanonicalUrl={relativeCanonicalUrl}
+>
   <MaxWidthWrapper as="main" class="flex justify-center items-center h-screen">
     <article class="max-w-4xl">
       <h1 class="text-xl sm:text-2xl text-purple-200">@photosbydrevan</h1>

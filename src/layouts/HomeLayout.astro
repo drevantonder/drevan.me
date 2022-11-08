@@ -5,16 +5,14 @@ import Emoji from '../components/Emoji/Emoji.astro'
 
 import type { MarkdownLayoutProps } from 'astro'
 import MaxWidthWrapper from '../components/MaxWidthWrapper.astro'
+import type { LayoutProps } from '../layoutProps'
 
-type Props = MarkdownLayoutProps<{
-  title: string
-  description: string
-}>
+type Props = MarkdownLayoutProps<LayoutProps>
 
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout {...frontmatter}>
   <Navbar />
   <Emoji />
   <main class="flex justify-center items-center h-screen z-10 relative">
