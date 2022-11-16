@@ -11,7 +11,7 @@ Hey 👋,
 
 I'm **Andre van Tonder** or “**drevan**”, a _web developer_ and _web designer_ passionate about creating beautifully crafted web experiences.
 
-When I’m not problem solving for the web, you can find me [learning photography](https://www.instagram.com/photosbydrevan/) 📸, at church ⛪, on a road-trip adventure 🌋, or something crazy with friends and family.
+When I’m not problem solving for the web, you can find me [learning photography](https://drevan.me/photos/) 📸, at church ⛪, on a road-trip adventure 🌋, or something crazy with friends and family.
 
 Wishing you the most awesome day, \
 Andre 🥳
