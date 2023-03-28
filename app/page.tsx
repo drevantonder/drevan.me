@@ -1,5 +1,8 @@
+import Intro from './intro.mdx'
+
 export default function Home() {
   return (
-   <h1>Hello World</h1>
+    <div> <Intro /></div>
+   
   )
 }
