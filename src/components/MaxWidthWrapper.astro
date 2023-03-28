@@ -1,9 +1,0 @@
----
-const { class: className, as = 'div', ...attrs } = Astro.props
-
-const Element = as
----
-
-<Element class={`container mx-auto p-4 ${className}`} {...attrs}>
-  <slot />
-</Element>
