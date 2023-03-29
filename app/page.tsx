@@ -3,6 +3,10 @@ import Intro from './intro.mdx'
 
 export default function Home() {
   return (
-    <Container><Intro /></Container>
+    <Container>
+      <div className="prose-lg lg:prose-xl">
+        <Intro />
+      </div>
+    </Container>
   )
 }

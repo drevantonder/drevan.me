@@ -1,9 +1,10 @@
 import './styles.css'
-import { Inter } from 'next/font/google'
+import { Lexend_Deca } from 'next/font/google'
 
-const inter = Inter({
+const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
-  variable: '--font-inter'
+  variable: '--custom-font',
+  display: 'swap',
 })
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} font-sans`}>
+    <html lang="en" className={`${lexendDeca.variable} font-sans`}>
       <body>{children}</body>
     </html>
   )
