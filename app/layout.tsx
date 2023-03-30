@@ -1,7 +1,7 @@
 import './styles.css'
 import { Lexend_Deca } from 'next/font/google'
 import { Container } from '@/components/Container'
-import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 
 const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
@@ -23,13 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${lexendDeca.variable} font-sans`}>
       <body>
         <Container>
-          <nav className="mt-8">
-            <ul className="flex space-x-8">
-              <li><Link className="font-medium text-gray-600" href="/">home</Link></li>
-              <li><Link className="font-medium text-gray-600" href="/photos/">@photosbydrevan</Link></li>
-              <li><Link className="font-medium text-gray-600" href="/blog">blog</Link></li>
-            </ul>
-          </nav>
+          <Navbar />
           <main className="mt-32">
           {children}
           </main>
