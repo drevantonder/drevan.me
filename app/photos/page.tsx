@@ -1,6 +1,13 @@
 import { FacebookLogo, InstagramLogo, TwitterLogo, YoutubeLogo } from '@/components/BrandLogos'
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
-import Link from 'next/link'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '@photosbydrevan',
+  description: `Capturing this beautiful universe one photo at a time. 📸 Check out my photos and follow me on social media. 🤩`,
+  alternates: {
+    canonical: '/photos',
+  },
+};
 
 export default function Photos() {
   return (

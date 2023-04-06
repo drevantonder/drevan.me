@@ -1,10 +1,20 @@
 import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
+import { Metadata } from 'next';
 import Link from 'next/link'
 import Intro from './intro.mdx'
+
+export const metadata: Metadata = {
+  title: 'Andre van Tonder',
+  description: `Hey 👋, I'm Andre van Tonder or “drevan”, a Christian, web design-loper, and hobbyist photographer and I love doing/learning new things.`,
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function Home() {
   return (
     <>
+      <h1 className="sr-only">Andre van Tonder</h1>
       <div className="prose prose-lg lg:prose-xl prose-a:decoration-wavy prose-a:decoration-purple-600 prose-a:underline-offset-4 prose-a:[text-decoration-skip-ink:none]">
         <Intro />
       </div>
