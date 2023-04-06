@@ -5,7 +5,7 @@ import Intro from './intro.mdx'
 export default function Home() {
   return (
     <>
-      <div className="prose prose-lg lg:prose-xl">
+      <div className="prose prose-lg lg:prose-xl prose-a:decoration-wavy prose-a:decoration-purple-600 prose-a:underline-offset-4 prose-a:[text-decoration-skip-ink:none]">
         <Intro />
       </div>
       <div className="mt-6 flex space-x-2">
