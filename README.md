@@ -1,13 +1,75 @@
-# drevan.me
+# Nuxt 3 Minimal Starter
 
-GitHub repository for my personal website — [drevan.me](https://drevan.me).
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-Built using:
+## Setup
 
-- 🥳 [Astro](https://astro.build/)
-- 🎨 [Tailwind CSS](https://tailwindcss.com/)
-- 💪 [Alpine.js](https://alpinejs.dev/)
-- ⚒️ [Vite](https://vitejs.dev/)
-- ⚖️ [TypeScript](https://www.typescriptlang.org/)
+Make sure to install the dependencies:
 
-Hosted on [Cloudflare Pages](https://pages.cloudflare.com/) for lightning speed 🚀.
+```bash
+# npm
+npm install
+
+# pnpm
+pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
