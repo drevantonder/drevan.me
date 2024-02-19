@@ -4,21 +4,25 @@
   >
     <div class="min-h-screen flex flex-col">
       <header
-        class="flex container mx-auto justify-center items-center gap-20 py-4"
+        class="flex container mx-auto justify-between items-center gap-20 py-4"
       >
-        <NuxtLink to="/blog" class="font-medium">Blog</NuxtLink>
-        <NuxtLink to="/nuggets" class="font-medium">Nuggets</NuxtLink>
-        <NuxtLink
-          to="/"
-          class="font-serif text-2xl"
-          :class="{
-            'decoration-persian underline underline-offset-3':
-              $route.path === '/',
-          }"
-          >André van Tonder</NuxtLink
-        >
-        <NuxtLink to="/photos" class="font-medium">Photos</NuxtLink>
-        <NuxtLink to="/blog" class="font-medium">X</NuxtLink>
+        <div class="size-5"></div>
+
+        <div class="flex justify-center items-center gap-20 py-4">
+          <NuxtLink to="/blog" class="font-medium">Blog</NuxtLink>
+          <NuxtLink to="/nuggets" class="font-medium">Nuggets</NuxtLink>
+          <NuxtLink
+            to="/"
+            class="font-serif text-2xl tracking-wide"
+            :class="{
+              'decoration-persian underline underline-offset-3':
+                $route.path === '/',
+            }"
+            >André van Tonder</NuxtLink
+          >
+          <NuxtLink to="/photos" class="font-medium">Photos</NuxtLink>
+          <NuxtLink to="/blog" class="font-medium">X</NuxtLink>
+        </div>
 
         <ColourMode />
       </header>
