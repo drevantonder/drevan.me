@@ -9,19 +9,22 @@
         <div class="size-5"></div>
 
         <div class="flex justify-center items-center gap-20 py-4">
-          <NuxtLink to="/blog" class="font-medium hover:underline hover:ring-offset-1">Blog</NuxtLink>
-          <NuxtLink to="/nuggets" class="font-medium hover:underline hover:ring-offset-1">Nuggets</NuxtLink>
+          <NuxtLink to="/blog" class="font-medium hover:underline underline-offset-2" :class="{
+              'underline decoration-persian ':
+                $route.path.startsWith('/blog'),
+            }">Blog</NuxtLink>
+          <NuxtLink to="/nuggets" class="font-medium hover:underline">Nuggets</NuxtLink>
           <NuxtLink
             to="/"
-            class="font-serif text-2xl tracking-wide"
+            class="font-serif text-2xl tracking-wide decoration-persian hover:underline underline-offset-2"
             :class="{
-              'decoration-persian underline underline-offset-3':
+              ' underline ':
                 $route.path === '/',
             }"
             >André van Tonder</NuxtLink
           >
-          <NuxtLink to="/photos" class="font-medium hover:underline hover:ring-offset-1">Photos</NuxtLink>
-          <NuxtLink to="/blog" class="font-medium hover:underline hover:ring-offset-1">X</NuxtLink>
+          <NuxtLink to="/photos" class="font-medium hover:underline">Photos</NuxtLink>
+          <NuxtLink to="/blog" class="font-medium hover:underline">X</NuxtLink>
         </div>
 
         <ColourMode />
