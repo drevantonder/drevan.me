@@ -1,6 +1,10 @@
 <template>
-    <div class="container mx-auto mt-32">
-        <h1 class="text-5xl font-serif text-center">Slavery in the Bible?</h1>
-        <p class="text-center mt-4">Lorem ipsum doner se amet</p>
-    </div>
+  <div class="container mx-auto mt-32">
+    <ContentList path="/blog" v-slot="{ list }">
+      <NuxtLink v-for="post in list" :key="post._path" :href="post._path">
+        <h2 class="text-2xl font-semibold font-serif">{{ post.title }}</h2>
+        <p class="mt-2">{{ post.description }}</p>
+      </NuxtLink>
+    </ContentList>
+  </div>
 </template>
