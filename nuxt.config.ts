@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     notionToken: "",
+    nuggetsDatabase: "",
   },
   imports: {
     dirs: ["models"],

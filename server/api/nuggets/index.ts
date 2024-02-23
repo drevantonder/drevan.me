@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
   const nuggetPages = (
     await notion.databases.query({
-      database_id: "eab87cbb21b04d898f8e97b8d0ca95dc",
+      database_id: useRuntimeConfig().nuggetsDatabase,
       page_size,
       sorts: [
         {
