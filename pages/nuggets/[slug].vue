@@ -11,6 +11,6 @@ if (!nugget.value) {
 
 <template>
   <div class="container mx-auto mt-32">
-    <h1>{{ nugget.body }}</h1>
+    <h1>{{ nugget.text }}</h1>
   </div>
 </template>

@@ -21,12 +21,19 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/");
     </div>
 
     <div>
-      <div class="container mx-auto mt-48 flex">
+      <div class="container mx-auto mt-48 flex justify-between items-center">
         <h2
           class="uppercase text-xs font-semibold tracking-wider text-neutral-500 dark:text-neutral-700"
         >
           Freshly Baked Nuggets
         </h2>
+
+        <NuxtLink
+          to="/nuggets"
+          class="decoration-persian underline font-medium text-sm text-neutral-900 dark:text-neutral-100"
+        >
+          More nuggets this way &rarr;
+        </NuxtLink>
       </div>
 
       <div
@@ -42,7 +49,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/");
             'rotate-2': index % 2 !== 0,
           }"
         >
-          <p>{{ nugget.body }}</p>
+          <p>{{ nugget.text }}</p>
         </NuxtLink>
       </div>
     </div>
