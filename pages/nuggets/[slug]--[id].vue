@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const { data: nugget } = await useFetch<Nugget>(
-  `/api/nuggets/${route.params.slug}`
+  `/api/nuggets/${route.params.id}`
 );
 
 if (!nugget.value) {

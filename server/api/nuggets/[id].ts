@@ -1,7 +1,9 @@
 export default defineEventHandler(async (event) => {
   const nuggets = await $fetch<Nugget[]>("/api/nuggets/");
 
-  const slug = getRouterParam(event, "slug");
+  const id = getRouterParam(event, "id");
 
-  return nuggets.find((nugget) => nugget.slug === slug);
+  console.log(id);
+
+  return nuggets.find((nugget) => nugget.id === id);
 });
