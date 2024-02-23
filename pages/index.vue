@@ -51,7 +51,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
           <blockquote v-if="nugget.type === 'quote' || nugget.type === 'lyric'">
             <NuxtLink
               class="prose prose-lg dark:prose-invert prose-neutral"
-              :to="`/nuggets/${nugget.slug}`"
+              :to="`/nuggets/${nugget.slug}--${nugget.id}`"
             >
               <template v-html="nugget.textHtml" />
             </NuxtLink>
@@ -73,7 +73,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
           <div v-else>
             <NuxtLink
               class="prose prose-lg dark:prose-invert prose-neutral"
-              :to="`/nuggets/${nugget.slug}`"
+              :to="`/nuggets/${nugget.slug}--${nugget.id}`"
             >
               <template v-html="nugget.textHtml" />
             </NuxtLink>
