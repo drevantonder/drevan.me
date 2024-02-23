@@ -8,7 +8,7 @@ test("RichText schema parses samples without error", async () => {
 
   const nuggetPages = (
     await notion.databases.query({
-      database_id: "eab87cbb21b04d898f8e97b8d0ca95dc",
+      database_id: import.meta.env.NUXT_NUGGETS_DATABASE,
     })
   ).results;
 
