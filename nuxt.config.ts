@@ -15,11 +15,11 @@ export default defineNuxtConfig({
     notionToken: "",
   },
   imports: {
-    dirs: ["schema"],
+    dirs: ["models"],
   },
   nitro: {
     imports: {
-      dirs: ["schema", "utils"],
+      dirs: ["models", "utils"],
     },
   },
 });
