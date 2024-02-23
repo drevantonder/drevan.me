@@ -16,11 +16,11 @@ export default defineNuxtConfig({
     nuggetsDatabase: "",
   },
   imports: {
-    dirs: ["models"],
+    dirs: ["schema"],
   },
   nitro: {
     imports: {
-      dirs: ["models"],
+      dirs: ["schema"],
     },
   },
 });
