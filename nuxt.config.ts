@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     imports: {
-      dirs: ["models", "utils"],
+      dirs: ["models"],
     },
   },
 });
