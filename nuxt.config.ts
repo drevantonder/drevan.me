@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-icon",
     "@nuxt/content",
+    "@nuxt/test-utils/module",
   ],
   css: ["~/assets/main.css"],
   devtools: { enabled: true },

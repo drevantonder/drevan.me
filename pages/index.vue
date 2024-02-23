@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/");
+const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
 </script>
 
 <template>
@@ -37,20 +37,48 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/");
       </div>
 
       <div
-        class="grid grid-rows-1 auto-cols-max grid-flow-col container mx-auto mt-4 gap-16"
+        class="flex justify-between items-center container mx-auto mt-4 gap-4"
       >
-        <NuxtLink
+        <div
           v-for="(nugget, index) in nuggets"
           :key="nugget.id"
-          :to="`/nuggets/${nugget.slug}`"
-          class="block prose dark:prose-invert prose-xl max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
+          class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
           :class="{
             '-rotate-1': index % 2 === 0,
             'rotate-2': index % 2 !== 0,
           }"
         >
-          <p>{{ nugget.text }}</p>
-        </NuxtLink>
+          <blockquote v-if="nugget.type === 'quote' || nugget.type === 'lyric'">
+            <NuxtLink
+              class="prose prose-lg dark:prose-invert prose-neutral"
+              :to="`/nuggets/${nugget.slug}`"
+            >
+              <template v-html="nugget.textHtml" />
+            </NuxtLink>
+            <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
+              —<NuxtLink
+                v-if="nugget.originator"
+                :to="`/people/${nugget.originator.slug}`"
+                class="decoration-persian underline"
+                >{{ nugget.originator.name }}</NuxtLink
+              >,
+              <NuxtLink
+                v-if="nugget.content"
+                :to="`/people/${nugget.content.slug}`"
+                class="decoration-persian underline"
+                ><cite>{{ nugget.content?.name }}</cite></NuxtLink
+              >
+            </footer>
+          </blockquote>
+          <div v-else>
+            <NuxtLink
+              class="prose prose-lg dark:prose-invert prose-neutral"
+              :to="`/nuggets/${nugget.slug}`"
+            >
+              <template v-html="nugget.textHtml" />
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </div>
   </div>

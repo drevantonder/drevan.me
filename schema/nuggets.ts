@@ -3,27 +3,25 @@ import { z } from "zod";
 export const NuggetSchema = z.object({
   id: z.string(),
   text: z.string(),
+  textHtml: z.string(),
   type: z.enum(["thought", "quote", "lyric"]),
-  originator: z.string().optional(),
+  originator: PersonSchema.optional(),
+  content: ContentSchema.optional(),
   slug: z.string(),
 });
 
 export type Nugget = z.infer<typeof NuggetSchema>;
 
-export const NuggetPageSchema = z.object({
-  id: z.string(),
+export const NuggetPageSchema = PageSchema.extend({
   properties: z.object({
-    Name: z.object({
-      title: z.array(z.object({ plain_text: z.string() })).nonempty(),
-    }),
+    Name: TitlePropertySchema,
     Type: z.object({
       select: z.object({ name: z.string() }),
     }),
-    Originator: z.object({
-      relation: z.array(z.object({ id: z.string() })),
-    }),
+    Originator: RelationPropertySchema,
+    Content: RelationPropertySchema,
     Text: z.object({
-      rich_text: z.array(z.object({ plain_text: z.string() })).nonempty(),
+      rich_text: RichTextSchema,
     }),
   }),
 });
