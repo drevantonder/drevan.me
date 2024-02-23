@@ -2,8 +2,8 @@ import { z } from "zod";
 
 export const NuggetSchema = z.object({
   id: z.string(),
-  body: z.string(),
-  type: z.enum(["thought", "quote"]),
+  text: z.string(),
+  type: z.enum(["thought", "quote", "lyric"]),
   originator: z.string().optional(),
   slug: z.string(),
 });
@@ -22,19 +22,10 @@ export const NuggetPageSchema = z.object({
     Originator: z.object({
       relation: z.array(z.object({ id: z.string() })),
     }),
+    Text: z.object({
+      rich_text: z.array(z.object({ plain_text: z.string() })).nonempty(),
+    }),
   }),
 });
 
 export type NuggetPage = z.infer<typeof NuggetPageSchema>;
-
-export const NuggetBlocksSchema = z
-  .tuple([
-    z.object({
-      paragraph: z.object({
-        rich_text: z.array(z.object({ plain_text: z.string() })).nonempty(),
-      }),
-    }),
-  ])
-  .rest(z.any());
-
-export type NuggetBlocks = z.infer<typeof NuggetBlocksSchema>;

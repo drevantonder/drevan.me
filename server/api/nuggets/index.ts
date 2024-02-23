@@ -20,30 +20,13 @@ export default defineEventHandler(async (event) => {
 
     const title = parsedPage.properties.Name.title[0].plain_text;
     const type = parsedPage.properties.Type.select.name.toLowerCase();
-
+    const text = parsedPage.properties.Text.rich_text[0].plain_text;
     const relation = parsedPage.properties.Originator.relation;
     const originator = relation[0] ? relation[0].id : undefined;
 
-    const unsafeBlocks = (
-      await notion.blocks.children.list({
-        block_id: page.id,
-      })
-    ).results;
-
-    const blocksResult = NuggetBlocksSchema.safeParse(unsafeBlocks);
-    if (!blocksResult.success) {
-      console.warn(
-        "Failed to parse nugget blocks",
-        unsafeBlocks,
-        blocksResult.error
-      );
-      continue;
-    }
-    const blocks = blocksResult.data;
-
     const nuggetResult = NuggetSchema.safeParse({
       id: page.id,
-      body: blocks[0].paragraph.rich_text[0].plain_text,
+      text,
       type,
       originator,
       slug: aliasify(title),
