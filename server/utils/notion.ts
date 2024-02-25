@@ -1,12 +1,26 @@
 import merge from "lodash.merge";
 import { z } from "zod";
 
+type UnionToIntersection<U> = (U extends any ? (x: U) => void : never) extends (
+  x: infer I
+) => void
+  ? I
+  : never;
+
 const database = <
-  T extends Record<string, z.ZodTypeAny>,
-  Item extends { [K in keyof T]: z.infer<T[K]> }
+  Shape extends {
+    [x: string]: {
+      pageSchema: z.ZodTypeAny;
+      itemSchema: z.ZodTypeAny;
+    };
+  },
+  Page extends UnionToIntersection<z.infer<Shape[keyof Shape]["pageSchema"]>>,
+  Item extends {
+    [Attribute in keyof Shape]: z.infer<Shape[Attribute]["itemSchema"]>;
+  }
 >(
   name: string,
-  shape: T
+  shape: Shape
 ) => {
   const notion = useNotion();
   const database_id = useRuntimeConfig()[name + "Database"];
@@ -16,11 +30,11 @@ const database = <
       id: z.string(),
     }),
     ...Object.entries(shape).map(([key, value]) =>
-      value.transform((input) => ({ [key]: input }))
+      value.itemSchema.transform((input) => ({ [key]: input }))
     ),
   ];
 
-  const transform = (input: any) =>
+  const transform = (input: any): Item =>
     merge({}, ...transformers.map((t) => t.parse(input)));
 
   return {
@@ -31,7 +45,7 @@ const database = <
         })
       ).results;
 
-      return pages.map(transform) as Item[];
+      return pages.map(transform);
     },
 
     readItem: async (id: string) => {
@@ -39,48 +53,79 @@ const database = <
         page_id: id,
       });
 
-      return transform(page) as Item;
+      return transform(page);
     },
 
+    $inferPage: {} as Page,
     $inferItem: {} as Item,
   };
 };
 
-const text = (propertyName: string) =>
-  z
-    .object({
-      properties: z.object({
-        [propertyName]: z.object({
-          rich_text: RichTextSchema,
-        }),
-      }),
-    })
-    .transform((input) => ({
-      plain: input.properties[propertyName].rich_text
-        .map((text) => text.plain_text)
-        .join("\n\n"),
-      html: notionRichTextToHtml(input.properties[propertyName].rich_text),
-    }));
+// To get around https://github.com/microsoft/TypeScript/issues/13948
+function kv<K extends PropertyKey, V>(
+  k: K,
+  v: V
+): { [P in K]: { [Q in P]: V } }[K] {
+  return { [k]: v } as any;
+}
 
-const select = <U extends string, T extends [U, ...U[]]>(
-  propertyName: string,
-  options: T
-) =>
-  z
-    .object({
-      properties: z.object({
-        [propertyName]: z.object({
-          select: z.object({
-            name: z.string(),
-          }),
-        }),
-      }),
-    })
-    .transform((input) =>
-      z
-        .enum(options)
-        .parse(input.properties[propertyName].select.name.toLowerCase())
-    );
+const text = <const PropertyName extends string>(
+  propertyName: PropertyName
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          rich_text: RichTextSchema,
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform((property: any) => ({
+    plain: property[propertyName].properties.rich_text
+      .map((text: z.infer<typeof RichTextSchema>[number]) => text.plain_text)
+      .join("\n\n"),
+    html: notionRichTextToHtml(property[propertyName].properties.rich_text),
+  }));
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
+const select = <
+  const PropertyName extends string,
+  Option extends string,
+  Options extends [Option, ...Option[]]
+>(
+  propertyName: PropertyName,
+  options: Options
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          select: z.object({ name: z.string() }),
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform((property: any) =>
+    z
+      .enum(options)
+      .parse(property.properties[propertyName].select.name.toLowerCase())
+  );
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
 
 export const notion = {
   database,
