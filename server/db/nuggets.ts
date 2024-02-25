@@ -5,4 +5,5 @@ export const Nuggets = notion.database("nuggets", {
   // content: notion.relation("Content", () => Content).optional(),
 });
 
+export type NuggetPage = typeof Nuggets.$inferPage;
 export type Nugget = typeof Nuggets.$inferItem;
