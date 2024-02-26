@@ -26,16 +26,23 @@ const database = <
   const database_id = useRuntimeConfig()[name + "Database"];
 
   const transformers = [
-    z.object({
-      id: z.string(),
-    }),
     ...Object.entries(shape).map(([key, value]) =>
       value.itemSchema.transform((input) => ({ [key]: input }))
     ),
   ];
 
-  const transform = (input: any): Item =>
-    merge({}, ...transformers.map((t) => t.parse(input)));
+  const transform = async (input: any): Promise<Item> =>
+    merge(
+      {},
+      ...(await Promise.all(
+        transformers.map(async (t) => {
+          console.log(input);
+          const d = await t.parseAsync(input);
+          console.log(d);
+          return d;
+        })
+      ))
+    );
 
   return {
     readAllItems: async () => {
@@ -45,7 +52,7 @@ const database = <
         })
       ).results;
 
-      return pages.map(transform);
+      return await Promise.all(pages.map(transform));
     },
 
     readItem: async (id: string) => {
@@ -69,6 +76,41 @@ function kv<K extends PropertyKey, V>(
   return { [k]: v } as any;
 }
 
+const id = () => {
+  const pageSchema = z.object({ id: z.string() });
+
+  const itemSchema = pageSchema.transform((page) => page.id);
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
+const slug = <const PropertyName extends string>(
+  propertyName: PropertyName = "Name" as PropertyName
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          title: z.array(z.object({ plain_text: z.string() })).nonempty(),
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform((page: any) =>
+    aliasify(page.properties[propertyName].title[0].plain_text)
+  );
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
 const text = <const PropertyName extends string>(
   propertyName: PropertyName
 ) => {
@@ -83,11 +125,13 @@ const text = <const PropertyName extends string>(
     ),
   });
 
-  const itemSchema = pageSchema.transform((property: any) => ({
-    plain: property[propertyName].properties.rich_text
-      .map((text: z.infer<typeof RichTextSchema>[number]) => text.plain_text)
+  const itemSchema = pageSchema.transform((page: any) => ({
+    plain: (
+      page.properties[propertyName].rich_text as z.infer<typeof RichTextSchema>
+    )
+      .map((text) => text.plain_text)
       .join("\n\n"),
-    html: notionRichTextToHtml(property[propertyName].properties.rich_text),
+    html: notionRichTextToHtml(page.properties[propertyName].rich_text),
   }));
 
   return {
@@ -115,10 +159,65 @@ const select = <
     ),
   });
 
-  const itemSchema = pageSchema.transform((property: any) =>
+  const itemSchema = pageSchema.transform((page: any) =>
     z
       .enum(options)
-      .parse(property.properties[propertyName].select.name.toLowerCase())
+      .parse(page.properties[propertyName].select.name.toLowerCase())
+  );
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
+const name = <const PropertyName extends string>(
+  propertyName: PropertyName = "Name" as PropertyName
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          title: z.array(z.object({ plain_text: z.string() })).nonempty(),
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform(
+    (page: any) => page.properties[propertyName].title[0].plain_text as string
+  );
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
+const oneToOne = <
+  const PropertyName extends string,
+  Database extends ReturnType<typeof database>
+>(
+  propertyName: PropertyName,
+  getDb: () => Database
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          relation: z.array(z.object({ id: z.string() })),
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform(
+    async (page: any): Promise<Database["$inferItem"] | null> => {
+      const id = page.properties[propertyName].relation[0]?.id;
+      return id ? getDb().readItem(id) : null;
+    }
   );
 
   return {
@@ -128,7 +227,11 @@ const select = <
 };
 
 export const notion = {
+  id,
+  slug,
   database,
   text,
   select,
+  name,
+  oneToOne,
 };
