@@ -53,7 +53,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
               class="prose prose-lg dark:prose-invert prose-neutral"
               :to="`/nuggets/${nugget.slug}--${nugget.id}`"
             >
-              <template v-html="nugget.textHtml" />
+              <template v-html="nugget.text.html" />
             </NuxtLink>
             <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
               —<NuxtLink
@@ -66,7 +66,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
                 v-if="nugget.content"
                 :to="`/people/${nugget.content.slug}`"
                 class="decoration-persian underline"
-                ><cite>{{ nugget.content?.name }}</cite></NuxtLink
+                ><cite>{{ nugget.content?.title }}</cite></NuxtLink
               >
             </footer>
           </blockquote>
@@ -75,7 +75,7 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
               class="prose prose-lg dark:prose-invert prose-neutral"
               :to="`/nuggets/${nugget.slug}--${nugget.id}`"
             >
-              <template v-html="nugget.textHtml" />
+              <template v-html="nugget.text.html" />
             </NuxtLink>
           </div>
         </div>
