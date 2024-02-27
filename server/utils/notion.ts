@@ -63,6 +63,17 @@ const database = <
       return transform(page);
     },
 
+    readItems: async (filter: { limit?: number }) => {
+      const pages = (
+        await notion.databases.query({
+          database_id,
+          page_size: filter.limit,
+        })
+      ).results;
+
+      return await Promise.all(pages.map(transform));
+    },
+
     $inferPage: {} as Page,
     $inferItem: {} as Item,
   };
