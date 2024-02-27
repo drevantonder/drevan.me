@@ -56,18 +56,14 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
               <template v-html="nugget.text.html" />
             </NuxtLink>
             <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
-              —<NuxtLink
+              —<MyLink
                 v-if="nugget.originator"
                 :to="`/people/${nugget.originator.slug}`"
-                class="decoration-persian underline"
-                >{{ nugget.originator.name }}</NuxtLink
-              >,
-              <NuxtLink
-                v-if="nugget.content"
-                :to="`/people/${nugget.content.slug}`"
-                class="decoration-persian underline"
-                ><cite>{{ nugget.content?.title }}</cite></NuxtLink
-              >
+                >{{ nugget.originator.name }}</MyLink
+              ><template v-if="nugget.content">
+                ,
+                <ContentLink :content="nugget.content" />
+              </template>
             </footer>
           </blockquote>
           <div v-else>
