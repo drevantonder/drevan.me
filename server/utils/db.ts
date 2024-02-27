@@ -11,7 +11,11 @@ export const Content = notion.database("content", {
   id: notion.id(),
   slug: notion.slug(),
   title: notion.name(),
+  type: notion.select("Type", ["book", "song"]),
 });
+
+export type ContentPage = typeof Content.$inferPage;
+export type ContentItem = typeof Content.$inferItem;
 
 export const Nuggets = notion.database("nuggets", {
   id: notion.id(),
