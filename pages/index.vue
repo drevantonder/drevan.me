@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
+const { data: nuggets, pending } = await useLazyFetch<Nugget[]>(
+  "/api/nuggets/?limit=5"
+);
 </script>
 
 <template>
@@ -39,42 +41,16 @@ const { data: nuggets } = await useFetch<Nugget[]>("/api/nuggets/?limit=5");
       <div
         class="flex justify-between items-center container mx-auto mt-4 gap-4"
       >
-        <div
+        <NuggetCard
           v-for="(nugget, index) in nuggets"
           :key="nugget.id"
-          class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
           :class="{
             '-rotate-1': index % 2 === 0,
             'rotate-2': index % 2 !== 0,
           }"
-        >
-          <blockquote v-if="nugget.type === 'quote' || nugget.type === 'lyric'">
-            <NuxtLink
-              class="prose prose-lg dark:prose-invert prose-neutral"
-              :to="`/nuggets/${nugget.slug}--${nugget.id}`"
-            >
-              <template v-html="nugget.text.html" />
-            </NuxtLink>
-            <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
-              —<MyLink
-                v-if="nugget.originator"
-                :to="`/people/${nugget.originator.slug}`"
-                >{{ nugget.originator.name }}</MyLink
-              ><template v-if="nugget.content">
-                ,
-                <ContentLink :content="nugget.content" />
-              </template>
-            </footer>
-          </blockquote>
-          <div v-else>
-            <NuxtLink
-              class="prose prose-lg dark:prose-invert prose-neutral"
-              :to="`/nuggets/${nugget.slug}--${nugget.id}`"
-            >
-              <template v-html="nugget.text.html" />
-            </NuxtLink>
-          </div>
-        </div>
+          :nugget="nugget"
+          :pending="pending"
+        />
       </div>
     </div>
   </div>
