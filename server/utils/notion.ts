@@ -237,6 +237,30 @@ const oneToOne = <
   };
 };
 
+const number = <const PropertyName extends string>(
+  propertyName: PropertyName
+) => {
+  const pageSchema = z.object({
+    properties: z.object(
+      kv(
+        propertyName,
+        z.object({
+          number: z.number(),
+        })
+      )
+    ),
+  });
+
+  const itemSchema = pageSchema.transform(
+    (page: any) => page.properties[propertyName].number as number
+  );
+
+  return {
+    pageSchema,
+    itemSchema,
+  };
+};
+
 export const notion = {
   id,
   slug,
@@ -245,4 +269,5 @@ export const notion = {
   select,
   name,
   oneToOne,
+  number,
 };
