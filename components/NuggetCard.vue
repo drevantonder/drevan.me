@@ -1,17 +1,21 @@
 <script setup lang="ts">
+import type { AsyncData } from "#app";
+import type { UnwrapRef } from "vue";
+import type { Nugget } from "~/server/utils/db";
+
 withDefaults(
   defineProps<{
-    pending: boolean;
     nugget: Nugget | null;
+    status: UnwrapRef<AsyncData<any, any>["status"]>;
   }>(),
   {
-    pending: false,
+    status: "success",
   }
 );
 </script>
 
 <template>
-  <div v-if="pending">
+  <div v-if="status === 'pending'">
     <div
       class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
     >
@@ -22,7 +26,7 @@ withDefaults(
     </div>
   </div>
   <div
-    v-else-if="nugget"
+    v-else-if="status === 'success' && nugget"
     class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50 relative"
   >
     <div
