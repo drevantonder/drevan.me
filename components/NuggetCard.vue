@@ -23,8 +23,13 @@ withDefaults(
   </div>
   <div
     v-else-if="nugget"
-    class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
+    class="max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50 relative"
   >
+    <div
+      class="text-xs text-neutral-600 font-medium absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 -rotate-12"
+    >
+      #{{ nugget.displayedId }}
+    </div>
     <blockquote v-if="nugget.type === 'quote' || nugget.type === 'lyric'">
       <NuxtLink
         class="prose prose-lg dark:prose-invert prose-neutral"

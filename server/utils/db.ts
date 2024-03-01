@@ -19,6 +19,7 @@ export type ContentItem = typeof Content.$inferItem;
 
 export const Nuggets = notion.database("nuggets", {
   id: notion.id(),
+  displayedId: notion.number("ID"),
   slug: notion.slug(),
   text: notion.text("Text"),
   type: notion.select("Type", ["thought", "quote", "lyric"]),
