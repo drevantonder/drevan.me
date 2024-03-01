@@ -12,7 +12,7 @@ const { data: nuggets, status } = useLazyFetch<Nugget[]>("/api/nuggets");
       >
         <NuggetCard
           :nugget="nugget"
-          :pending="status === 'pending'"
+          :status="status"
           :class="{
             '-rotate-1': index % 2 === 0,
             'rotate-2': index % 2 !== 0,

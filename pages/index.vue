@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: nuggets, pending } = await useLazyFetch<Nugget[]>(
+const { data: nuggets, status } = await useLazyFetch<Nugget[]>(
   "/api/nuggets/?limit=5"
 );
 </script>
@@ -49,7 +49,7 @@ const { data: nuggets, pending } = await useLazyFetch<Nugget[]>(
             'rotate-2': index % 2 !== 0,
           }"
           :nugget="nugget"
-          :pending="pending"
+          :status="status"
         />
       </div>
     </div>
