@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { AsyncData } from "#app";
-import type { UnwrapRef } from "vue";
-import type { Nugget } from "~/server/utils/db";
+import type { AsyncDataRequestStatus } from "#app";
+import type { Nugget } from "sanity/sanity.types";
 
 withDefaults(
   defineProps<{
     nugget: Nugget | null;
-    status: UnwrapRef<AsyncData<any, any>["status"]>;
+    status: AsyncDataRequestStatus;
   }>(),
   {
     status: "success",
@@ -37,32 +36,33 @@ withDefaults(
     <blockquote v-if="nugget.type === 'quote' || nugget.type === 'lyric'">
       <NuxtLink
         class="prose prose-lg dark:prose-invert prose-neutral"
-        :to="`/nuggets/${nugget.slug}--${nugget.id}`"
+        :to="`/nuggets/${nugget.slug?.current}--${nugget._id}`"
       >
         <div
-          v-html="nugget.text.html"
+          v-html="nugget.text"
           class="prose prose-lg dark:prose-invert prose-neutral"
         />
       </NuxtLink>
       <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
-        —<NuxtLink
-          v-if="nugget.originator"
-          :to="`/people/${nugget.originator.slug}`"
+        <!-- —<NuxtLink
+          v-if="nugget.author"
+          :to="`/people/${nugget.author.slug}`"
           class="decoration-persian underline"
-          >{{ nugget.originator.name }}</NuxtLink
-        ><template v-if="nugget.content">
+          >{{ nugget.author.name }}</NuxtLink
+        > -->
+        <!-- <template v-if="nugget.content">
           ,
           <ContentLink :content="nugget.content" />
-        </template>
+        </template> -->
       </footer>
     </blockquote>
     <div v-else>
       <NuxtLink
         class="prose prose-lg dark:prose-invert prose-neutral"
-        :to="`/nuggets/${nugget.slug}--${nugget.id}`"
+        :to="`/nuggets/${nugget.slug?.current}--${nugget._id}`"
       >
         <div
-          v-html="nugget.text.html"
+          v-html="nugget.text"
           class="prose prose-lg dark:prose-invert prose-neutral"
         />
       </NuxtLink>

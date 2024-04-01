@@ -5,22 +5,23 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-icon",
     "@nuxt/test-utils/module",
+    "@nuxtjs/sanity",
   ],
   css: ["~/assets/main.css"],
   devtools: { enabled: true },
   colorMode: {
     classSuffix: "",
   },
-  runtimeConfig: {
-    notionToken: "",
-    nuggetsDatabase: "",
+  sanity: {
+    projectId: "d78c8n0s",
   },
-  imports: {
-    dirs: ["schema"],
-  },
-  nitro: {
-    imports: {
-      dirs: ["schema", "server/db"],
+  vite: {
+    optimizeDeps: {
+      // sanity client dep
+      include: [
+        "@nuxtjs/sanity > @sanity/client > get-it > parse-headers",
+        "@nuxtjs/sanity > @sanity/client > get-it > debug",
+      ],
     },
   },
 });

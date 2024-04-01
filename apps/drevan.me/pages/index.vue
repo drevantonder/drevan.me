@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const { data: nuggets, status } = await useLazyFetch<Nugget[]>(
-  "/api/nuggets/?limit=5"
-);
+import type { Nugget } from "sanity/sanity.types";
+
+const query = groq`*[_type == "nugget"]{...,author->}[0...5]`;
+const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
 </script>
 
 <template>
@@ -43,7 +44,7 @@ const { data: nuggets, status } = await useLazyFetch<Nugget[]>(
       >
         <NuggetCard
           v-for="(nugget, index) in nuggets"
-          :key="nugget.id"
+          :key="nugget._id"
           :class="{
             '-rotate-1': index % 2 === 0,
             'rotate-2': index % 2 !== 0,

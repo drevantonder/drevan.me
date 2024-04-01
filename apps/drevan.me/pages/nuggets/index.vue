@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const { data: nuggets, status } = useLazyFetch<Nugget[]>("/api/nuggets");
+import type { Nugget } from "sanity/sanity.types";
+
+const query = groq`*[_type == "nugget"]{...,author->}`;
+const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
 </script>
 
 <template>
@@ -7,7 +10,7 @@ const { data: nuggets, status } = useLazyFetch<Nugget[]>("/api/nuggets");
     <div class="flex flex-wrap gap-x-24 gap-y-16 mt-24 place-content-center">
       <div
         v-for="(nugget, index) in nuggets"
-        :key="nugget.id"
+        :key="nugget._id"
         class="flex items-center justify-center"
       >
         <NuggetCard
