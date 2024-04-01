@@ -45,10 +45,11 @@ withDefaults(
         />
       </NuxtLink>
       <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
-        —<MyLink
+        —<NuxtLink
           v-if="nugget.originator"
           :to="`/people/${nugget.originator.slug}`"
-          >{{ nugget.originator.name }}</MyLink
+          class="decoration-persian underline"
+          >{{ nugget.originator.name }}</NuxtLink
         ><template v-if="nugget.content">
           ,
           <ContentLink :content="nugget.content" />
