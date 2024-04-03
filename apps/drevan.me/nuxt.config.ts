@@ -25,6 +25,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+  app: {
+    head: {
+      templateParams: {
+        separator: "•",
+      },
+    },
+  },
   site: {
     url: "https://drevan.me",
     name: "Andre van Tonder",
