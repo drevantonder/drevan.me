@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxt/test-utils/module",
     "@nuxtjs/sanity",
+    "@nuxtjs/seo",
   ],
   css: ["~/assets/main.css"],
   devtools: { enabled: true },
@@ -23,5 +24,12 @@ export default defineNuxtConfig({
         "@nuxtjs/sanity > @sanity/client > get-it > debug",
       ],
     },
+  },
+  site: {
+    url: "https://drevan.me",
+    name: "Andre van Tonder",
+    description:
+      "I'm Andre van Tonder or “drevan”, a weird Christian guy who can't sit still. Have fun exploring my world!",
+    defaultLocale: "en",
   },
 });
