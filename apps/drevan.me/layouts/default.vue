@@ -9,7 +9,12 @@
         <div class="size-5"></div>
 
         <div class="flex justify-center items-center gap-20 py-4">
-          <NuxtLink to="/nuggets" class="font-medium hover:underline"
+          <NuxtLink
+            to="/nuggets"
+            class="font-medium hover:underline"
+            :class="{
+              ' underline ': $route.path.startsWith('/nuggets'),
+            }"
             >Nuggets</NuxtLink
           >
           <NuxtLink
@@ -20,7 +25,12 @@
             }"
             >André van Tonder</NuxtLink
           >
-          <NuxtLink to="/photos" class="font-medium hover:underline"
+          <NuxtLink
+            to="/photos"
+            class="font-medium hover:underline"
+            :class="{
+              ' underline ': $route.path.startsWith('/photos'),
+            }"
             >Photos</NuxtLink
           >
         </div>
