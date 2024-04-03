@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Nugget } from "sanity/sanity.types";
+import type { Nugget } from "@drevan/sanity/sanity.types";
 
 const query = groq`*[_type == "nugget"]{...,author->}[0...5]`;
 const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);

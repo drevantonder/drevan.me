@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const route = useRoute();
+import type { Nugget } from "@drevan/sanity/sanity.types";
 
-import type { Nugget } from "sanity/sanity.types";
+const route = useRoute();
 
 const query = groq`*[_type == "nugget" && _id == $id]{...,author->}[0]`;
 const { data: nugget, status } = useSanityQuery<Nugget>(query, {
