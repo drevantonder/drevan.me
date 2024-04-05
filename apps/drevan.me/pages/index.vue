@@ -51,7 +51,7 @@ const { data: nuggets, status } = useSanityQuery<
       </div>
 
       <div
-        class="flex flex-col lg:flex-row justify-between items-center container mx-auto mt-4 gap-y-6 gap-x-4"
+        class="flex flex-col lg:flex-row justify-between items-center container mx-auto mt-4 gap-y-6 gap-x-8"
       >
         <NuggetCard
           v-for="(nugget, index) in nuggets"
