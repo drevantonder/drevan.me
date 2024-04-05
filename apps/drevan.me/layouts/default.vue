@@ -3,44 +3,42 @@
     class="bg-[#FEF3EF] text-neutral-900 dark:text-neutral-50 dark:bg-neutral-950"
   >
     <div class="min-h-screen flex flex-col">
-      <header
-        class="flex container mx-auto justify-between items-center gap-20 py-4"
+      <Container
+        class="grid grid-cols-[repeat(3,auto),1fr] sm:flex justify-start sm:justify-center items-end sm:items-center gap-y-2 gap-x-6 sm:gap-x-10 lg:gap-x-20 py-4"
       >
-        <div class="size-5"></div>
+        <div class="size-8 hidden sm:block mr-auto"></div>
 
-        <div class="flex justify-center items-center gap-20 py-4">
-          <NuxtLink
-            to="/nuggets"
-            class="font-medium hover:underline"
-            :class="{
-              ' underline ': $route.path.startsWith('/nuggets'),
-            }"
-            >Nuggets</NuxtLink
-          >
-          <NuxtLink
-            to="/"
-            class="font-serif text-2xl tracking-wide decoration-persian hover:underline underline-offset-2 text-center"
-            :class="{
-              ' underline ': $route.path === '/',
-            }"
-            >André van Tonder</NuxtLink
-          >
-          <NuxtLink
-            to="/photos"
-            class="font-medium hover:underline"
-            :class="{
-              ' underline ': $route.path.startsWith('/photos'),
-            }"
-            >Photos</NuxtLink
-          >
-        </div>
+        <NuxtLink
+          to="/nuggets"
+          class="font-medium hover:underline leading-none"
+          :class="{
+            ' underline ': $route.path.startsWith('/nuggets'),
+          }"
+          >Nuggets</NuxtLink
+        >
+        <NuxtLink
+          to="/"
+          class="col-span-full order-first sm:order-none font-serif text-2xl tracking-wide decoration-persian hover:underline underline-offset-2 text-left sm:text-center"
+          :class="{
+            ' underline ': $route.path === '/',
+          }"
+          >André van Tonder</NuxtLink
+        >
+        <NuxtLink
+          to="/photos"
+          class="font-medium hover:underline leading-none"
+          :class="{
+            ' underline ': $route.path.startsWith('/photos'),
+          }"
+          >Photos</NuxtLink
+        >
 
-        <ColourMode />
-      </header>
+        <ColourMode class="sm:ml-auto -m-2" />
+      </Container>
       <main>
         <slot />
       </main>
-      <footer class="mx-auto container mt-auto py-3">
+      <footer class="mx-auto container mt-auto pt-6 py-3">
         <div class="text-center text-sm text-neutral-700 dark:text-neutral-300">
           © 2024 André van Tonder. All rights reserved.
         </div>

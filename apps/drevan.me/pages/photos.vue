@@ -7,7 +7,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="flex justify-center items-center min-h-screen">
+  <Container class="flex justify-center items-center min-h-screen">
     <article class="max-w-4xl">
       <h1 class="text-xl sm:text-2xl text-persian">@photosbydrevan</h1>
       <h2 class="text-5xl sm:text-6xl sm:leading-[1.1em] font-medium">
@@ -48,5 +48,5 @@ useSeoMeta({
         </a>
       </div>
     </article>
-  </div>
+  </Container>
 </template>
