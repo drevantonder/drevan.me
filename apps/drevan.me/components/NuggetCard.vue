@@ -35,7 +35,7 @@ withDefaults(
 <template>
   <div v-if="status === 'pending'">
     <div
-      class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
+      class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
     >
       <SkeletonText :lines="2" />
       <div class="mt-2 text-sm">
@@ -45,7 +45,7 @@ withDefaults(
   </div>
   <div
     v-else-if="status === 'success' && nugget"
-    class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 -mx-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50 relative"
+    class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50 relative"
   >
     <div
       class="text-xs text-neutral-600 font-medium absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 -rotate-12"
