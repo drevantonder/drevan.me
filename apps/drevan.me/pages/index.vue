@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { Nugget } from "@drevan/sanity/sanity.types";
 
-const query = groq`*[_type == "nugget"]{...,author->}[0...5]`;
+const query = groq`*[_type == "nugget"]| order(displayedId desc){...,author->}[0...4]`;
 const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
 </script>
 
 <template>
-  <div>
+  <Container>
     <h1 class="sr-only">Andre van Tonder</h1>
-    <div class="container mx-auto mt-48">
+    <div class="container mx-auto mt-16 sm:mt-48">
       <div class="prose prose-lg dark:prose-invert">
         <p>Hey you! 👋</p>
 
@@ -24,7 +24,9 @@ const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
     </div>
 
     <div>
-      <div class="container mx-auto mt-48 flex justify-between items-center">
+      <div
+        class="container mx-auto mt-16 sm:mt-48 flex justify-between items-center"
+      >
         <h2
           class="uppercase text-xs font-semibold tracking-wider text-neutral-500 dark:text-neutral-700"
         >
@@ -40,7 +42,7 @@ const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
       </div>
 
       <div
-        class="flex justify-between items-center container mx-auto mt-4 gap-4"
+        class="flex flex-col lg:flex-row justify-between items-center container mx-auto mt-4 gap-y-6 gap-x-4"
       >
         <NuggetCard
           v-for="(nugget, index) in nuggets"
@@ -54,5 +56,5 @@ const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
         />
       </div>
     </div>
-  </div>
+  </Container>
 </template>
