@@ -710,14 +710,14 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "text": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "type": {
         "type": "objectAttribute",
@@ -738,7 +738,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "author": {
         "type": "objectAttribute",
@@ -873,14 +873,14 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "artist": {
         "type": "objectAttribute",
@@ -910,7 +910,7 @@
           },
           "dereferencesTo": "person"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -955,14 +955,14 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "author": {
         "type": "objectAttribute",
@@ -992,7 +992,7 @@
           },
           "dereferencesTo": "person"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -1037,14 +1037,14 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "name": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
