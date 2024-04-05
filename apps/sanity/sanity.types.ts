@@ -132,9 +132,9 @@ export type Nugget = {
   _updatedAt: string;
   _rev: string;
   displayedId?: number;
-  slug?: Slug;
-  text?: string;
-  type?: "thought" | "quote" | "lyric";
+  slug: Slug;
+  text: string;
+  type: "thought" | "quote" | "lyric";
   author?: {
     _ref: string;
     _type: "reference";
@@ -161,9 +161,9 @@ export type Music = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  slug?: Slug;
-  title?: string;
-  artist?: {
+  slug: Slug;
+  title: string;
+  artist: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -177,9 +177,9 @@ export type Book = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  slug?: Slug;
-  title?: string;
-  author?: {
+  slug: Slug;
+  title: string;
+  author: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -193,8 +193,8 @@ export type Person = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  slug?: Slug;
-  name?: string;
+  slug: Slug;
+  name: string;
 };
 
 export type Slug = {
