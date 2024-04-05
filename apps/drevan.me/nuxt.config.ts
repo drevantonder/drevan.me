@@ -34,9 +34,9 @@ export default defineNuxtConfig({
   },
   site: {
     url: "https://drevan.me",
-    name: "Andre van Tonder",
+    name: "André van Tonder",
     description:
-      "I'm Andre van Tonder or “drevan”, a weird Christian guy who can't sit still. Have fun exploring my world!",
+      "I'm André van Tonder or “drevan”, a weird Christian guy who can't sit still. Have fun exploring my world!",
     defaultLocale: "en",
   },
 });
