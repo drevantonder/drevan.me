@@ -10,7 +10,7 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "schema-extract": "sanity schema extract",
+    "schema-extract": "sanity schema extract --enforce-required-fields",
     "typegen": "sanity typegen generate"
   },
   "keywords": [

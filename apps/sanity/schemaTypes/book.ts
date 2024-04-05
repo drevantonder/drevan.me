@@ -12,30 +12,33 @@ export const book = defineType({
       options: {
         source: 'title',
       },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
       to: [{type: 'person'}],
+      validation: (rule) => rule.required(),
     }),
   ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name'
+      author: 'author.name',
     },
     prepare(selection) {
       const {title, author} = selection
       return {
         title: title,
-        subtitle: author
+        subtitle: author,
       }
-    }
-  }
+    },
+  },
 })

@@ -17,11 +17,13 @@ export const nugget = defineType({
       options: {
         source: 'text',
       },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'text',
       title: 'Text',
       type: 'text',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'type',
@@ -30,6 +32,7 @@ export const nugget = defineType({
       options: {
         list: ['thought', 'quote', 'lyric'],
       },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'author',
@@ -53,7 +56,7 @@ export const nugget = defineType({
   preview: {
     select: {
       title: 'displayedId',
-      subtitle: 'text'
-    }
-  }
+      subtitle: 'text',
+    },
+  },
 })

@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import type { Nugget } from "@drevan/sanity/sanity.types";
+import { NuggetCard } from "#components";
+import type { Nugget, Book, Music, Person } from "@drevan/sanity/sanity.types";
 
-const query = groq`*[_type == "nugget"]{...,author->}`;
-const { data: nuggets, status } = useSanityQuery<Nugget[]>(query);
+const query = groq`*[_type == "nugget"]` + NuggetCard.groqProjection;
+const { data: nuggets, status } = useSanityQuery<
+  (Omit<Nugget, "book" | "author" | "music"> & {
+    book?: Book;
+    author?: Person;
+    music?: Music;
+  })[]
+>(query);
 </script>
 
 <template>
