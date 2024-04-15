@@ -12,7 +12,7 @@
           to="/blog"
           class="font-medium hover:underline leading-none"
           :class="{
-            ' underline ': $route.path.startsWith('/nuggets'),
+            ' underline ': $route.path.startsWith('/blog'),
           }"
           >Blog</NuxtLink
         >
@@ -40,6 +40,15 @@
             ' underline ': $route.path.startsWith('/photos'),
           }"
           >Photos</NuxtLink
+        >
+
+        <NuxtLink
+          to="/partner"
+          class="font-medium hover:underline leading-none"
+          :class="{
+            ' underline ': $route.path.startsWith('/partner'),
+          }"
+          >Partner with me</NuxtLink
         >
 
         <ColourMode class="sm:ml-auto -m-2" />
