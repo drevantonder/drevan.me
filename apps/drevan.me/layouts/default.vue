@@ -9,6 +9,15 @@
         <div class="size-8 hidden sm:block mr-auto"></div>
 
         <NuxtLink
+          to="/blog"
+          class="font-medium hover:underline leading-none"
+          :class="{
+            ' underline ': $route.path.startsWith('/nuggets'),
+          }"
+          >Blog</NuxtLink
+        >
+
+        <NuxtLink
           to="/nuggets"
           class="font-medium hover:underline leading-none"
           :class="{
