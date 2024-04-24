@@ -1,7 +1,7 @@
 <template>
   <Container>
     <SectionProse as="article">
-      <h1>Joining Power to Change</h1>
+      <h1>Example article</h1>
 
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. A officiis

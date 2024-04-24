@@ -1,19 +1,36 @@
 <script setup lang="ts">
-//
+definePageMeta({
+  layout: "blank",
+});
 </script>
 
 <template>
-  <Container>
-    <SectionProse>
-      <h1>Partner with me</h1>
-    </SectionProse>
+  <Container class="flex flex-col justify-center gap-y-8">
+    <div>
+      <h2 class="font-bold text-3xl">Email updates</h2>
+      <p>
+        Get prayer points and follow along with what God is doing on Queensland
+        campuses.
+      </p>
+      <PartnerForm />
+    </div>
 
-    <SectionProse>
-      <h2>My calling testimony</h2>
+    <div class="relative">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div
+          class="w-full border-t border-neutral-300 dark:border-neutral-700"
+        />
+      </div>
+      <div class="relative flex justify-center">
+        <span class="bg-white px-2 text-sm text-neutral-500"></span>
+      </div>
+    </div>
 
-      <a href="/blog/joining-power-to-change">Read the full story &rarr;</a>
-    </SectionProse>
-
-    <SectionAppeal />
+    <div>
+      <h2 class="font-bold text-3xl">Give!</h2>
+      <a href="https://payments.powertochange.org.au/#/give/andre-van-tonder">
+        S
+      </a>
+    </div>
   </Container>
 </template>
