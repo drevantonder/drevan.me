@@ -21,12 +21,12 @@ const { data: nuggets, status } = useSanityQuery<
       <div class="prose prose-lg dark:prose-invert">
         <p>Hey you! 👋</p>
 
-        <p>Welcome to my public space! 🫡</p>
-
         <p>
-          I'm <b>André van Tonder</b> or <b>“drevan”</b>, a weird Christian guy
-          who can't sit still. Have fun exploring my world!
+          I'm <b>André van Tonder</b> or <b>“drevan”</b>. A weird Christian guy
+          who tries to do everything all at once!
         </p>
+
+        <p>Welcome! Have fun exploring my little corner of the internet!</p>
 
         <p>Take care! ❤️</p>
       </div>
