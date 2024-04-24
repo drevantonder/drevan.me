@@ -1,18 +1,20 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "blank",
+  layout: "empty",
 });
 </script>
 
 <template>
-  <Container class="flex flex-col justify-center gap-y-8">
+  <Container class="flex flex-col grow justify-center gap-y-12">
     <div>
-      <h2 class="font-bold text-3xl">Email updates</h2>
+      <h2 class="font-bold text-3xl flex items-center gap-x-3">
+        Email updates
+      </h2>
       <p>
         Get prayer points and follow along with what God is doing on Queensland
         campuses.
       </p>
-      <PartnerForm />
+      <PartnerForm class="mt-4" />
     </div>
 
     <div class="relative">
@@ -27,9 +29,16 @@ definePageMeta({
     </div>
 
     <div>
-      <h2 class="font-bold text-3xl">Give!</h2>
-      <a href="https://payments.powertochange.org.au/#/give/andre-van-tonder">
-        S
+      <h2 class="font-bold text-3xl flex items-center gap-x-3">Giving</h2>
+
+      <a
+        href="https://payments.powertochange.org.au/#/give/andre-van-tonder"
+        class="mt-4 inline-flex justify-center items-center px-4 py-1.5 bg-persian text-white rounded-xl hover:bg-persian/75 text-lg font-medium tracking-wide sm:min-w-40"
+      >
+        Go to the giving form
+        <span>
+          <Icon name="ph:arrow-square-out-duotone" class="size-[1em] ml-2" />
+        </span>
       </a>
     </div>
   </Container>
