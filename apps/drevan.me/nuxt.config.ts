@@ -47,4 +47,5 @@ export default defineNuxtConfig({
   nitro: {
     preset: "cloudflare-pages",
   },
+  ogImage: { enabled: false },
 });
