@@ -39,4 +39,9 @@ export default defineNuxtConfig({
       "I'm André van Tonder or “drevan”, a weird Christian guy who can't sit still. Have fun exploring my world!",
     defaultLocale: "en",
   },
+  runtimeConfig: {
+    mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+    mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
+    mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
+  },
 });

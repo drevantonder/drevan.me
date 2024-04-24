@@ -11,7 +11,7 @@
         Sign up for prayer updates in your inbox below.
       </p>
       <form
-        action="/api/partner-form"
+        action="/api/partner"
         method="post"
         id="partner-section-form"
         class="max-w-sm"
@@ -24,6 +24,7 @@
           >
           <input
             type="email"
+            name="email"
             id="partner-section-form_email"
             class="block text-lg dark:bg-neutral-800 rounded-md w-full text-neutral-900 dark:text-white px-3 py-1 focus-within:outline-none focus-within:ring-2 focus-within:ring-persian"
           />
@@ -32,11 +33,12 @@
         <div class="mt-2 flex items-center gap-1.5">
           <input
             type="checkbox"
+            name="interestedInGiving"
             id="partner-section-form_financial"
             class="size-[1em] accent-current text-persian"
           />
           <label for="partner-section-form_financial" class="text-base"
-            >I'd interested in partnering financially!</label
+            >I'm interested in giving!</label
           >
         </div>
       </form>
@@ -49,8 +51,8 @@
           Get involved!
         </button>
         <a
-          v-if="$route.path !== '/partner'"
-          href="/partner"
+          v-if="$route.path !== '/become-a-partner'"
+          href="/become-a-partner"
           class="inline-flex items-center px-4 py-2 bg-neutral-700 text-white rounded-xl hover:bg-neutral-700/75 text-lg"
         >
           Learn more &rarr;</a

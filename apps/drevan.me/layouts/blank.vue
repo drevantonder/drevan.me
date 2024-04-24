@@ -1,10 +1,6 @@
 <template>
   <LayoutBase>
-    <LayoutNavbar />
-
-    <main>
-      <slot />
-    </main>
+    <slot />
 
     <LayoutFooter />
   </LayoutBase>
