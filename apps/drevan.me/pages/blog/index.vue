@@ -11,11 +11,11 @@
       <h2 class="text-xs text-semibold uppercase sr-only">Recent</h2>
       <div class="grid sm:grid-cols-3 gap-y-4 gap-x-12 -mx-4 sm:-mx-8">
         <a
-          href="/blog/joining-power-to-change"
+          href="/blog/example-article"
           class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 sm:rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
         >
           <article>
-            <h3>Joining Power to Change</h3>
+            <h3>Example article</h3>
           </article>
         </a>
       </div>
