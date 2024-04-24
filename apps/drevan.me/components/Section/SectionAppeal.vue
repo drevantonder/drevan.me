@@ -10,54 +10,18 @@
         <b class="tracking-wide">Partners make this possible!</b>
         Sign up for prayer updates in your inbox below.
       </p>
-      <form
-        action="/api/partner"
-        method="post"
-        id="partner-section-form"
-        class="max-w-sm"
-      >
-        <div class="mt-2">
-          <label
-            for="partner-section-form_email"
-            class="text-sm font-medium tracking-wide text-neutral-200"
-            >Email</label
-          >
-          <input
-            type="email"
-            name="email"
-            id="partner-section-form_email"
-            class="block text-lg dark:bg-neutral-800 rounded-md w-full text-neutral-900 dark:text-white px-3 py-1 focus-within:outline-none focus-within:ring-2 focus-within:ring-persian"
-          />
-        </div>
-
-        <div class="mt-2 flex items-center gap-1.5">
-          <input
-            type="checkbox"
-            name="interestedInGiving"
-            id="partner-section-form_financial"
-            class="size-[1em] accent-current text-persian"
-          />
-          <label for="partner-section-form_financial" class="text-base"
-            >I'm interested in giving!</label
-          >
-        </div>
-      </form>
-      <div class="flex gap-x-4 mt-4">
-        <button
-          type="submit"
-          form="partner-section-form"
-          class="inline-flex justify-center items-center px-4 py-2 bg-persian text-white rounded-xl hover:bg-persian/75 text-lg font-medium tracking-wide sm:min-w-48"
-        >
-          Get involved!
-        </button>
+      <div class="mt-4">
+        <PartnerForm />
+      </div>
+      <p class="mt-3">
         <a
           v-if="$route.path !== '/become-a-partner'"
           href="/become-a-partner"
-          class="inline-flex items-center px-4 py-2 bg-neutral-700 text-white rounded-xl hover:bg-neutral-700/75 text-lg"
+          class="underline font-medium decoration-persian underline-offset-2"
         >
-          Learn more &rarr;</a
+          Learn more? &rarr;</a
         >
-      </div>
+      </p>
     </div>
   </Section>
 </template>
