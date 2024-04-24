@@ -1,10 +1,10 @@
-# drevan.me
+# [drevan.me](https://drevan.me/)
 
 André van Tonder's personal website.
 
 ## Tech
 
-- [Nuxt](http://nuxt.com)
+- [Nuxt](https://nuxt.com)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Sanity](https://www.sanity.io/)
 - [Turborepo](https://turbo.build/)
