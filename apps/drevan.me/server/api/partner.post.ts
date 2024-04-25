@@ -15,9 +15,7 @@ export default defineEventHandler(async (event) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Basic " +
-            Buffer.from(`apikey:${mailchimpApiKey}`).toString("base64"),
+          Authorization: "Basic " + btoa(`apikey:${mailchimpApiKey}`),
         },
         body: JSON.stringify({
           email_address: email,
