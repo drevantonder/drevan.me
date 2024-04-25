@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxt/test-utils/module",
     "@nuxtjs/sanity",
+    "@nuxtjs/seo",
   ],
   css: ["~/assets/main.css"],
   devtools: { enabled: true },
