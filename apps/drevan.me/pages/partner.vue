@@ -14,7 +14,7 @@ definePageMeta({
     />
 
     <Container
-      class="flex flex-col grow justify-center gap-y-12 md:gap-y-16 -mt-8 md:mt-0 md:py-8"
+      class="flex flex-col grow justify-center gap-y-12 md:gap-y-16 -mt-16 md:mt-0 py-8"
     >
       <div>
         <div class="font-serif text-sm dark:text-neutral-200">
