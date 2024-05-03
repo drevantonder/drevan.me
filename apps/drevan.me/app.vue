@@ -4,6 +4,7 @@ useHead({
     {
       name: "theme-color",
       content: "#FEF3EF",
+      media: "(prefers-color-scheme: light)",
     },
     {
       name: "theme-color",
