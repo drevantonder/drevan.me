@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     "@nuxtjs/sanity",
     "@nuxtjs/seo",
-    "@nuxt/image"
+    "@nuxt/image",
   ],
   css: ["~/assets/main.css"],
   devtools: { enabled: true },
@@ -49,4 +49,7 @@ export default defineNuxtConfig({
     preset: "cloudflare-pages",
   },
   ogImage: { enabled: false },
+  routeRules: {
+    "/p": { redirect: "/partner" },
+  },
 });
