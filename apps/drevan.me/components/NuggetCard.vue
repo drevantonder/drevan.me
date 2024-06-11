@@ -82,7 +82,7 @@ withDefaults(
         <template v-if="nugget.music">
           ,
           <NuxtLink
-            :to="`/books/${nugget.music.slug.current}`"
+            :to="`/music/${nugget.music.slug.current}`"
             class="decoration-persian underline"
           >
             <Icon name="ph:music-note-duotone" />
