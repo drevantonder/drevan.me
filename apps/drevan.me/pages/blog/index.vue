@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const query = groq`*[_type == "post"]`;
+const { data: posts } = await useSanityQuery(query);
+</script>
 
 <template>
   <Container>
@@ -8,17 +11,14 @@
       André's Blog
     </h1>
     <section class="mt-2">
-      <h2 class="text-xs text-semibold uppercase sr-only">Recent</h2>
-      <div class="grid sm:grid-cols-3 gap-y-4 gap-x-12 -mx-4 sm:-mx-8">
-        <a
-          href="/blog/example-article"
-          class="w-full sm:max-w-xs bg-neutral-100 dark:bg-neutral-900 px-4 sm:rounded-xl py-3 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
-        >
-          <article>
-            <h3>Example article</h3>
-          </article>
-        </a>
-      </div>
+      <NuxtLink
+        v-for="post in posts"
+        :key="post._id"
+        :href="`/blog/${post.slug.current}`"
+      >
+        <h3 class="text-2xl font-semibold font-serif">{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+      </NuxtLink>
     </section>
   </Container>
 </template>

@@ -44,6 +44,9 @@ export default defineNuxtConfig({
     mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
     mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
     mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
+    public: {
+      partnersNeeded: 35,
+    },
   },
   nitro: {
     preset: "cloudflare-pages",

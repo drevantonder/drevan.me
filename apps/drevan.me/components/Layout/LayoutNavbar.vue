@@ -2,7 +2,7 @@
   <Container
     class="grid grid-cols-[repeat(3,auto),1fr] sm:flex justify-start sm:justify-center items-end sm:items-center gap-y-2 gap-x-6 sm:gap-x-10 lg:gap-x-20 py-4"
   >
-    <div class="size-8 hidden sm:block mr-auto"></div>
+    <div class="size-9 hidden sm:block mr-auto"></div>
 
     <NuxtLink
       to="/blog"

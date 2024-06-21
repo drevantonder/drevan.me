@@ -30,7 +30,7 @@ export const nugget = defineType({
       title: 'Type',
       type: 'string',
       options: {
-        list: ['thought', 'quote', 'lyric'],
+        list: ['quote', 'lyric'],
       },
       validation: (rule) => rule.required(),
     }),

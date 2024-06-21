@@ -59,7 +59,7 @@ withDefaults(
       >
         <div
           v-html="nugget.text"
-          class="prose prose-lg dark:prose-invert prose-neutral"
+          class="prose prose-lg dark:prose-invert prose-neutral whitespace-pre-wrap"
         />
       </NuxtLink>
       <footer class="mt-2 dark:text-neutral-100 font-medium text-sm">
