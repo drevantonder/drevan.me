@@ -39,10 +39,10 @@
     >
 
     <NuxtLink
-      to="/become-a-partner"
+      to="/partner"
       class="font-medium hover:underline leading-none"
       :class="{
-        ' underline ': $route.path.startsWith('/become-a-partner'),
+        ' underline ': $route.path.startsWith('/partner'),
       }"
       >Partner with me</NuxtLink
     >

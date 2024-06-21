@@ -17,9 +17,9 @@ definePageMeta({
       class="flex flex-col grow justify-center gap-y-12 md:gap-y-16 -mt-16 md:mt-0 py-8"
     >
       <div>
-        <div class="font-serif text-sm dark:text-neutral-200">
+        <NuxtLink href="/" class="font-serif text-sm dark:text-neutral-200">
           André van Tonder
-        </div>
+        </NuxtLink>
         <h1 class="text-2xl font-bold tracking-wider">Partner with me!</h1>
       </div>
 

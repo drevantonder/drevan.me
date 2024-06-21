@@ -14,14 +14,14 @@
         <p class="italic">To receive updates and prayer points &darr;</p>
         <PartnerForm class="mt-1" />
       </div>
-      <p class="mt-7" v-if="$route.path !== '/become-a-partner'">
+      <p class="mt-7">
         Also!
-        <a
-          href="/become-a-partner"
+        <NuxtLink
+          href="/partner"
           class="underline font-medium decoration-persian underline-offset-2"
         >
           See more ways you can partner with me! &rarr;
-        </a>
+        </NuxtLink>
       </p>
     </div>
   </Section>
