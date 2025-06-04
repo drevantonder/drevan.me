@@ -2,35 +2,95 @@
 definePageMeta({
   layout: "empty",
 });
+
+const totalPeople = ref(100000);
+const iconValue = 50; // Each circle represents 50 people
+const totalCircles = totalPeople.value / iconValue;
+const canvas = ref<HTMLCanvasElement | null>(null);
+const currentCount = ref(0);
+
+const drawCircles = (ctx: CanvasRenderingContext2D, count: number) => {
+  const width = ctx.canvas.width;
+  const height = ctx.canvas.height;
+  const padding = 1; // Fixed padding between circles
+  const cols = Math.floor(Math.sqrt(totalCircles)); // Max columns that can fit within the canvas
+  const circleSize = (width - (cols + 1) * padding) / cols; // Adjust circle size to fit with padding
+
+  ctx.clearRect(0, 0, width, height);
+
+  for (let i = 0; i < count; i++) {
+    const x = (i % cols) * (circleSize + padding) + padding / 2;
+    const y = Math.floor(i / cols) * (circleSize + padding) + padding / 2;
+    ctx.beginPath();
+    ctx.arc(
+      x + circleSize / 2,
+      y + circleSize / 2,
+      circleSize / 2,
+      0,
+      Math.PI * 2
+    );
+    ctx.fillStyle = `rgba(69, 41, 255, 1)`; // Solid color for the circle
+    ctx.fill();
+    ctx.closePath();
+  }
+};
+
+const animateCircles = (ctx: CanvasRenderingContext2D) => {
+  const interval = setInterval(() => {
+    if (currentCount.value < totalCircles) {
+      currentCount.value += 1; // Add one circle at a time
+    } else {
+      currentCount.value = 0; // Reset and start again
+    }
+    drawCircles(ctx, currentCount.value);
+  }, 2); // Adjust this interval for smooth animation
+};
+
+onMounted(() => {
+  const canvasElement = canvas.value!;
+  const ctx = canvasElement.getContext("2d")!;
+  canvasElement.width = canvasElement.offsetWidth;
+  canvasElement.height = canvasElement.offsetHeight;
+  animateCircles(ctx);
+});
 </script>
 
 <template>
   <main>
     <h1 class="sr-only">Vision</h1>
     <div class="snap-mandatory snap-y overflow-y-scroll h-dvh">
-      <section class="h-dvh flex flex-col snap-center">
-        <div class="w-full flex grow items-center justify-center">
-          <h2 class="text-5xl text-center">
-            <span class="text-8xl font-bold font-serif">100,000+</span><br />
-            <span>uni students in Brisbane</span>
-          </h2>
+      <section class="h-dvh snap-center">
+        <div
+          class="h-full container mx-auto py-12 flex flex-col items-center justify-center gap-32"
+        >
+          <div class="flex justify-around w-full items-center">
+            <div>
+              <div class="flex items-center text-sm">
+                <div class="size-2 bg-persian rounded-full mr-1"></div>
+                = {{ iconValue }} people
+              </div>
+              <div class="size-64 relative mt-1">
+                <canvas ref="canvas" class="w-full h-full"></canvas>
+              </div>
+            </div>
+            <div class="text-5xl text-center">
+              <div class="font-serif font-bold text-8xl">100,000+</div>
+              <div>uni students in Brisbane</div>
+            </div>
+          </div>
+
+          <div class="flex justify-around">
+            <div class="text-5xl text-left">
+              <span class="text-8xl font-bold font-serif">35%</span>
+              international<br />
+              from
+              <span class="text-8xl font-bold font-serif">140+</span> countries
+            </div>
+            <div>
+              <Icon name="flag:ad-4x3" class="text-8xl" />
+            </div>
+          </div>
         </div>
-        <!-- <div class="mt-auto text-center py-8 text-2xl">
-          “How can they believe in Him if they have never heard about Him?”
-        </div> -->
-      </section>
-      <section class="h-dvh flex flex-col snap-center">
-        <div class="w-full flex grow items-center justify-center">
-          <h2 class="text-5xl text-left">
-            <span class="text-8xl font-bold font-serif">35%</span>
-            international<br />
-            from
-            <span class="text-8xl font-bold font-serif">141</span> countries
-          </h2>
-        </div>
-        <!-- <div class="mt-auto text-center py-8 text-2xl">
-          “How can they hear about Him unless someone tells them?”
-        </div> -->
       </section>
       <section class="h-dvh flex flex-col snap-center items-center">
         <div class="flex grow max-w-screen-lg h-1/2 my-32 gap-14 items-center">
